@@ -19,6 +19,6 @@
 
 require_once("TestReversiSetting.php");
 $testObj1 = new TestReversiSetting();
-$testObj1->run();
+$testObj1->test_run();
 
 ?>

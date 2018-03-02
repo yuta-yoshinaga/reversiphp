@@ -70,7 +70,7 @@ class ReversiConst
 	public static $DEF_MASU_CNT_16_VAL = 16;									//!< マス縦横16
 	public static $DEF_MASU_CNT_18_VAL = 18;									//!< マス縦横18
 	public static $DEF_MASU_CNT_20_VAL = 20;									//!< マス縦横20
-	public static $DEF_MASU_CNT_MAX_VAL = $DEF_MASU_CNT_20_VAL;					//!< マス縦横最大
+	public static $DEF_MASU_CNT_MAX_VAL = 20;									//!< マス縦横最大
 
 	public static $REVERSI_STS_NONE = 0;										//!< コマ無し
 	public static $REVERSI_STS_BLACK = 1;										//!< 黒

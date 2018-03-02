@@ -24,25 +24,25 @@ require_once("ReversiConst.php");
 ///	@brief		アプリ設定クラス
 ///
 ////////////////////////////////////////////////////////////////////////////////
-public class ReversiSetting
+class ReversiSetting
 {
 	// #region メンバ変数
-	private $_mMode				= ReversiConst::$DEF_MODE_ONE;					//!< 現在のモード
-	private $_mType				= ReversiConst::$DEF_TYPE_HARD;					//!< 現在のタイプ
-	private $_mPlayer			= ReversiConst::$REVERSI_STS_BLACK;				//!< プレイヤーの色
-	private $_mAssist			= ReversiConst::$DEF_ASSIST_ON;					//!< アシスト
-	private $_mGameSpd			= ReversiConst::$DEF_GAME_SPD_MID;				//!< ゲームスピード
-	private $_mEndAnim			= ReversiConst::$DEF_END_ANIM_ON;				//!< ゲーム終了アニメーション
-	private $_mMasuCntMenu		= ReversiConst::$DEF_MASU_CNT_8;				//!< マスの数
-	private $_mMasuCnt			= ReversiConst::$DEF_MASU_CNT_8_VAL;			//!< マスの数
-	private $_mPlayCpuInterVal	= ReversiConst::$DEF_GAME_SPD_MID_VAL2;			//!< CPU対戦時のインターバル(msec)
-	private $_mPlayDrawInterVal	= ReversiConst::$DEF_GAME_SPD_MID_VAL;			//!< 描画のインターバル(msec)
-	private $_mEndDrawInterVal	= 100;											//!< 終了アニメーション描画のインターバル(msec)
-	private $_mEndInterVal		= 500;											//!< 終了アニメーションのインターバル(msec)
-	private $_mPlayerColor1		= "#FF0000";									//!< プレイヤー1の色
-	private $_mPlayerColor2		= "#FFFFFF";									//!< プレイヤー2の色
-	private $_mBackGroundColor	= "#FF00FF";									//!< 背景の色
-	private $_mBorderColor		= "#FF0000";									//!< 枠線の色
+	private $_mMode;															//!< 現在のモード
+	private $_mType;															//!< 現在のタイプ
+	private $_mPlayer;															//!< プレイヤーの色
+	private $_mAssist;															//!< アシスト
+	private $_mGameSpd;															//!< ゲームスピード
+	private $_mEndAnim;															//!< ゲーム終了アニメーション
+	private $_mMasuCntMenu;														//!< マスの数
+	private $_mMasuCnt;															//!< マスの数
+	private $_mPlayCpuInterVal;													//!< CPU対戦時のインターバル(msec)
+	private $_mPlayDrawInterVal;												//!< 描画のインターバル(msec)
+	private $_mEndDrawInterVal;													//!< 終了アニメーション描画のインターバル(msec)
+	private $_mEndInterVal;														//!< 終了アニメーションのインターバル(msec)
+	private $_mPlayerColor1;													//!< プレイヤー1の色
+	private $_mPlayerColor2;													//!< プレイヤー2の色
+	private $_mBackGroundColor;													//!< 背景の色
+	private $_mBorderColor;														//!< 枠線の色
 	// #endregion
 
 	// #region プロパティ
@@ -59,7 +59,7 @@ public class ReversiSetting
 	public function setmAssist($_mAssist){ $this->_mAssist = $_mAssist; }
 
 	public function getmGameSpd(){ return $this->_mGameSpd; }
-	public function setmGameSpd($_mAssist){ $this->_mGameSpd = $_mGameSpd; }
+	public function setmGameSpd($_mGameSpd){ $this->_mGameSpd = $_mGameSpd; }
 
 	public function getmEndAnim(){ return $this->_mEndAnim; }
 	public function setmEndAnim($_mEndAnim){ $this->_mEndAnim = $_mEndAnim; }
@@ -76,11 +76,8 @@ public class ReversiSetting
 	public function getmPlayDrawInterVal(){ return $this->_mPlayDrawInterVal; }
 	public function setmPlayDrawInterVal($_mPlayDrawInterVal){ $this->_mPlayDrawInterVal = $_mPlayDrawInterVal; }
 
-	public function getmEndDrawInterVal(){ return $this->_mEndAnim; }
-	public function setmEndDrawInterVal($_mEndAnim){ $this->_mEndAnim = $_mEndAnim; }
-
-	public function getmEndInterVal(){ return $this->_mEndInterVal; }
-	public function setmEndInterVal($_mEndInterVal){ $this->_mEndInterVal = $_mEndInterVal; }
+	public function getmEndDrawInterVal(){ return $this->_mEndDrawInterVal; }
+	public function setmEndDrawInterVal($_mEndDrawInterVal){ $this->_mEndDrawInterVal = $_mEndDrawInterVal; }
 
 	public function getmEndInterVal(){ return $this->_mEndInterVal; }
 	public function setmEndInterVal($_mEndInterVal){ $this->_mEndInterVal = $_mEndInterVal; }
@@ -134,22 +131,22 @@ public class ReversiSetting
 	////////////////////////////////////////////////////////////////////////////////
 	public function reset()
 	{
-		mMode				= ReversiConst::$DEF_MODE_ONE;						// 現在のモード
-		mType				= ReversiConst::$DEF_TYPE_HARD;						// 現在のタイプ
-		mPlayer				= ReversiConst::$REVERSI_STS_BLACK;					// プレイヤーの色
-		mAssist				= ReversiConst::$DEF_ASSIST_ON;						// アシスト
-		mGameSpd			= ReversiConst::$DEF_GAME_SPD_MID;					// ゲームスピード
-		mEndAnim			= ReversiConst::$DEF_END_ANIM_ON;					// ゲーム終了アニメーション
-		mMasuCntMenu		= ReversiConst::$DEF_MASU_CNT_8;					// マスの数
-		mMasuCnt			= ReversiConst::$DEF_MASU_CNT_8_VAL;				// マスの数
-		mPlayCpuInterVal	= ReversiConst::$DEF_GAME_SPD_MID_VAL2;				// CPU対戦時のインターバル(msec)
-		mPlayDrawInterVal	= ReversiConst::$DEF_GAME_SPD_MID_VAL;				// 描画のインターバル(msec)
-		mEndDrawInterVal	= 100;												// 終了アニメーション描画のインターバル(msec)
-		mEndInterVal		= 500;												// 終了アニメーションのインターバル(msec)
-		mPlayerColor1		= "#FF0000";										// プレイヤー1の色
-		mPlayerColor2		= "#FFFFFF";										// プレイヤー2の色
-		mBackGroundColor	= "#FF00FF";										// 背景の色
-		mBorderColor		= "#FF0000";										// 枠線の色
+		$this->_mMode				= ReversiConst::$DEF_MODE_ONE;				// 現在のモード
+		$this->_mType				= ReversiConst::$DEF_TYPE_HARD;				// 現在のタイプ
+		$this->_mPlayer				= ReversiConst::$REVERSI_STS_BLACK;			// プレイヤーの色
+		$this->_mAssist				= ReversiConst::$DEF_ASSIST_ON;				// アシスト
+		$this->_mGameSpd			= ReversiConst::$DEF_GAME_SPD_MID;			// ゲームスピード
+		$this->_mEndAnim			= ReversiConst::$DEF_END_ANIM_ON;			// ゲーム終了アニメーション
+		$this->_mMasuCntMenu		= ReversiConst::$DEF_MASU_CNT_8;			// マスの数
+		$this->_mMasuCnt			= ReversiConst::$DEF_MASU_CNT_8_VAL;		// マスの数
+		$this->_mPlayCpuInterVal	= ReversiConst::$DEF_GAME_SPD_MID_VAL2;		// CPU対戦時のインターバル(msec)
+		$this->_mPlayDrawInterVal	= ReversiConst::$DEF_GAME_SPD_MID_VAL;		// 描画のインターバル(msec)
+		$this->_mEndDrawInterVal	= 100;										// 終了アニメーション描画のインターバル(msec)
+		$this->_mEndInterVal		= 500;										// 終了アニメーションのインターバル(msec)
+		$this->_mPlayerColor1		= "#FF0000";								// プレイヤー1の色
+		$this->_mPlayerColor2		= "#FFFFFF";								// プレイヤー2の色
+		$this->_mBackGroundColor	= "#FF00FF";								// 背景の色
+		$this->_mBorderColor		= "#FF0000";								// 枠線の色
 	}
 }
 
