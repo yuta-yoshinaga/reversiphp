@@ -67,7 +67,7 @@ class TestReversiHistory
 
 		// *** TEST CASE 1 *** //
 		$testObj = new ReversiHistory();$allCnt++;
-		echo "[ReversiHistory] Start\n";
+		echo "[TestReversiHistory] Start\n";
 		echo "**************************\n";
 		if($testObj != NULL){
 			echo " - [OK] Class new SUCCESS\n";$curCnt++;
@@ -109,7 +109,7 @@ class TestReversiHistory
 		echo "**************************\n";
 		$result = "FAILUR";
 		if($curCnt == $allCnt) $result = "SUCCESS";
-		echo "[ReversiHistory] End $curCnt / $allCnt ". $result. "\n\n";
+		echo "[TestReversiHistory] End $curCnt / $allCnt ". $result. "\n\n";
 	}
 }
 

@@ -243,7 +243,7 @@ class TestReversiSetting
 			$var = $testObj->getmBorderColor();$execCnt++;
 			if($var == "#FF0000"){								$cmpCnt++;}
 			if($execCnt == $cmpCnt){							echo " - [OK] reset() SUCCESS\n";$curCnt++;}
-			else												echo " - [Error] reset() FAILUR \n";
+			else												echo " - [Error] reset() $cmpCnt / $execCnt FAILUR \n";
 		}else{
 			echo " - [Error] Class Create FAILUR\n";
 		}

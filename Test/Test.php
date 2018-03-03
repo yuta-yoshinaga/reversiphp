@@ -30,4 +30,8 @@ require_once("TestReversiHistory.php");
 $testObj1 = new TestReversiHistory();
 $testObj1->test_run();
 
+require_once("TestReversiAnz.php");
+$testObj1 = new TestReversiAnz();
+$testObj1->test_run();
+
 ?>
