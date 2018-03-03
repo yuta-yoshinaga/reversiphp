@@ -176,7 +176,7 @@ class TestReversiSetting
 			if($var == "#FF0000"){								echo " - [OK] getmPlayerColor1() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmPlayerColor1() FAILUR ". $var. "\n";
 			// *** TEST CASE 25 *** //
-			$testObj->setmPlayerColor1($testVar);$allCnt++;
+			$testObj->setmPlayerColor1($testVarStr);$allCnt++;
 			$var = $testObj->getmPlayerColor1();
 			if($var == $testVarStr){							echo " - [OK] setmPlayerColor1() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmPlayerColor1() FAILUR ". $var. "\n";
@@ -185,7 +185,7 @@ class TestReversiSetting
 			if($var == "#FFFFFF"){								echo " - [OK] getmPlayerColor2() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmPlayerColor2() FAILUR ". $var. "\n";
 			// *** TEST CASE 27 *** //
-			$testObj->setmPlayerColor2($testVar);$allCnt++;
+			$testObj->setmPlayerColor2($testVarStr);$allCnt++;
 			$var = $testObj->getmPlayerColor2();
 			if($var == $testVarStr){							echo " - [OK] setmPlayerColor2() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmPlayerColor2() FAILUR ". $var. "\n";
@@ -194,7 +194,7 @@ class TestReversiSetting
 			if($var == "#FF00FF"){								echo " - [OK] getmBackGroundColor() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmBackGroundColor() FAILUR ". $var. "\n";
 			// *** TEST CASE 29 *** //
-			$testObj->setmBackGroundColor($testVar);$allCnt++;
+			$testObj->setmBackGroundColor($testVarStr);$allCnt++;
 			$var = $testObj->getmBackGroundColor();
 			if($var == $testVarStr){							echo " - [OK] setmBackGroundColor() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmBackGroundColor() FAILUR ". $var. "\n";
@@ -203,7 +203,7 @@ class TestReversiSetting
 			if($var == "#FF0000"){								echo " - [OK] getmBorderColor() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmBorderColor() FAILUR ". $var. "\n";
 			// *** TEST CASE 31 *** //
-			$testObj->setmBorderColor($testVar);$allCnt++;
+			$testObj->setmBorderColor($testVarStr);$allCnt++;
 			$var = $testObj->getmBorderColor();
 			if($var == $testVarStr){							echo " - [OK] setmBorderColor() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmBorderColor() FAILUR ". $var. "\n";
@@ -250,8 +250,7 @@ class TestReversiSetting
 		echo "**************************\n";
 		$result = "FAILUR";
 		if($curCnt == $allCnt) $result = "SUCCESS";
-		echo "[TestReversiSetting] $curCnt / $allCnt ". $result. "\n";
-		echo "[TestReversiSetting] End\n";
+		echo "[TestReversiPoint] End $curCnt / $allCnt ". $result. "\n\n";
 	}
 }
 

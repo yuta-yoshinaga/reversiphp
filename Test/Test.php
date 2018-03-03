@@ -20,5 +20,10 @@
 require_once("TestReversiSetting.php");
 $testObj1 = new TestReversiSetting();
 $testObj1->test_run();
+unset($testObj1);
+
+require_once("TestReversiPoint.php");
+$testObj1 = new TestReversiPoint();
+$testObj1->test_run();
 
 ?>
