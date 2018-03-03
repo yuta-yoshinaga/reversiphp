@@ -26,4 +26,8 @@ require_once("TestReversiPoint.php");
 $testObj1 = new TestReversiPoint();
 $testObj1->test_run();
 
+require_once("TestReversiHistory.php");
+$testObj1 = new TestReversiHistory();
+$testObj1->test_run();
+
 ?>
