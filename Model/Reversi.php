@@ -654,8 +654,8 @@ class Reversi
 			$tmpMasuEnaB = $this->_mMasuStsEnaB;
 			$tmpMasuEnaW = $this->_mMasuStsEnaW;
 
-			$tmpY = $this->_mMasuPointB[$cnt]->y;
-			$tmpX = $this->_mMasuPointB[$cnt]->x;
+			$tmpY = $this->_mMasuPointB[$cnt]->gety();
+			$tmpX = $this->_mMasuPointB[$cnt]->getx();
 			$this->_mMasuSts[$tmpY][$tmpX] = ReversiConst::$REVERSI_STS_BLACK;					// 仮に置く
 			$this->revMasuSts(ReversiConst::$REVERSI_STS_BLACK, $tmpY, $tmpX);					// 仮にひっくり返す
 			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLACK);
@@ -665,24 +665,24 @@ class Reversi
 				$this->_mMasuStsPassB[$tmpY][$tmpX] = 1;
 			}
 			if ($this->getEdgeSideZero($tmpY, $tmpX) == 0) {									// 置いた場所が角
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->ownEdgeCnt++;
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->goodPoint += 10000 * $this->_mMasuStsCntB[$tmpY][$tmpX];
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeCnt()++);
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getgoodPoint() + (10000 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
 			} else if ($this->getEdgeSideOne($tmpY, $tmpX) == 0) {								// 置いた場所が角の一つ手前
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->ownEdgeSideOneCnt++;
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideOneCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideOneCnt()++);
 				if ($this->checkEdge(ReversiConst::$REVERSI_STS_BLACK, $tmpY, $tmpX) != 0) {	// 角を取られない
-					$this->_mMasuStsAnzB[$tmpY][$tmpX]->goodPoint += 10 * $this->_mMasuStsCntB[$tmpY][$tmpX];
+					$this->_mMasuStsAnzB[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getgoodPoint() + (10 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
 				} else {																		// 角を取られる
-					$this->_mMasuStsAnzB[$tmpY][$tmpX]->badPoint += 100000;
+					$this->_mMasuStsAnzB[$tmpY][$tmpX]->setbadPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getbadPoint() + 100000);
 				}
 			} else if ($this->getEdgeSideTwo($tmpY, $tmpX) == 0) {								// 置いた場所が角の二つ手前
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->ownEdgeSideTwoCnt++;
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->goodPoint += 1000 * $this->_mMasuStsCntB[$tmpY][$tmpX];
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideTwoCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideTwoCnt()++);
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getgoodPoint() + (1000 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
 			} else if ($this->getEdgeSideThree($tmpY, $tmpX) == 0) {							// 置いた場所が角の三つ手前
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->ownEdgeSideThreeCnt++;
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->goodPoint += 100 * $this->_mMasuStsCntB[$tmpY][$tmpX];
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideThreeCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideThreeCnt()++);
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getgoodPoint() + (100 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
 			} else {																			// 置いた場所がその他
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->ownEdgeSideOtherCnt++;
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->goodPoint += 10 * $this->_mMasuStsCntB[$tmpY][$tmpX];
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideOtherCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideOtherCnt()++);
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getgoodPoint() + (10 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
 			}
 			$sum = 0;
 			$sumOwn = 0;
@@ -693,24 +693,24 @@ class Reversi
 					if ($this->getMasuStsEna(ReversiConst::$REVERSI_STS_WHITE, $i, $j) != 0) {
 						$sum += $this->_mMasuStsCntW[$i][$j];									// 相手の獲得予定枚数
 						// *** 相手の獲得予定の最大数保持 *** //
-						if ($this->_mMasuStsAnzB[$tmpY][$tmpX]->max < $this->_mMasuStsCntW[$i][$j]) $this->_mMasuStsAnzB[$tmpY][$tmpX]->max = $this->_mMasuStsCntW[$i][$j];
+						if ($this->_mMasuStsAnzB[$tmpY][$tmpX]->getmax() < $this->_mMasuStsCntW[$i][$j]) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setmax($this->_mMasuStsCntW[$i][$j]);
 						// *** 相手の獲得予定の最小数保持 *** //
-						if ($this->_mMasuStsCntW[$i][$j] < $this->_mMasuStsAnzB[$tmpY][$tmpX]->min) $this->_mMasuStsAnzB[$tmpY][$tmpX]->min = $this->_mMasuStsCntW[$i][$j];
-						$this->_mMasuStsAnzB[$tmpY][$tmpX]->pointCnt++;							// 相手の置ける場所の数
+						if ($this->_mMasuStsCntW[$i][$j] < $this->_mMasuStsAnzB[$tmpY][$tmpX]->getmin()) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setmin($this->_mMasuStsCntW[$i][$j]);
+						$this->_mMasuStsAnzB[$tmpY][$tmpX]->setpointCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getpointCnt()++);	// 相手の置ける場所の数
 						if ($this->getEdgeSideZero($i, $j) == 0) {								// 置く場所が角
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->edgeCnt++;
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setedgeCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getedgeCnt()++);
 							$tmpBadPoint = 100000 * $this->_mMasuStsCntW[$i][$j];
 						} else if ($this->getEdgeSideOne($i, $j) == 0) {						// 置く場所が角の一つ手前
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->edgeSideOneCnt++;
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setedgeSideOneCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getedgeSideOneCnt()++);
 							$tmpBadPoint = 0;
 						} else if ($this->getEdgeSideTwo($i, $j) == 0) {						// 置く場所が角の二つ手前
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->edgeSideTwoCnt++;
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->getedgeSideTwoCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getedgeSideTwoCnt()++);
 							$tmpBadPoint = 1 * $this->_mMasuStsCntW[$i][$j];
 						} else if ($this->getEdgeSideThree($i, $j) == 0) {						// 置く場所が角の三つ手前
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->edgeSideThreeCnt++;
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setedgeSideThreeCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getedgeSideThreeCnt()++);
 							$tmpBadPoint = 1 * $this->_mMasuStsCntW[$i][$j];
 						} else {																// 置く場所がその他
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->edgeSideOtherCnt++;
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setedgeSideOtherCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getedgeSideOtherCnt()++);
 							$tmpBadPoint = 1 * $this->_mMasuStsCntW[$i][$j];
 						}
 						if ($tmpMasuEnaW[$i][$j] != 0) $tmpBadPoint = 0;						// ステータス変化していないなら
@@ -718,44 +718,44 @@ class Reversi
 					if ($this->getMasuStsEna(ReversiConst::$REVERSI_STS_BLACK, $i, $j) != 0) {
 						$sumOwn += $this->_mMasuStsCntB[$i][$j];								// 自分の獲得予定枚数
 						// *** 自分の獲得予定の最大数保持 *** //
-						if ($this->_mMasuStsAnzB[$tmpY][$tmpX]->ownMax < $this->_mMasuStsCntB[$i][$j]) $this->_mMasuStsAnzB[$tmpY][$tmpX]->ownMax = $this->_mMasuStsCntB[$i][$j];
+						if ($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownMax() < $this->_mMasuStsCntB[$i][$j]) $this->_mMasuStsAnzB[$tmpY][$tmpX]setownMax($this->_mMasuStsCntB[$i][$j]);
 						// *** 自分の獲得予定の最小数保持 *** //
-						if ($this->_mMasuStsCntB[$i][$j] < $this->_mMasuStsAnzB[$tmpY][$tmpX]->ownMin) $this->_mMasuStsAnzB[$tmpY][$tmpX]->ownMin = $this->_mMasuStsCntB[$i][$j];
-						$this->_mMasuStsAnzB[$tmpY][$tmpX]->ownPointCnt++;						// 自分の置ける場所の数
+						if ($this->_mMasuStsCntB[$i][$j] < $this->_mMasuStsAnzB[$tmpY][$tmpX]->getownMin()) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setownMin($this->_mMasuStsCntB[$i][$j]);
+						$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownPointCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownPointCnt()++);	// 自分の置ける場所の数
 						if ($this->getEdgeSideZero($i, $j) == 0) {								// 置く場所が角
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->ownEdgeCnt++;
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeCnt()++);
 							$tmpGoodPoint = 100 * $this->_mMasuStsCntB[$i][$j];
 						} else if ($this->getEdgeSideOne($i, $j) == 0) {						// 置く場所が角の一つ手前
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->ownEdgeSideOneCnt++;
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideOneCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideOneCnt()++);
 							$tmpGoodPoint = 0;
 						} else if ($this->getEdgeSideTwo($i, $j) == 0) {						// 置く場所が角の二つ手前
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->ownEdgeSideTwoCnt++;
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideTwoCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideTwoCnt()++);
 							$tmpGoodPoint = 3 * $this->_mMasuStsCntB[$i][$j];
 						} else if ($this->getEdgeSideThree($i, $j) == 0) {						// 置く場所が角の三つ手前
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->ownEdgeSideThreeCnt++;
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideThreeCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideThreeCnt()++);
 							$tmpGoodPoint = 2 * $this->_mMasuStsCntB[$i][$j];
 						} else {																// 置く場所がその他
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->ownEdgeSideOtherCnt++;
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideOtherCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideOtherCnt()++);
 							$tmpGoodPoint = 1 * $this->_mMasuStsCntB[$i][$j];
 						}
 						if ($tmpMasuEnaB[$i][$j] != 0) $tmpGoodPoint = 0;						// ステータス変化していないなら
 					}
-					if ($tmpBadPoint != 0) $this->_mMasuStsAnzB[$tmpY][$tmpX]->badPoint += $tmpBadPoint;
-					if ($tmpGoodPoint != 0) $this->_mMasuStsAnzB[$tmpY][$tmpX]->goodPoint += $tmpGoodPoint;
+					if ($tmpBadPoint != 0) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setbadPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getbadPoint() + $tmpBadPoint);
+					if ($tmpGoodPoint != 0) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getgoodPoint() + $tmpGoodPoint);
 				}
 			}
 			// *** 相手に取られる平均コマ数 *** //
 			if ($this->getPointCnt(ReversiConst::$REVERSI_STS_WHITE) != 0) {
 				$tmpD1 = $sum;
 				$tmpD2 = $this->getPointCnt(ReversiConst::$REVERSI_STS_WHITE);
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->avg = $tmpD1 / $tmpD2;
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setavg($tmpD1 / $tmpD2);
 			}
 
 			// *** 自分が取れる平均コマ数 *** //
 			if ($this->getPointCnt(ReversiConst::$REVERSI_STS_BLACK) != 0) {
 				$tmpD1 = $sumOwn;
 				$tmpD2 = $this->getPointCnt(ReversiConst::$REVERSI_STS_BLACK);
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->ownAvg = $tmpD1 / $tmpD2;
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownAvg($tmpD1 / $tmpD2);
 			}
 
 			// *** 元に戻す *** //
