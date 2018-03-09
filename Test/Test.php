@@ -1,8 +1,8 @@
 <?php
 
 ////////////////////////////////////////////////////////////////////////////////
-///	@file			TestReversiSetting.php
-///	@brief			アプリ設定クラステストドライバー
+///	@file			Test.php
+///	@brief			テスト実行
 ///	@author			Yuta Yoshinaga
 ///	@date			2018.03.02
 ///	$Version:		$
@@ -32,6 +32,10 @@ $testObj1->test_run();
 
 require_once("TestReversiAnz.php");
 $testObj1 = new TestReversiAnz();
+$testObj1->test_run();
+
+require_once("TestReversi.php");
+$testObj1 = new TestReversi();
 $testObj1->test_run();
 
 ?>
