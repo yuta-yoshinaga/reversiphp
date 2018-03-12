@@ -17,6 +17,8 @@
 ///
 ////////////////////////////////////////////////////////////////////////////////
 
+$time_start = microtime(true);								// 処理時間計測開始
+
 require_once("TestReversiSetting.php");
 $testObj1 = new TestReversiSetting();
 $testObj1->test_run();
@@ -37,5 +39,14 @@ $testObj1->test_run();
 require_once("TestReversi.php");
 $testObj1 = new TestReversi();
 $testObj1->test_run();
+
+require_once("TestReversiPlay.php");
+$testObj1 = new TestReversiPlay();
+$testObj1->test_run();
+
+$time_end = microtime(true);								// 処理時間計測終了
+$time = $time_end - $time_start;							// 処理時間を求める
+
+echo 'execute [Test.php] '. date("Y/m/d H:i:s"). ' successed! '. '処理時間 : '.$time. ' sec'. "\n";
 
 ?>

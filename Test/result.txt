@@ -172,3 +172,40 @@
 **************************
 [TestReversi] End 64 / 64 SUCCESS
 
+[TestReversiPlay] Start
+**************************
+ - [OK] Class new SUCCESS
+ - [OK] getmReversi() SUCCESS
+ - [OK] setmReversi() SUCCESS
+ - [OK] getmSetting() SUCCESS
+ - [OK] setmSetting() SUCCESS
+ - [OK] getmCurColor() SUCCESS
+ - [OK] setmCurColor() SUCCESS
+ - [OK] getmCpu() SUCCESS
+ - [OK] setmCpu() SUCCESS
+ - [OK] getmEdge() SUCCESS
+ - [OK] setmEdge() SUCCESS
+ - [OK] getmPassEnaB() SUCCESS
+ - [OK] setmPassEnaB() SUCCESS
+ - [OK] getmPassEnaW() SUCCESS
+ - [OK] setmPassEnaW() SUCCESS
+ - [OK] getmGameEndSts() SUCCESS
+ - [OK] setmGameEndSts() SUCCESS
+ - [OK] getmPlayLock() SUCCESS
+ - [OK] setmPlayLock() SUCCESS
+ - [OK] getViewMsgDlg() SUCCESS
+ - [OK] setViewMsgDlg() SUCCESS
+ - [OK] getDrawSingle() SUCCESS
+ - [OK] setDrawSingle() SUCCESS
+ - [OK] getCurColMsg() SUCCESS
+ - [OK] setCurColMsg() SUCCESS
+ - [OK] getCurStsMsg() SUCCESS
+ - [OK] setCurStsMsg() SUCCESS
+
+Fatal error: Uncaught Error: Call to undefined method ReversiPlay::_viewMsgDlg() in C:\work\Bitbucket\reversiphp\Model\ReversiPlay.php:902
+Stack trace:
+#0 C:\work\Bitbucket\reversiphp\Model\ReversiPlay.php(180): ReversiPlay->ViewMsgDlgLocal('\xE3\x82\xA8\xE3\x83\xA9\xE3\x83\xBC', '\xE3\x81\x9D\xE3\x81\xAE\xE3\x83\x9E\xE3\x82\xB9\xE3\x81\xAB...')
+#1 C:\work\Bitbucket\reversiphp\Test\TestReversiPlay.php(237): ReversiPlay->reversiPlay(0, 0)
+#2 C:\work\Bitbucket\reversiphp\Test\Test.php(45): TestReversiPlay->test_run()
+#3 {main}
+  thrown in C:\work\Bitbucket\reversiphp\Model\ReversiPlay.php on line 902
