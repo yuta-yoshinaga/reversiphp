@@ -467,7 +467,7 @@ class Reversi
 		if ($flg == 1) {
 			// *** 駒をひっくり返す *** //
 			for ($rcnt1 = $cnt1; $rcnt1 < $x; $rcnt1++) {
-				$this->_mMasuSts[$cnt2,$rcnt1] = $color;
+				$this->_mMasuSts[$cnt2][$rcnt1] = $color;
 			}
 		}
 
@@ -550,7 +550,7 @@ class Reversi
 
 		// *** 左下方向にある駒を調べる *** //
 		for ($flg = 0, $cnt1 = $x, $cnt2 = $y; $cnt2 < ($this->_mMasuCnt - 1) && $cnt1 > 0;) {
-			if ($this->_mMasuSts[$cnt2 + 1,$cnt1 - 1] != ReversiConst::$REVERSI_STS_NONE && $this->_mMasuSts[$cnt2 + 1][$cnt1 - 1] != $color) {
+			if ($this->_mMasuSts[$cnt2 + 1][$cnt1 - 1] != ReversiConst::$REVERSI_STS_NONE && $this->_mMasuSts[$cnt2 + 1][$cnt1 - 1] != $color) {
 				// *** プレイヤー以外の色の駒があるなら *** //
 				$cnt2++;
 				$cnt1--;
@@ -665,24 +665,29 @@ class Reversi
 				$this->_mMasuStsPassB[$tmpY][$tmpX] = 1;
 			}
 			if ($this->getEdgeSideZero($tmpY, $tmpX) == 0) {									// 置いた場所が角
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeCnt()++);
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getgoodPoint() + (10000 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
+				$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnEdgeCnt();
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnEdgeCnt($tmp++);
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getGoodPoint() + (10000 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
 			} else if ($this->getEdgeSideOne($tmpY, $tmpX) == 0) {								// 置いた場所が角の一つ手前
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideOneCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideOneCnt()++);
+				$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnEdgeSideOneCnt();
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnEdgeSideOneCnt($tmp++);
 				if ($this->checkEdge(ReversiConst::$REVERSI_STS_BLACK, $tmpY, $tmpX) != 0) {	// 角を取られない
-					$this->_mMasuStsAnzB[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getgoodPoint() + (10 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
+					$this->_mMasuStsAnzB[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getGoodPoint() + (10 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
 				} else {																		// 角を取られる
-					$this->_mMasuStsAnzB[$tmpY][$tmpX]->setbadPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getbadPoint() + 100000);
+					$this->_mMasuStsAnzB[$tmpY][$tmpX]->setBadPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getBadPoint() + 100000);
 				}
 			} else if ($this->getEdgeSideTwo($tmpY, $tmpX) == 0) {								// 置いた場所が角の二つ手前
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideTwoCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideTwoCnt()++);
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getgoodPoint() + (1000 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
+				$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnEdgeSideTwoCnt();
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnEdgeSideTwoCnt($tmp++);
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getGoodPoint() + (1000 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
 			} else if ($this->getEdgeSideThree($tmpY, $tmpX) == 0) {							// 置いた場所が角の三つ手前
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideThreeCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideThreeCnt()++);
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getgoodPoint() + (100 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
+				$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnEdgeSideThreeCnt();
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnEdgeSideThreeCnt($tmp++);
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getGoodPoint() + (100 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
 			} else {																			// 置いた場所がその他
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideOtherCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideOtherCnt()++);
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getgoodPoint() + (10 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
+				$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnEdgeSideOtherCnt();
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnEdgeSideOtherCnt($tmp++);
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getGoodPoint() + (10 * $this->_mMasuStsCntB[$tmpY][$tmpX]));
 			}
 			$sum = 0;
 			$sumOwn = 0;
@@ -693,24 +698,30 @@ class Reversi
 					if ($this->getMasuStsEna(ReversiConst::$REVERSI_STS_WHITE, $i, $j) != 0) {
 						$sum += $this->_mMasuStsCntW[$i][$j];									// 相手の獲得予定枚数
 						// *** 相手の獲得予定の最大数保持 *** //
-						if ($this->_mMasuStsAnzB[$tmpY][$tmpX]->getmax() < $this->_mMasuStsCntW[$i][$j]) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setmax($this->_mMasuStsCntW[$i][$j]);
+						if ($this->_mMasuStsAnzB[$tmpY][$tmpX]->getMax() < $this->_mMasuStsCntW[$i][$j]) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setMax($this->_mMasuStsCntW[$i][$j]);
 						// *** 相手の獲得予定の最小数保持 *** //
-						if ($this->_mMasuStsCntW[$i][$j] < $this->_mMasuStsAnzB[$tmpY][$tmpX]->getmin()) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setmin($this->_mMasuStsCntW[$i][$j]);
-						$this->_mMasuStsAnzB[$tmpY][$tmpX]->setpointCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getpointCnt()++);	// 相手の置ける場所の数
+						if ($this->_mMasuStsCntW[$i][$j] < $this->_mMasuStsAnzB[$tmpY][$tmpX]->getMin()) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setMin($this->_mMasuStsCntW[$i][$j]);
+						$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getPointCnt();
+						$this->_mMasuStsAnzB[$tmpY][$tmpX]->setPointCnt($tmp++);				// 相手の置ける場所の数
 						if ($this->getEdgeSideZero($i, $j) == 0) {								// 置く場所が角
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setedgeCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getedgeCnt()++);
+							$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getEdgeCnt();
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setEdgeCnt($tmp++);
 							$tmpBadPoint = 100000 * $this->_mMasuStsCntW[$i][$j];
 						} else if ($this->getEdgeSideOne($i, $j) == 0) {						// 置く場所が角の一つ手前
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setedgeSideOneCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getedgeSideOneCnt()++);
+							$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getEdgeSideOneCnt();
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setEdgeSideOneCnt($tmp++);
 							$tmpBadPoint = 0;
 						} else if ($this->getEdgeSideTwo($i, $j) == 0) {						// 置く場所が角の二つ手前
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->getedgeSideTwoCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getedgeSideTwoCnt()++);
+							$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getEdgeSideTwoCnt();
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->getEdgeSideTwoCnt($tmp++);
 							$tmpBadPoint = 1 * $this->_mMasuStsCntW[$i][$j];
 						} else if ($this->getEdgeSideThree($i, $j) == 0) {						// 置く場所が角の三つ手前
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setedgeSideThreeCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getedgeSideThreeCnt()++);
+							$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getEdgeSideThreeCnt();
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setEdgeSideThreeCnt($tmp++);
 							$tmpBadPoint = 1 * $this->_mMasuStsCntW[$i][$j];
 						} else {																// 置く場所がその他
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setedgeSideOtherCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getedgeSideOtherCnt()++);
+							$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getEdgeSideOtherCnt();
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setEdgeSideOtherCnt($tmp++);
 							$tmpBadPoint = 1 * $this->_mMasuStsCntW[$i][$j];
 						}
 						if ($tmpMasuEnaW[$i][$j] != 0) $tmpBadPoint = 0;						// ステータス変化していないなら
@@ -718,44 +729,50 @@ class Reversi
 					if ($this->getMasuStsEna(ReversiConst::$REVERSI_STS_BLACK, $i, $j) != 0) {
 						$sumOwn += $this->_mMasuStsCntB[$i][$j];								// 自分の獲得予定枚数
 						// *** 自分の獲得予定の最大数保持 *** //
-						if ($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownMax() < $this->_mMasuStsCntB[$i][$j]) $this->_mMasuStsAnzB[$tmpY][$tmpX]setownMax($this->_mMasuStsCntB[$i][$j]);
+						if ($this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnMax() < $this->_mMasuStsCntB[$i][$j]) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnMax($this->_mMasuStsCntB[$i][$j]);
 						// *** 自分の獲得予定の最小数保持 *** //
-						if ($this->_mMasuStsCntB[$i][$j] < $this->_mMasuStsAnzB[$tmpY][$tmpX]->getownMin()) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setownMin($this->_mMasuStsCntB[$i][$j]);
-						$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownPointCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownPointCnt()++);	// 自分の置ける場所の数
+						if ($this->_mMasuStsCntB[$i][$j] < $this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnMin()) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnMin($this->_mMasuStsCntB[$i][$j]);
+						$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnPointCnt();
+						$this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnPointCnt($tmp++);				// 自分の置ける場所の数
 						if ($this->getEdgeSideZero($i, $j) == 0) {								// 置く場所が角
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeCnt()++);
+							$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnEdgeCnt();
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnEdgeCnt($tmp++);
 							$tmpGoodPoint = 100 * $this->_mMasuStsCntB[$i][$j];
 						} else if ($this->getEdgeSideOne($i, $j) == 0) {						// 置く場所が角の一つ手前
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideOneCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideOneCnt()++);
+							$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnEdgeSideOneCnt();
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnEdgeSideOneCnt($tmp++);
 							$tmpGoodPoint = 0;
 						} else if ($this->getEdgeSideTwo($i, $j) == 0) {						// 置く場所が角の二つ手前
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideTwoCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideTwoCnt()++);
+							$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnEdgeSideTwoCnt();
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnEdgeSideTwoCnt($tmp++);
 							$tmpGoodPoint = 3 * $this->_mMasuStsCntB[$i][$j];
 						} else if ($this->getEdgeSideThree($i, $j) == 0) {						// 置く場所が角の三つ手前
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideThreeCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideThreeCnt()++);
+							$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnEdgeSideThreeCnt();
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnEdgeSideThreeCnt($tmp++);
 							$tmpGoodPoint = 2 * $this->_mMasuStsCntB[$i][$j];
 						} else {																// 置く場所がその他
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownEdgeSideOtherCnt($this->_mMasuStsAnzB[$tmpY][$tmpX]->getownEdgeSideOtherCnt()++);
+							$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getOwnEdgeSideOtherCnt();
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnEdgeSideOtherCnt($tmp++);
 							$tmpGoodPoint = 1 * $this->_mMasuStsCntB[$i][$j];
 						}
 						if ($tmpMasuEnaB[$i][$j] != 0) $tmpGoodPoint = 0;						// ステータス変化していないなら
 					}
-					if ($tmpBadPoint != 0) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setbadPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getbadPoint() + $tmpBadPoint);
-					if ($tmpGoodPoint != 0) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getgoodPoint() + $tmpGoodPoint);
+					if ($tmpBadPoint != 0) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setBadPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getBadPoint() + $tmpBadPoint);
+					if ($tmpGoodPoint != 0) $this->_mMasuStsAnzB[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzB[$tmpY][$tmpX]->getGoodPoint() + $tmpGoodPoint);
 				}
 			}
 			// *** 相手に取られる平均コマ数 *** //
 			if ($this->getPointCnt(ReversiConst::$REVERSI_STS_WHITE) != 0) {
 				$tmpD1 = $sum;
 				$tmpD2 = $this->getPointCnt(ReversiConst::$REVERSI_STS_WHITE);
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setavg($tmpD1 / $tmpD2);
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setAvg($tmpD1 / $tmpD2);
 			}
 
 			// *** 自分が取れる平均コマ数 *** //
 			if ($this->getPointCnt(ReversiConst::$REVERSI_STS_BLACK) != 0) {
 				$tmpD1 = $sumOwn;
 				$tmpD2 = $this->getPointCnt(ReversiConst::$REVERSI_STS_BLACK);
-				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setownAvg($tmpD1 / $tmpD2);
+				$this->_mMasuStsAnzB[$tmpY][$tmpX]->setOwnAvg($tmpD1 / $tmpD2);
 			}
 
 			// *** 元に戻す *** //
@@ -770,10 +787,10 @@ class Reversi
 	///	@fn				AnalysisReversiWhite()
 	///	@return			ありません
 	///	@author			Yuta Yoshinaga
-	///	@date			2018->03->02
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	private AnalysisReversiWhite()
+	private function AnalysisReversiWhite()
 	{
 		$tmpX;
 		$tmpY;
@@ -794,33 +811,38 @@ class Reversi
 
 			$tmpY = $this->_mMasuPointW[$cnt]->gety();
 			$tmpX = $this->_mMasuPointW[$cnt]->getx();
-			$this->_mMasuSts[$tmpY][$tmpX] = ReversiConst::$REVERSI_STS_WHITE;				// 仮に置く
-			$this->revMasuSts(ReversiConst::$REVERSI_STS_WHITE, $tmpY, $tmpX);				// 仮にひっくり返す
+			$this->_mMasuSts[$tmpY][$tmpX] = ReversiConst::$REVERSI_STS_WHITE;			// 仮に置く
+			$this->revMasuSts(ReversiConst::$REVERSI_STS_WHITE, $tmpY, $tmpX);			// 仮にひっくり返す
 			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLACK);
 			$this->makeMasuSts(ReversiConst::$REVERSI_STS_WHITE);
 			// *** このマスに置いた場合の解析を行う *** //
-			if ($this->getColorEna(ReversiConst::$REVERSI_STS_BLACK) != 0) {				// 相手がパス
+			if ($this->getColorEna(ReversiConst::$REVERSI_STS_BLACK) != 0) {			// 相手がパス
 				$this->_mMasuStsPassW[$tmpY][$tmpX] = 1;
 			}
-			if ($this->getEdgeSideZero($tmpY, $tmpX) == 0) {								// 置いた場所が角
-				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setownEdgeCnt($this->_mMasuStsAnzW[$tmpY][$tmpX]->getownEdgeCnt()++);
-				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getgoodPoint() + (10000 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
-			} else if ($this->getEdgeSideOne($tmpY, $tmpX) == 0) {							// 置いた場所が角の一つ手前
-				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setownEdgeSideOneCnt($this->_mMasuStsAnzW[$tmpY][$tmpX]->getownEdgeSideOneCnt()++);
-				if ($this->checkEdge(ReversiConst::$REVERSI_STS_WHITE, $tmpY, $tmpX) != 0) {// 角を取られない
-					$this->_mMasuStsAnzW[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getgoodPoint() + (10 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
-				} else {																	// 角を取られる
-					$this->_mMasuStsAnzW[$tmpY][$tmpX]->setbadPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getbadPoint() + 100000);
+			if ($this->getEdgeSideZero($tmpY, $tmpX) == 0) {							// 置いた場所が角
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeCnt($tmp++);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + (10000 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+			} else if ($this->getEdgeSideOne($tmpY, $tmpX) == 0) {						// 置いた場所が角の一つ手前
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideOneCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideOneCnt($tmp++);
+				if ($this->checkEdge(ReversiConst::$REVERSI_STS_WHITE, $tmpY, $tmpX) != 0) {	// 角を取られない
+					$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + (10 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+				} else {																// 角を取られる
+					$this->_mMasuStsAnzW[$tmpY][$tmpX]->setBadPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getBadPoint() + 100000);
 				}
-			} else if ($this->getEdgeSideTwo($tmpY, $tmpX) == 0) {							// 置いた場所が角の二つ手前
-				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setownEdgeSideTwoCnt($this->_mMasuStsAnzW[$tmpY][$tmpX]->getownEdgeSideTwoCnt()++);
-				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getgoodPoint() + (1000 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
-			} else if ($this->getEdgeSideThree($tmpY, $tmpX) == 0) {						// 置いた場所が角の三つ手前
-				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setownEdgeSideThreeCnt($this->_mMasuStsAnzW[$tmpY][$tmpX]->getownEdgeSideThreeCnt()++);
-				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getgoodPoint() + (100 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
-			} else {																		// 置いた場所がその他
-				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setownEdgeSideOtherCnt($this->_mMasuStsAnzW[$tmpY][$tmpX]->getownEdgeSideOtherCnt()++);
-				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setgoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getgoodPoint() + (10 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+			} else if ($this->getEdgeSideTwo($tmpY, $tmpX) == 0) {						// 置いた場所が角の二つ手前
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideTwoCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideTwoCnt($tmp++);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + (1000 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+			} else if ($this->getEdgeSideThree($tmpY, $tmpX) == 0) {					// 置いた場所が角の三つ手前
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideThreeCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideThreeCnt($tmp++);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getgoodPoint() + (100 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
+			} else {																	// 置いた場所がその他
+				$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideOtherCnt();
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideOtherCnt($tmp++);
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + (10 * $this->_mMasuStsCntW[$tmpY][$tmpX]));
 			}
 			$sum = 0;
 			$sumOwn = 0;
@@ -829,71 +851,83 @@ class Reversi
 					$tmpBadPoint = 0;
 					$tmpGoodPoint = 0;
 					if ($this->getMasuStsEna(ReversiConst::$REVERSI_STS_BLACK, $i, $j) != 0) {
-						$sum += $this->_mMasuStsCntB[$i][$j];								// 相手の獲得予定枚数
+						$sum += $this->_mMasuStsCntB[$i][$j];							// 相手の獲得予定枚数
 						// *** 相手の獲得予定の最大数保持 *** //
-						if ($this->_mMasuStsAnzW[$tmpY][$tmpX]->getmax() < $this->_mMasuStsCntB[$i][$j]) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setmax($this->_mMasuStsCntB[$i][$j]);
+						if ($this->_mMasuStsAnzW[$tmpY][$tmpX]->getMax() < $this->_mMasuStsCntB[$i][$j]) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setMax($this->_mMasuStsCntB[$i][$j]);
 						// *** 相手の獲得予定の最小数保持 *** //
-						if ($this->_mMasuStsCntB[$i][$j] < $this->_mMasuStsAnzW[$tmpY][$tmpX]->getmin()) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setmin($this->_mMasuStsCntB[$i][$j]);
-						$this->_mMasuStsAnzW[$tmpY][$tmpX]->setpointCnt($this->_mMasuStsAnzW[$tmpY][$tmpX]->getpointCnt()++);// 相手の置ける場所の数
-						if ($this->getEdgeSideZero($i, $j) == 0) {							// 置く場所が角
-							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setedgeCnt($this->_mMasuStsAnzW[$tmpY][$tmpX]->getedgeCnt()++);
+						if ($this->_mMasuStsCntB[$i][$j] < $this->_mMasuStsAnzW[$tmpY][$tmpX]->getMin()) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setMin($this->_mMasuStsCntB[$i][$j]);
+						$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getPointCnt();
+						$this->_mMasuStsAnzW[$tmpY][$tmpX]->setPointCnt($tmp++);		// 相手の置ける場所の数
+						if ($this->getEdgeSideZero($i, $j) == 0) {						// 置く場所が角
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeCnt($tmp++);
 							$tmpBadPoint = 100000 * $this->_mMasuStsCntB[$i][$j];
-						} else if ($this->getEdgeSideOne($i, $j) == 0) {					// 置く場所が角の一つ手前
-							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setedgeSideOneCnt($this->_mMasuStsAnzW[$tmpY][$tmpX]->getedgeSideOneCnt()++);
+						} else if ($this->getEdgeSideOne($i, $j) == 0) {				// 置く場所が角の一つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeSideOneCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeSideOneCnt($tmp++);
 							$tmpBadPoint = 0;
-						} else if ($this->getEdgeSideTwo($i, $j) == 0) {					// 置く場所が角の二つ手前
-							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setedgeSideTwoCnt($this->_mMasuStsAnzW[$tmpY][$tmpX]->getedgeSideTwoCnt()++);
+						} else if ($this->getEdgeSideTwo($i, $j) == 0) {				// 置く場所が角の二つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeSideTwoCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeSideTwoCnt($tmp++);
 							$tmpBadPoint = 1 * $this->_mMasuStsCntB[$i][$j];
-						} else if ($this->getEdgeSideThree($i, $j) == 0) {					// 置く場所が角の三つ手前
-							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setedgeSideThreeCnt($this->_mMasuStsAnzW[$tmpY][$tmpX]->getedgeSideThreeCnt()++);
+						} else if ($this->getEdgeSideThree($i, $j) == 0) {				// 置く場所が角の三つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeSideThreeCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeSideThreeCnt($tmp++);
 							$tmpBadPoint = 1 * $this->_mMasuStsCntB[$i][$j];
-						} else {															// 置く場所がその他
-							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setedgeSideOtherCnt($this->_mMasuStsAnzW[$tmpY][$tmpX]->getedgeSideOtherCnt())++;
+						} else {														// 置く場所がその他
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getEdgeSideOtherCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setEdgeSideOtherCnt($tmp++);
 							$tmpBadPoint = 1 * $this->_mMasuStsCntB[$i][$j];
 						}
-						if ($tmpMasuEnaB[$i][$j] != 0) $tmpBadPoint = 0;					// ステータス変化していないなら
+						if ($tmpMasuEnaB[$i][$j] != 0) $tmpBadPoint = 0;				// ステータス変化していないなら
 					}
 					if ($this->getMasuStsEna(ReversiConst::$REVERSI_STS_WHITE, $i, $j) != 0) {
-						$sumOwn += $this->_mMasuStsCntW[$i][$j];							// 自分の獲得予定枚数
+						$sumOwn += $this->_mMasuStsCntW[$i][$j];						// 自分の獲得予定枚数
 						// *** 自分の獲得予定の最大数保持 *** //
-						if ($this->_mMasuStsAnzW[$tmpY][$tmpX]->ownMax < $this->_mMasuStsCntW[$i][$j]) $this->_mMasuStsAnzW[$tmpY][$tmpX]->ownMax = $this->_mMasuStsCntW[$i][$j];
+						if ($this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnMax() < $this->_mMasuStsCntW[$i][$j]) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnMax($this->_mMasuStsCntW[$i][$j]);
 						// *** 自分の獲得予定の最小数保持 *** //
-						if ($this->_mMasuStsCntW[$i][$j] < $this->_mMasuStsAnzW[$tmpY][$tmpX]->ownMin) $this->_mMasuStsAnzW[$tmpY][$tmpX]->ownMin = $this->_mMasuStsCntW[$i][$j];
-						$this->_mMasuStsAnzW[$tmpY][$tmpX]->ownPointCnt++;					// 自分の置ける場所の数
-						if ($this->getEdgeSideZero($i, $j) == 0) {							// 置く場所が角
-							$this->_mMasuStsAnzW[$tmpY][$tmpX]->ownEdgeCnt++;
+						if ($this->_mMasuStsCntW[$i][$j] < $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnMin()) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnMin($this->_mMasuStsCntW[$i][$j]);
+						$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getownPointCnt();
+						$this->_mMasuStsAnzW[$tmpY][$tmpX]->setownPointCnt($tmp++);		// 自分の置ける場所の数
+						if ($this->getEdgeSideZero($i, $j) == 0) {						// 置く場所が角
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeCnt($tmp++);
 							$tmpGoodPoint = 100 * $this->_mMasuStsCntW[$i][$j];
-						} else if ($this->getEdgeSideOne($i, $j) == 0) {					// 置く場所が角の一つ手前
-							$this->_mMasuStsAnzW[$tmpY][$tmpX]->ownEdgeSideOneCnt++;
+						} else if ($this->getEdgeSideOne($i, $j) == 0) {				// 置く場所が角の一つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideOneCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideOneCnt($tmp++);
 							$tmpGoodPoint = 0;
-						} else if ($this->getEdgeSideTwo($i, $j) == 0) {					// 置く場所が角の二つ手前
-							$this->_mMasuStsAnzW[$tmpY][$tmpX]->ownEdgeSideTwoCnt++;
+						} else if ($this->getEdgeSideTwo($i, $j) == 0) {				// 置く場所が角の二つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideTwoCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideTwoCnt($tmp++);
 							$tmpGoodPoint = 3 * $this->_mMasuStsCntW[$i][$j];
-						} else if ($this->getEdgeSideThree($i, $j) == 0) {					// 置く場所が角の三つ手前
-							$this->_mMasuStsAnzW[$tmpY][$tmpX]->ownEdgeSideThreeCnt++;
+						} else if ($this->getEdgeSideThree($i, $j) == 0) {				// 置く場所が角の三つ手前
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideThreeCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideThreeCnt($tmp++);
 							$tmpGoodPoint = 2 * $this->_mMasuStsCntW[$i][$j];
-						} else {															// 置く場所がその他
-							$this->_mMasuStsAnzW[$tmpY][$tmpX]->ownEdgeSideOtherCnt++;
+						} else {														// 置く場所がその他
+							$tmp = $this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnEdgeSideOtherCnt();
+							$this->_mMasuStsAnzW[$tmpY][$tmpX]->setOwnEdgeSideOtherCnt($tmp++);
 							$tmpGoodPoint = 1 * $this->_mMasuStsCntW[$i][$j];
 						}
-						if ($tmpMasuEnaW[$i][$j] != 0) $tmpGoodPoint = 0;					// ステータス変化していないなら
+						if ($tmpMasuEnaW[$i][$j] != 0) $tmpGoodPoint = 0;				// ステータス変化していないなら
 					}
-					if ($tmpBadPoint != 0) $this->_mMasuStsAnzW[$tmpY][$tmpX]->badPoint += $tmpBadPoint;
-					if ($tmpGoodPoint != 0) $this->_mMasuStsAnzW[$tmpY][$tmpX]->goodPoint += $tmpGoodPoint;
+					if ($tmpBadPoint != 0) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setBadPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getBadPoint() + $tmpBadPoint);
+					if ($tmpGoodPoint != 0) $this->_mMasuStsAnzW[$tmpY][$tmpX]->setGoodPoint($this->_mMasuStsAnzW[$tmpY][$tmpX]->getGoodPoint() + $tmpGoodPoint);
 				}
 			}
 			// *** 相手に取られる平均コマ数 *** //
 			if ($this->getPointCnt(ReversiConst::$REVERSI_STS_BLACK) != 0) {
 				$tmpD1 = $sum;
 				$tmpD2 = $this->getPointCnt(ReversiConst::$REVERSI_STS_BLACK);
-				$this->_mMasuStsAnzW[$tmpY][$tmpX]->avg = $tmpD1 / $tmpD2;
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->getAvg($tmpD1 / $tmpD2);
 			}
 
 			// *** 自分が取れる平均コマ数 *** //
 			if ($this->getPointCnt(ReversiConst::$REVERSI_STS_WHITE) != 0) {
 				$tmpD1 = $sumOwn;
 				$tmpD2 = $this->getPointCnt(ReversiConst::$REVERSI_STS_WHITE);
-				$this->_mMasuStsAnzW[$tmpY][$tmpX]->ownAvg = $tmpD1 / $tmpD2;
+				$this->_mMasuStsAnzW[$tmpY][$tmpX]->getOwnAvg($tmpD1 / $tmpD2);
 			}
 
 			// *** 元に戻す *** //
@@ -905,23 +939,23 @@ class Reversi
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			解析を行う
-	///	@fn				void AnalysisReversi(int bPassEna, int wPassEna)
-	///	@param[in]		int bPassEna		1=黒パス有効
-	///	@param[in]		int wPassEna		1=白パス有効
+	///	@fn				void AnalysisReversi($bPassEna, $wPassEna)
+	///	@param[in]		$bPassEna		1=黒パス有効
+	///	@param[in]		$wPassEna		1=白パス有効
 	///	@return			ありません
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public void AnalysisReversi(int bPassEna, int wPassEna)
+	public function AnalysisReversi($bPassEna, $wPassEna)
 	{
 		// *** 相手をパスさせることができるマス検索 *** //
-		for (var i = 0; i < $this->_mMasuCnt; i++) {					// 初期化
-			for (var j = 0; j < $this->_mMasuCnt; j++) {
+		for ($i = 0; $i < $this->_mMasuCnt; $i++) {					// 初期化
+			for ($j = 0; $j < $this->_mMasuCnt; $j++) {
 				$this->_mMasuStsPassB[$i][$j] = 0;
-				$this->_mMasuStsAnzB[$i][$j].reset();
+				$this->_mMasuStsAnzB[$i][$j]->reset();
 				$this->_mMasuStsPassW[$i][$j] = 0;
-				$this->_mMasuStsAnzW[$i][$j].reset();
+				$this->_mMasuStsAnzW[$i][$j]->reset();
 			}
 		}
 		$this->AnalysisReversiBlack();								// 黒解析
@@ -931,13 +965,13 @@ class Reversi
 		$this->makeMasuSts(ReversiConst::$REVERSI_STS_WHITE);
 
 		// *** パスマスを取得 *** //
-		for (var i = 0; i < $this->_mMasuCnt; i++) {
-			for (var j = 0; j < $this->_mMasuCnt; j++) {
+		for ($i = 0; $i < $this->_mMasuCnt; $i++) {
+			for ($j = 0; $j < $this->_mMasuCnt; $j++) {
 				if ($this->_mMasuStsPassB[$i][$j] != 0) {
-					if (bPassEna != 0) $this->_mMasuStsEnaB[$i][$j] = 3;
+					if ($bPassEna != 0) $this->_mMasuStsEnaB[$i][$j] = 3;
 				}
 				if ($this->_mMasuStsPassW[$i][$j] != 0) {
-					if (wPassEna != 0) $this->_mMasuStsEnaW[$i][$j] = 3;
+					if ($wPassEna != 0) $this->_mMasuStsEnaW[$i][$j] = 3;
 				}
 			}
 		}
@@ -945,556 +979,555 @@ class Reversi
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			マスステータスを取得
-	///	@fn				int getMasuSts(int y, int x)
-	///	@param[in]		int y			取得するマスのY座標
-	///	@param[in]		int x			取得するマスのX座標
+	///	@fn				getMasuSts($y, $x)
+	///	@param[in]		$y			取得するマスのY座標
+	///	@param[in]		$x			取得するマスのX座標
 	///	@return			-1 : 失敗 それ以外 : マスステータス
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getMasuSts(int y, int x)
+	public function getMasuSts($y, $x)
 	{
-		int ret = -1;
-		if ($this->checkPara(y, 0, $this->_mMasuCnt) == 0 && $this->checkPara(x, 0, $this->_mMasuCnt) == 0) ret = $this->_mMasuSts[y,x];
-		return ret;
+		$ret = -1;
+		if ($this->checkPara($y, 0, $this->_mMasuCnt) == 0 && $this->checkPara($x, 0, $this->_mMasuCnt) == 0) $ret = $this->_mMasuSts[$y][$x];
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			以前のマスステータスを取得
-	///	@fn				int getMasuStsOld(int y, int x)
-	///	@param[in]		int y			取得するマスのY座標
-	///	@param[in]		int x			取得するマスのX座標
+	///	@fn				getMasuStsOld($y, $x)
+	///	@param[in]		y			取得するマスのY座標
+	///	@param[in]		x			取得するマスのX座標
 	///	@return			-1 : 失敗 それ以外 : マスステータス
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getMasuStsOld(int y, int x)
+	public function getMasuStsOld($y, $x)
 	{
-		int ret = -1;
-		if ($this->checkPara(y, 0, $this->_mMasuCnt) == 0 && $this->checkPara(x, 0, $this->_mMasuCnt) == 0) ret = $this->_mMasuStsOld[y,x];
-		return ret;
+		$ret = -1;
+		if ($this->checkPara($y, 0, $this->_mMasuCnt) == 0 && $this->checkPara($x, 0, $this->_mMasuCnt) == 0) $ret = $this->_mMasuStsOld[$y][$x];
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			指定座標に指定色を置けるかチェック
-	///	@fn				int getMasuStsEna(int color, int y, int x)
-	///	@param[in]		int color		コマ色
-	///	@param[in]		int y			マスのY座標
-	///	@param[in]		int x			マスのX座標
+	///	@fn				getMasuStsEna($color, $y, $x)
+	///	@param[in]		$color		コマ色
+	///	@param[in]		$y			マスの$y座標
+	///	@param[in]		$x			マスの$x座標
 	///	@return			1 : 成功 それ以外 : 失敗
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getMasuStsEna(int color, int y, int x)
+	public function getMasuStsEna($color, $y, $x)
 	{
-		int ret = 0;
-		if ($this->checkPara(y, 0, $this->_mMasuCnt) == 0 && $this->checkPara(x, 0, $this->_mMasuCnt) == 0) {
-			if (color == ReversiConst::$REVERSI_STS_BLACK) ret = $this->_mMasuStsEnaB[y,x];
-			else ret = $this->_mMasuStsEnaW[y,x];
+		$ret = 0;
+		if ($this->checkPara($y, 0, $this->_mMasuCnt) == 0 && $this->checkPara($x, 0, $this->_mMasuCnt) == 0) {
+			if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuStsEnaB[$y][$x];
+			else $ret = $this->_mMasuStsEnaW[$y][$x];
 		}
-		return ret;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			指定座標の獲得コマ数取得
-	///	@fn				int getMasuStsCnt(int color, int y, int x)
-	///	@param[in]		int color		コマ色
-	///	@param[in]		int y			マスのY座標
-	///	@param[in]		int x			マスのX座標
+	///	@fn				getMasuStsCnt($color, $y, $x)
+	///	@param[in]		$color		コマ色
+	///	@param[in]		$y			マスの$y座標
+	///	@param[in]		$x			マスの$x座標
 	///	@return			-1 : 失敗 それ以外 : 獲得コマ数
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getMasuStsCnt(int color, int y, int x)
+	public function getMasuStsCnt($color, $y, $x)
 	{
-		int ret = -1;
-		if ($this->checkPara(y, 0, $this->_mMasuCnt) == 0 && $this->checkPara(x, 0, $this->_mMasuCnt) == 0) {
-			if (color == ReversiConst::$REVERSI_STS_BLACK) ret = $this->_mMasuStsCntB[y,x];
-			else ret = $this->_mMasuStsCntW[y,x];
+		$ret = -1;
+		if ($this->checkPara($y, 0, $this->_mMasuCnt) == 0 && $this->checkPara($x, 0, $this->_mMasuCnt) == 0) {
+			if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuStsCntB[$y][$x];
+			else $ret = $this->_mMasuStsCntW[$y][$x];
 		}
-		return ret;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			指定色が現在置ける場所があるかチェック
-	///	@fn				int getColorEna(int color)
-	///	@param[in]		int color		コマ色
+	///	@fn				getColorEna($color)
+	///	@param[in]		$color		コマ色
 	///	@return			0 : 成功 それ以外 : 失敗
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getColorEna(int color)
+	public function getColorEna($color)
 	{
-		int ret = -1;
-		for (var i = 0; i < $this->_mMasuCnt; i++) {
-			for (var j = 0; j < $this->_mMasuCnt; j++) {
-				if ($this->getMasuStsEna(color, i, j) != 0) {
-					ret = 0;
+		$ret = -1;
+		for ($i = 0; $i < $this->_mMasuCnt; $i++) {
+			for ($j = 0; $j < $this->_mMasuCnt; $j++) {
+				if ($this->getMasuStsEna($color, $i, $j) != 0) {
+					$ret = 0;
 					break;
 				}
 			}
 		}
-		return ret;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			ゲーム終了かチェック
-	///	@fn				int getGameEndSts()
+	///	@fn				getGameEndSts()
 	///	@return			0 : 続行 それ以外 : ゲーム終了
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getGameEndSts()
+	public function getGameEndSts()
 	{
-		int ret = 1;
-		if ($this->getColorEna(ReversiConst::$REVERSI_STS_BLACK) == 0) ret = 0;
-		if ($this->getColorEna(ReversiConst::$REVERSI_STS_WHITE) == 0) ret = 0;
-		return ret;
+		$ret = 1;
+		if ($this->getColorEna(ReversiConst::$REVERSI_STS_BLACK) == 0) $ret = 0;
+		if ($this->getColorEna(ReversiConst::$REVERSI_STS_WHITE) == 0) $ret = 0;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			指定座標にコマを置く
-	///	@fn				int setMasuSts(int color, int y, int x)
-	///	@param[in]		int color		コマ色
-	///	@param[in]		int y			マスのY座標
-	///	@param[in]		int x			マスのX座標
+	///	@fn				setMasuSts($color, $y, $x)
+	///	@param[in]		$color		コマ色
+	///	@param[in]		$y			マスの$y座標
+	///	@param[in]		$x			マスの$x座標
 	///	@return			0 : 成功 それ以外 : 失敗
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int setMasuSts(int color, int y, int x)
+	public function setMasuSts($color, $y, $x)
 	{
-		int ret = -1;
-		if ($this->getMasuStsEna(color, y, x) != 0) {
-			ret = 0;
+		$ret = -1;
+		if ($this->getMasuStsEna($color, $y, $x) != 0) {
+			$ret = 0;
 			$this->_mMasuStsOld = $this->_mMasuSts;
-			$this->_mMasuSts[y,x] = color;
-			$this->revMasuSts(color, y, x);
+			$this->_mMasuSts[$y][$x] = $color;
+			$this->revMasuSts($color, $y, $x);
 			$this->makeMasuSts(ReversiConst::$REVERSI_STS_BLACK);
 			$this->makeMasuSts(ReversiConst::$REVERSI_STS_WHITE);
 			// *** 履歴保存 *** //
 			if ($this->_mMasuHistCur < ($this->_mMasuCntMax * $this->_mMasuCntMax)) {
-				$this->_mMasuHist[$this->_mMasuHistCur].color = color;
-				$this->_mMasuHist[$this->_mMasuHistCur].point.y = y;
-				$this->_mMasuHist[$this->_mMasuHistCur].point.x = x;
+				$this->_mMasuHist[$this->_mMasuHistCur]->setColor($color);
+				$this->_mMasuHist[$this->_mMasuHistCur]->getPoint()->sety($y);
+				$this->_mMasuHist[$this->_mMasuHistCur]->getPoint()->setx($x);
 				$this->_mMasuHistCur++;
 			}
 		}
-		return ret;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			指定座標にコマを強制的に置く
-	///	@fn				int setMasuStsForcibly(int color, int y, int x)
-	///	@param[in]		int color		コマ色
-	///	@param[in]		int y			マスのY座標
-	///	@param[in]		int x			マスのX座標
+	///	@fn				setMasuStsForcibly($color, $y, $x)
+	///	@param[in]		$color		コマ色
+	///	@param[in]		$y			マスの$y座標
+	///	@param[in]		$x			マスの$x座標
 	///	@return			0 : 成功 それ以外 : 失敗
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int setMasuStsForcibly(int color, int y, int x)
+	public function setMasuStsForcibly($color, $y, $x)
 	{
-		int ret = -1;
-		ret = 0;
+		$ret = 0;
 		$this->_mMasuStsOld = $this->_mMasuSts;
-		$this->_mMasuSts[y,x] = color;
-		return ret;
+		$this->_mMasuSts[$y][$x] = $color;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			マスの数変更
-	///	@fn				int setMasuCnt(int cnt)
-	///	@param[in]		int cnt		マスの数
+	///	@fn				setMasuCnt($cnt)
+	///	@param[in]		$cnt		マスの数
 	///	@return			0 : 成功 それ以外 : 失敗
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int setMasuCnt(int cnt)
+	public function setMasuCnt($cnt)
 	{
-		int ret = -1;
-		int chg = 0;
+		$ret = -1;
+		$chg = 0;
 
-		if ($this->checkPara(cnt, 0, $this->_mMasuCntMax) == 0) {
-			if ($this->_mMasuCnt != cnt) chg = 1;
-			$this->_mMasuCnt = cnt;
-			ret = 0;
-			if (chg == 1) $this->reset();
+		if ($this->checkPara($cnt, 0, $this->_mMasuCntMax) == 0) {
+			if ($this->_mMasuCnt != $cnt) $chg = 1;
+			$this->_mMasuCnt = $cnt;
+			$ret = 0;
+			if ($chg == 1) $this->reset();
 		}
 
-		return ret;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			ポイント座標取得
-	///	@fn				ReversiPoint getPoint(int color, int num)
-	///	@param[in]		int color		コマ色
-	///	@param[in]		int num			ポイント
-	///	@return			ポイント座標 null : 失敗
+	///	@fn				getPoint($color, $num)
+	///	@param[in]		$color		コマ色
+	///	@param[in]		$num			ポイント
+	///	@return			ポイント座標 NULL : 失敗
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public ReversiPoint getPoint(int color, int num)
+	public function getPoint($color, $num)
 	{
-		ReversiPoint ret = null;
-		if ($this->checkPara(num, 0, ($this->_mMasuCnt * $this->_mMasuCnt)) == 0) {
-			if (color == ReversiConst::$REVERSI_STS_BLACK) ret = $this->_mMasuPointB[num];
-			else ret = $this->_mMasuPointW[num];
+		$ret = NULL;
+		if ($this->checkPara($num, 0, ($this->_mMasuCnt * $this->_mMasuCnt)) == 0) {
+			if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuPointB[$num];
+			else $ret = $this->_mMasuPointW[$num];
 		}
-		return ret;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			ポイント座標数取得
-	///	@fn				int getPointCnt(int color)
-	///	@param[in]		int color		コマ色
+	///	@fn				getPointCnt($color)
+	///	@param[in]		$color		コマ色
 	///	@return			ポイント座標数取得
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getPointCnt(int color)
+	public function getPointCnt($color)
 	{
-		int ret = 0;
-		if (color == ReversiConst::$REVERSI_STS_BLACK) ret = $this->_mMasuPointCntB;
-		else ret = $this->_mMasuPointCntW;
-		return ret;
+		$ret = 0;
+		if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuPointCntB;
+		else $ret = $this->_mMasuPointCntW;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			コマ数取得
-	///	@fn				int getBetCnt(int color)
-	///	@param[in]		int color		コマ色
+	///	@fn				getBetCnt($color)
+	///	@param[in]		$color		コマ色
 	///	@return			コマ数取得
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getBetCnt(int color)
+	public function getBetCnt($color)
 	{
-		int ret = 0;
-		if (color == ReversiConst::$REVERSI_STS_BLACK) ret = $this->_mMasuBetCntB;
-		else ret = $this->_mMasuBetCntW;
-		return ret;
+		$ret = 0;
+		if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuBetCntB;
+		else $ret = $this->_mMasuBetCntW;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			パス判定
-	///	@fn				int getPassEna(int color, int y, int x)
-	///	@param[in]		int color		コマ色
-	///	@param[in]		int y			マスのY座標
-	///	@param[in]		int x			マスのX座標
+	///	@fn				getPassEna($color, $y, $x)
+	///	@param[in]		$color		コマ色
+	///	@param[in]		$y			マスのY座標
+	///	@param[in]		$x			マスのX座標
 	///	@return			パス判定
 	///					- 0 : NOT PASS
 	///					- 1 : PASS
 	///
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getPassEna(int color, int y, int x)
+	public function getPassEna($color, $y, $x)
 	{
-		int ret = 0;
-		if ($this->checkPara(y, 0, $this->_mMasuCnt) == 0 && $this->checkPara(x, 0, $this->_mMasuCnt) == 0) {
-			if (color == ReversiConst::$REVERSI_STS_BLACK) ret = $this->_mMasuStsPassB[y,x];
-			else ret = $this->_mMasuStsPassW[y,x];
+		$ret = 0;
+		if ($this->checkPara($y, 0, $this->_mMasuCnt) == 0 && $this->checkPara($x, 0, $this->_mMasuCnt) == 0) {
+			if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuStsPassB[$y][$x];
+			else $ret = $this->_mMasuStsPassW[$y][$x];
 		}
-		return ret;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			履歴取得
-	///	@fn				ReversiHistory getHistory(int num)
-	///	@param[in]		int num		ポイント
-	///	@return			履歴 null : 失敗
+	///	@fn				getHistory($num)
+	///	@param[in]		$num		ポイント
+	///	@return			履歴 NULL : 失敗
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public ReversiHistory getHistory(int num)
+	public function getHistory($num)
 	{
-		ReversiHistory ret = null;
-		if ($this->checkPara(num, 0, ($this->_mMasuCnt * $this->_mMasuCnt)) == 0) {
-			ret = $this->_mMasuHist[num];
+		$ret = NULL;
+		if ($this->checkPara($num, 0, ($this->_mMasuCnt * $this->_mMasuCnt)) == 0) {
+			$ret = $this->_mMasuHist[$num];
 		}
-		return ret;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			履歴数取得
-	///	@fn				int getHistoryCnt()
+	///	@fn				getHistoryCnt()
 	///	@return			履歴数
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getHistoryCnt()
+	public function getHistoryCnt()
 	{
-		int ret = 0;
-		ret = $this->_mMasuHistCur;
-		return ret;
+		$ret = 0;
+		$ret = $this->_mMasuHistCur;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			ポイント座標解析取得
-	///	@fn				ReversiAnz getPointAnz(int color, int y, int x)
-	///	@param[in]		int color		コマ色
-	///	@param[in]		int y			マスのY座標
-	///	@param[in]		int x			マスのX座標
-	///	@return			ポイント座標解析 null : 失敗
+	///	@fn				getPointAnz($color, $y, $x)
+	///	@param[in]		$color		コマ色
+	///	@param[in]		$y			マスの$y座標
+	///	@param[in]		$x			マスの$x座標
+	///	@return			ポイント座標解析 NULL : 失敗
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public ReversiAnz getPointAnz(int color, int y, int x)
+	public function getPointAnz($color, $y, $x)
 	{
-		ReversiAnz ret = null;
-		if ($this->checkPara(y, 0, $this->_mMasuCnt) == 0 && $this->checkPara(x, 0, $this->_mMasuCnt) == 0) {
-			if (color == ReversiConst::$REVERSI_STS_BLACK) ret = $this->_mMasuStsAnzB[y,x];
-			else ret = $this->_mMasuStsAnzW[y,x];
+		$ret = NULL;
+		if ($this->checkPara($y, 0, $this->_mMasuCnt) == 0 && $this->checkPara($x, 0, $this->_mMasuCnt) == 0) {
+			if ($color == ReversiConst::$REVERSI_STS_BLACK) $ret = $this->_mMasuStsAnzB[$y][$x];
+			else $ret = $this->_mMasuStsAnzW[$y][$x];
 		}
-		return ret;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			角の隣に置いても角を取られないマス検索
-	///	@fn				int checkEdge(int color, int y, int x)
-	///	@param[in]		int color		コマ色
-	///	@param[in]		int y			マスのY座標
-	///	@param[in]		int x			マスのX座標
+	///	@fn				checkEdge($color, $y, $x)
+	///	@param[in]		$color		コマ色
+	///	@param[in]		$y			マスの$y座標
+	///	@param[in]		$x			マスの$x座標
 	///	@return			0 : 取られる それ以外 : 取られない
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int checkEdge(int color, int y, int x)
+	public function checkEdge($color, $y, $x)
 	{
-		int style = 0;
-		int flg1 = 0;
-		int flg2 = 0;
-		int loop;
-		int loop2;
+		$style = 0;
+		$flg1 = 0;
+		$flg2 = 0;
+		$loop;
+		$loop2;
 
-		if (y == 0 && x == 1) {
-			for (loop = x, flg1 = 0, flg2 = 0; loop < $this->_mMasuCnt; loop++) {
-				if ($this->getMasuSts(y, loop) == color) flg1 = 1;
-				if (flg1 == 1 && $this->getMasuSts(y, loop) == ReversiConst::$REVERSI_STS_NONE) break;
-				if ((flg1 == 1) && ($this->getMasuSts(y, loop) != color) && ($this->getMasuSts(y, loop) != ReversiConst::$REVERSI_STS_NONE)) flg2 = 1;
+		if ($y == 0 && $x == 1) {
+			for ($loop = $x, $flg1 = 0, $flg2 = 0; $loop < $this->_mMasuCnt; $loop++) {
+				if ($this->getMasuSts($y, $loop) == $color) $flg1 = 1;
+				if ($flg1 == 1 && $this->getMasuSts($y, $loop) == ReversiConst::$REVERSI_STS_NONE) break;
+				if (($flg1 == 1) && ($this->getMasuSts($y, $loop) != $color) && ($this->getMasuSts($y, $loop) != ReversiConst::$REVERSI_STS_NONE)) $flg2 = 1;
 			}
-			if ((flg1 == 1) && (flg2 == 0)) style = 1;
+			if (($flg1 == 1) && ($flg2 == 0)) $style = 1;
 		}
-		if (y == 1 && x == 0) {
-			for (loop = y, flg1 = 0, flg2 = 0; loop < $this->_mMasuCnt; loop++) {
-				if ($this->getMasuSts(loop, x) == color) flg1 = 1;
-				if (flg1 == 1 && $this->getMasuSts(loop, x) == ReversiConst::$REVERSI_STS_NONE) break;
-				if ((flg1 == 1) && ($this->getMasuSts(loop, x) != color) && ($this->getMasuSts(loop, x) != ReversiConst::$REVERSI_STS_NONE)) flg2 = 1;
+		if ($y == 1 && $x == 0) {
+			for ($loop = $y, $flg1 = 0, $flg2 = 0; $loop < $this->_mMasuCnt; $loop++) {
+				if ($this->getMasuSts($loop, $x) == $color) $flg1 = 1;
+				if ($flg1 == 1 && $this->getMasuSts($loop, $x) == ReversiConst::$REVERSI_STS_NONE) break;
+				if (($flg1 == 1) && ($this->getMasuSts($loop, $x) != $color) && ($this->getMasuSts($loop, $x) != ReversiConst::$REVERSI_STS_NONE)) $flg2 = 1;
 			}
-			if ((flg1 == 1) && (flg2 == 0)) style = 1;
+			if (($flg1 == 1) && ($flg2 == 0)) $style = 1;
 		}
-		if (y == 1 && x == 1) {
-			for (loop = y, flg1 = 0, flg2 = 0; loop < $this->_mMasuCnt; loop++) {
-				if ($this->getMasuSts(loop, loop) == color) flg1 = 1;
-				if (flg1 == 1 && $this->getMasuSts(loop, loop) == ReversiConst::$REVERSI_STS_NONE) break;
-				if ((flg1 == 1) && ($this->getMasuSts(loop, loop) != color) && ($this->getMasuSts(loop, loop) != ReversiConst::$REVERSI_STS_NONE)) flg2 = 1;
+		if ($y == 1 && $x == 1) {
+			for ($loop = $y, $flg1 = 0, $flg2 = 0; $loop < $this->_mMasuCnt; $loop++) {
+				if ($this->getMasuSts($loop, $loop) == $color) $flg1 = 1;
+				if ($flg1 == 1 && $this->getMasuSts($loop, $loop) == ReversiConst::$REVERSI_STS_NONE) break;
+				if (($flg1 == 1) && ($this->getMasuSts($loop, $loop) != $color) && ($this->getMasuSts($loop, $loop) != ReversiConst::$REVERSI_STS_NONE)) $flg2 = 1;
 			}
-			if ((flg1 == 1) && (flg2 == 0)) style = 1;
+			if (($flg1 == 1) && ($flg2 == 0)) $style = 1;
 		}
-		if (y == 0 && x == ($this->_mMasuCnt - 2)) {
-			for (loop = x, flg1 = 0, flg2 = 0; loop > 0; loop--) {
-				if ($this->getMasuSts(y, loop) == color) flg1 = 1;
-				if (flg1 == 1 && $this->getMasuSts(y, loop) == ReversiConst::$REVERSI_STS_NONE) break;
-				if ((flg1 == 1) && ($this->getMasuSts(y, loop) != color) && ($this->getMasuSts(y, loop) != ReversiConst::$REVERSI_STS_NONE)) flg2 = 1;
+		if ($y == 0 && $x == ($this->_mMasuCnt - 2)) {
+			for ($loop = $x, $flg1 = 0, $flg2 = 0; $loop > 0; $loop--) {
+				if ($this->getMasuSts($y, $loop) == $color) $flg1 = 1;
+				if ($flg1 == 1 && $this->getMasuSts($y, $loop) == ReversiConst::$REVERSI_STS_NONE) break;
+				if (($flg1 == 1) && ($this->getMasuSts($y, $loop) != $color) && ($this->getMasuSts($y, $loop) != ReversiConst::$REVERSI_STS_NONE)) $flg2 = 1;
 			}
-			if ((flg1 == 1) && (flg2 == 0)) style = 1;
+			if (($flg1 == 1) && ($flg2 == 0)) $style = 1;
 		}
-		if (y == 1 && x == ($this->_mMasuCnt - 1)) {
-			for (loop = y, flg1 = 0, flg2 = 0; loop < $this->_mMasuCnt; loop++) {
-				if ($this->getMasuSts(loop, x) == color) flg1 = 1;
-				if (flg1 == 1 && $this->getMasuSts(loop, x) == ReversiConst::$REVERSI_STS_NONE) break;
-				if ((flg1 == 1) && ($this->getMasuSts(loop, x) != color) && ($this->getMasuSts(loop, x) != ReversiConst::$REVERSI_STS_NONE)) flg2 = 1;
+		if ($y == 1 && $x == ($this->_mMasuCnt - 1)) {
+			for ($loop = $y, $flg1 = 0, $flg2 = 0; $loop < $this->_mMasuCnt; $loop++) {
+				if ($this->getMasuSts($loop, $x) == $color) $flg1 = 1;
+				if ($flg1 == 1 && $this->getMasuSts($loop, $x) == ReversiConst::$REVERSI_STS_NONE) break;
+				if (($flg1 == 1) && ($this->getMasuSts($loop, $x) != $color) && ($this->getMasuSts($loop, $x) != ReversiConst::$REVERSI_STS_NONE)) $flg2 = 1;
 			}
-			if ((flg1 == 1) && (flg2 == 0)) style = 1;
+			if (($flg1 == 1) && ($flg2 == 0)) $style = 1;
 		}
-		if (y == 1 && x == ($this->_mMasuCnt - 2)) {
-			for (loop = y, loop2 = x, flg1 = 0, flg2 = 0; loop < $this->_mMasuCnt; loop++ , loop2--) {
-				if ($this->getMasuSts(loop, loop2) == color) flg1 = 1;
-				if (flg1 == 1 && $this->getMasuSts(loop, loop2) == ReversiConst::$REVERSI_STS_NONE) break;
-				if ((flg1 == 1) && ($this->getMasuSts(loop, loop2) != color) && ($this->getMasuSts(loop, loop2) != ReversiConst::$REVERSI_STS_NONE)) flg2 = 1;
+		if ($y == 1 && $x == ($this->_mMasuCnt - 2)) {
+			for ($loop = $y, $loop2 = $x, $flg1 = 0, $flg2 = 0; $loop < $this->_mMasuCnt; $loop++ , $loop2--) {
+				if ($this->getMasuSts($loop, $loop2) == $color) $flg1 = 1;
+				if ($flg1 == 1 && $this->getMasuSts($loop, $loop2) == ReversiConst::$REVERSI_STS_NONE) break;
+				if (($flg1 == 1) && ($this->getMasuSts($loop, $loop2) != $color) && ($this->getMasuSts($loop, $loop2) != ReversiConst::$REVERSI_STS_NONE)) $flg2 = 1;
 			}
-			if ((flg1 == 1) && (flg2 == 0)) style = 1;
+			if (($flg1 == 1) && ($flg2 == 0)) $style = 1;
 		}
-		if (y == ($this->_mMasuCnt - 2) && x == 0) {
-			for (loop = y, flg1 = 0, flg2 = 0; loop > 0; loop--) {
-				if ($this->getMasuSts(loop, x) == color) flg1 = 1;
-				if (flg1 == 1 && $this->getMasuSts(loop, x) == ReversiConst::$REVERSI_STS_NONE) break;
-				if ((flg1 == 1) && ($this->getMasuSts(loop, x) != color) && ($this->getMasuSts(loop, x) != ReversiConst::$REVERSI_STS_NONE)) flg2 = 1;
+		if ($y == ($this->_mMasuCnt - 2) && $x == 0) {
+			for ($loop = $y, $flg1 = 0, $flg2 = 0; $loop > 0; $loop--) {
+				if ($this->getMasuSts($loop, $x) == $color) $flg1 = 1;
+				if ($flg1 == 1 && $this->getMasuSts($loop, $x) == ReversiConst::$REVERSI_STS_NONE) break;
+				if (($flg1 == 1) && ($this->getMasuSts($loop, $x) != $color) && ($this->getMasuSts($loop, $x) != ReversiConst::$REVERSI_STS_NONE)) $flg2 = 1;
 			}
-			if ((flg1 == 1) && (flg2 == 0)) style = 1;
+			if (($flg1 == 1) && ($flg2 == 0)) $style = 1;
 		}
-		if (y == ($this->_mMasuCnt - 1) && x == 1) {
-			for (loop = x, flg1 = 0, flg2 = 0; loop < $this->_mMasuCnt; loop++) {
-				if ($this->getMasuSts(y, loop) == color) flg1 = 1;
-				if (flg1 == 1 && $this->getMasuSts(y, loop) == ReversiConst::$REVERSI_STS_NONE) break;
-				if ((flg1 == 1) && ($this->getMasuSts(y, loop) != color) && ($this->getMasuSts(y, loop) != ReversiConst::$REVERSI_STS_NONE)) flg2 = 1;
+		if ($y == ($this->_mMasuCnt - 1) && $x == 1) {
+			for ($loop = $x, $flg1 = 0, $flg2 = 0; $loop < $this->_mMasuCnt; $loop++) {
+				if ($this->getMasuSts($y, $loop) == $color) $flg1 = 1;
+				if ($flg1 == 1 && $this->getMasuSts($y, $loop) == ReversiConst::$REVERSI_STS_NONE) break;
+				if (($flg1 == 1) && ($this->getMasuSts($y, $loop) != $color) && ($this->getMasuSts($y, $loop) != ReversiConst::$REVERSI_STS_NONE)) $flg2 = 1;
 			}
-			if ((flg1 == 1) && (flg2 == 0)) style = 1;
+			if (($flg1 == 1) && ($flg2 == 0)) $style = 1;
 		}
-		if (y == ($this->_mMasuCnt - 2) && x == 1) {
-			for (loop = y, loop2 = x, flg1 = 0, flg2 = 0; loop > 0; loop-- , loop2++) {
-				if ($this->getMasuSts(loop, loop2) == color) flg1 = 1;
-				if (flg1 == 1 && $this->getMasuSts(loop, loop2) == ReversiConst::$REVERSI_STS_NONE) break;
-				if ((flg1 == 1) && ($this->getMasuSts(loop, loop2) != color) && ($this->getMasuSts(loop, loop2) != ReversiConst::$REVERSI_STS_NONE)) flg2 = 1;
+		if ($y == ($this->_mMasuCnt - 2) && $x == 1) {
+			for ($loop = $y, $loop2 = $x, $flg1 = 0, $flg2 = 0; $loop > 0; $loop-- , $loop2++) {
+				if ($this->getMasuSts($loop, $loop2) == $color) $flg1 = 1;
+				if ($flg1 == 1 && $this->getMasuSts($loop, $loop2) == ReversiConst::$REVERSI_STS_NONE) break;
+				if (($flg1 == 1) && ($this->getMasuSts($loop, $loop2) != $color) && ($this->getMasuSts($loop, $loop2) != ReversiConst::$REVERSI_STS_NONE)) $flg2 = 1;
 			}
-			if ((flg1 == 1) && (flg2 == 0)) style = 1;
+			if (($flg1 == 1) && ($flg2 == 0)) $style = 1;
 		}
-		if (y == ($this->_mMasuCnt - 2) && x == ($this->_mMasuCnt - 1)) {
-			for (loop = y, flg1 = 0, flg2 = 0; loop > 0; loop--) {
-				if ($this->getMasuSts(loop, x) == color) flg1 = 1;
-				if (flg1 == 1 && $this->getMasuSts(loop, x) == ReversiConst::$REVERSI_STS_NONE) break;
-				if ((flg1 == 1) && ($this->getMasuSts(loop, x) != color) && ($this->getMasuSts(loop, x) != ReversiConst::$REVERSI_STS_NONE)) flg2 = 1;
+		if ($y == ($this->_mMasuCnt - 2) && $x == ($this->_mMasuCnt - 1)) {
+			for ($loop = $y, $flg1 = 0, $flg2 = 0; $loop > 0; $loop--) {
+				if ($this->getMasuSts($loop, $x) == $color) $flg1 = 1;
+				if ($flg1 == 1 && $this->getMasuSts($loop, $x) == ReversiConst::$REVERSI_STS_NONE) break;
+				if (($flg1 == 1) && ($this->getMasuSts($loop, $x) != $color) && ($this->getMasuSts($loop, $x) != ReversiConst::$REVERSI_STS_NONE)) $flg2 = 1;
 			}
-			if ((flg1 == 1) && (flg2 == 0)) style = 1;
+			if (($flg1 == 1) && ($flg2 == 0)) $style = 1;
 		}
-		if (y == ($this->_mMasuCnt - 1) && x == ($this->_mMasuCnt - 2)) {
-			for (loop = x, flg1 = 0, flg2 = 0; loop > 0; loop--) {
-				if ($this->getMasuSts(y, loop) == color) flg1 = 1;
-				if (flg1 == 1 && $this->getMasuSts(y, loop) == ReversiConst::$REVERSI_STS_NONE) break;
-				if ((flg1 == 1) && ($this->getMasuSts(y, loop) != color) && ($this->getMasuSts(y, loop) != ReversiConst::$REVERSI_STS_NONE)) flg2 = 1;
+		if ($y == ($this->_mMasuCnt - 1) && $x == ($this->_mMasuCnt - 2)) {
+			for ($loop = $x, $flg1 = 0, $flg2 = 0; $loop > 0; $loop--) {
+				if ($this->getMasuSts($y, $loop) == $color) $flg1 = 1;
+				if ($flg1 == 1 && $this->getMasuSts($y, $loop) == ReversiConst::$REVERSI_STS_NONE) break;
+				if (($flg1 == 1) && ($this->getMasuSts($y, $loop) != $color) && ($this->getMasuSts($y, $loop) != ReversiConst::$REVERSI_STS_NONE)) $flg2 = 1;
 			}
-			if ((flg1 == 1) && (flg2 == 0)) style = 1;
+			if (($flg1 == 1) && ($flg2 == 0)) $style = 1;
 		}
-		if (y == ($this->_mMasuCnt - 2) && x == ($this->_mMasuCnt - 2)) {
-			for (loop = y, loop2 = x, flg1 = 0, flg2 = 0; loop > 0; loop-- , loop2--) {
-				if ($this->getMasuSts(loop, loop2) == color) flg1 = 1;
-				if (flg1 == 1 && $this->getMasuSts(loop, loop2) == ReversiConst::$REVERSI_STS_NONE) break;
-				if ((flg1 == 1) && ($this->getMasuSts(loop, loop2) != color) && ($this->getMasuSts(loop, loop2) != ReversiConst::$REVERSI_STS_NONE)) flg2 = 1;
+		if ($y == ($this->_mMasuCnt - 2) && $x == ($this->_mMasuCnt - 2)) {
+			for ($loop = $y, $loop2 = $x, $flg1 = 0, $flg2 = 0; $loop > 0; $loop-- , $loop2--) {
+				if ($this->getMasuSts($loop, $loop2) == $color) $flg1 = 1;
+				if ($flg1 == 1 && $this->getMasuSts($loop, $loop2) == ReversiConst::$REVERSI_STS_NONE) break;
+				if (($flg1 == 1) && ($this->getMasuSts($loop, $loop2) != $color) && ($this->getMasuSts($loop, $loop2) != ReversiConst::$REVERSI_STS_NONE)) $flg2 = 1;
 			}
-			if ((flg1 == 1) && (flg2 == 0)) style = 1;
+			if (($flg1 == 1) && ($flg2 == 0)) $style = 1;
 		}
 
-		return style;
+		return $style;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			指定座標が角か取得
-	///	@fn				int getEdgeSideZero(int y, int x)
-	///	@param[in]		int y			Y座標
-	///	@param[in]		int x			X座標
+	///	@fn				getEdgeSideZero($y, $x)
+	///	@param[in]		$y			$y座標
+	///	@param[in]		$x			$x座標
 	///	@return			0 : 成功 それ以外 : 失敗
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getEdgeSideZero(int y, int x)
+	public function getEdgeSideZero($y, $x)
 	{
-		int ret = -1;
+		$ret = -1;
 		if (
-			(y == 0 && x == 0)
-			|| (y == 0 && x == ($this->_mMasuCnt - 1))
-			|| (y == ($this->_mMasuCnt - 1) && x == 0)
-			|| (y == ($this->_mMasuCnt - 1) && x == ($this->_mMasuCnt - 1))
+			($y == 0 && $x == 0)
+			|| ($y == 0 && $x == ($this->_mMasuCnt - 1))
+			|| ($y == ($this->_mMasuCnt - 1) && $x == 0)
+			|| ($y == ($this->_mMasuCnt - 1) && $x == ($this->_mMasuCnt - 1))
 		) {
-			ret = 0;
+			$ret = 0;
 		}
-		return ret;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			指定座標が角の一つ手前か取得
-	///	@fn				int getEdgeSideOne(int y, int x)
-	///	@param[in]		int y			Y座標
-	///	@param[in]		int x			X座標
+	///	@fn				getEdgeSideOne($y, $x)
+	///	@param[in]		$y			$y座標
+	///	@param[in]		$x			$x座標
 	///	@return			0 : 成功 それ以外 : 失敗
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getEdgeSideOne(int y, int x)
+	public function getEdgeSideOne($y, $x)
 	{
-		int ret = -1;
+		$ret = -1;
 		if (
-			(y == 0 && x == 1)
-			|| (y == 0 && x == ($this->_mMasuCnt - 2))
-			|| (y == 1 && x == 0)
-			|| (y == 1 && x == 1)
-			|| (y == 1 && x == ($this->_mMasuCnt - 2))
-			|| (y == 1 && x == ($this->_mMasuCnt - 1))
-			|| (y == ($this->_mMasuCnt - 2) && x == 0)
-			|| (y == ($this->_mMasuCnt - 2) && x == 1)
-			|| (y == ($this->_mMasuCnt - 2) && x == ($this->_mMasuCnt - 2))
-			|| (y == ($this->_mMasuCnt - 2) && x == ($this->_mMasuCnt - 1))
-			|| (y == ($this->_mMasuCnt - 1) && x == 1)
-			|| (y == ($this->_mMasuCnt - 1) && x == ($this->_mMasuCnt - 2))
+			($y == 0 && $x == 1)
+			|| ($y == 0 && $x == ($this->_mMasuCnt - 2))
+			|| ($y == 1 && $x == 0)
+			|| ($y == 1 && $x == 1)
+			|| ($y == 1 && $x == ($this->_mMasuCnt - 2))
+			|| ($y == 1 && $x == ($this->_mMasuCnt - 1))
+			|| ($y == ($this->_mMasuCnt - 2) && $x == 0)
+			|| ($y == ($this->_mMasuCnt - 2) && $x == 1)
+			|| ($y == ($this->_mMasuCnt - 2) && $x == ($this->_mMasuCnt - 2))
+			|| ($y == ($this->_mMasuCnt - 2) && $x == ($this->_mMasuCnt - 1))
+			|| ($y == ($this->_mMasuCnt - 1) && $x == 1)
+			|| ($y == ($this->_mMasuCnt - 1) && $x == ($this->_mMasuCnt - 2))
 		) {
-			ret = 0;
+			$ret = 0;
 		}
-		return ret;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			指定座標が角の二つ手前か取得
-	///	@fn				int getEdgeSideTwo(int y, int x)
-	///	@param[in]		int y			Y座標
-	///	@param[in]		int x			X座標
+	///	@fn				getEdgeSideTwo($y, $x)
+	///	@param[in]		$y			$y座標
+	///	@param[in]		$x			$x座標
 	///	@return			0 : 成功 それ以外 : 失敗
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getEdgeSideTwo(int y, int x)
+	public function getEdgeSideTwo($y, $x)
 	{
-		int ret = -1;
+		$ret = -1;
 		if (
-			(y == 0 && x == 2)
-			|| (y == 0 && x == ($this->_mMasuCnt - 3))
-			|| (y == 2 && x == 0)
-			|| (y == 2 && x == 2)
-			|| (y == 2 && x == ($this->_mMasuCnt - 3))
-			|| (y == 2 && x == ($this->_mMasuCnt - 1))
-			|| (y == ($this->_mMasuCnt - 3) && x == 0)
-			|| (y == ($this->_mMasuCnt - 3) && x == 2)
-			|| (y == ($this->_mMasuCnt - 3) && x == ($this->_mMasuCnt - 3))
-			|| (y == ($this->_mMasuCnt - 3) && x == ($this->_mMasuCnt - 1))
-			|| (y == ($this->_mMasuCnt - 1) && x == 2)
-			|| (y == ($this->_mMasuCnt - 1) && x == ($this->_mMasuCnt - 3))
+			($y == 0 && $x == 2)
+			|| ($y == 0 && $x == ($this->_mMasuCnt - 3))
+			|| ($y == 2 && $x == 0)
+			|| ($y == 2 && $x == 2)
+			|| ($y == 2 && $x == ($this->_mMasuCnt - 3))
+			|| ($y == 2 && $x == ($this->_mMasuCnt - 1))
+			|| ($y == ($this->_mMasuCnt - 3) && $x == 0)
+			|| ($y == ($this->_mMasuCnt - 3) && $x == 2)
+			|| ($y == ($this->_mMasuCnt - 3) && $x == ($this->_mMasuCnt - 3))
+			|| ($y == ($this->_mMasuCnt - 3) && $x == ($this->_mMasuCnt - 1))
+			|| ($y == ($this->_mMasuCnt - 1) && $x == 2)
+			|| ($y == ($this->_mMasuCnt - 1) && $x == ($this->_mMasuCnt - 3))
 		) {
-			ret = 0;
+			$ret = 0;
 		}
-		return ret;
+		return $ret;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			指定座標が角の三つ以上手前か取得
-	///	@fn				int getEdgeSideThree(int y, int x)
-	///	@param[in]		int y			Y座標
-	///	@param[in]		int x			X座標
+	///	@fn				getEdgeSideThree($y, $x)
+	///	@param[in]		$y			$y座標
+	///	@param[in]		$x			$x座標
 	///	@return			0 : 成功 それ以外 : 失敗
 	///	@author			Yuta Yoshinaga
-	///	@date			2017.10.20
+	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	public int getEdgeSideThree(int y, int x)
+	public function getEdgeSideThree($y, $x)
 	{
-		int ret = -1;
+		$ret = -1;
 		if (
-			(y == 0 && (3 <= x && x <= ($this->_mMasuCnt - 4)))
-			|| ((3 <= y && y <= ($this->_mMasuCnt - 4)) && x == 0)
-			|| (y == ($this->_mMasuCnt - 1) && (3 <= x && x <= ($this->_mMasuCnt - 4)))
-			|| ((3 <= y && y <= ($this->_mMasuCnt - 4)) && x == ($this->_mMasuCnt - 1))
+			($y == 0 && (3 <= $x && $x <= ($this->_mMasuCnt - 4)))
+			|| ((3 <= $y && $y <= ($this->_mMasuCnt - 4)) && $x == 0)
+			|| ($y == ($this->_mMasuCnt - 1) && (3 <= $x && $x <= ($this->_mMasuCnt - 4)))
+			|| ((3 <= $y && $y <= ($this->_mMasuCnt - 4)) && $x == ($this->_mMasuCnt - 1))
 		) {
-			ret = 0;
+			$ret = 0;
 		}
-		return ret;
+		return $ret;
 	}
 }
 

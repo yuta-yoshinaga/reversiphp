@@ -1,0 +1,174 @@
+[TestReversiSetting] Start
+**************************
+ - [OK] Class new SUCCESS
+ - [OK] getmMode() SUCCESS
+ - [OK] setmMode() SUCCESS
+ - [OK] getmType() SUCCESS
+ - [OK] setmType() SUCCESS
+ - [OK] getmPlayer() SUCCESS
+ - [OK] setmPlayer() SUCCESS
+ - [OK] getmAssist() SUCCESS
+ - [OK] setmAssist() SUCCESS
+ - [OK] getmGameSpd() SUCCESS
+ - [OK] setmGameSpd() SUCCESS
+ - [OK] getmEndAnim() SUCCESS
+ - [OK] setmEndAnim() SUCCESS
+ - [OK] getmMasuCntMenu() SUCCESS
+ - [OK] setmMasuCntMenu() SUCCESS
+ - [OK] getmPlayCpuInterVal() SUCCESS
+ - [OK] setmPlayCpuInterVal() SUCCESS
+ - [OK] getmPlayDrawInterVal() SUCCESS
+ - [OK] setmPlayDrawInterVal() SUCCESS
+ - [OK] getmEndDrawInterVal() SUCCESS
+ - [OK] setmEndDrawInterVal() SUCCESS
+ - [OK] getmEndInterVal() SUCCESS
+ - [OK] setmEndInterVal() SUCCESS
+ - [OK] getmPlayerColor1() SUCCESS
+ - [OK] setmPlayerColor1() SUCCESS
+ - [OK] getmPlayerColor2() SUCCESS
+ - [OK] setmPlayerColor2() SUCCESS
+ - [OK] getmBackGroundColor() SUCCESS
+ - [OK] setmBackGroundColor() SUCCESS
+ - [OK] getmBorderColor() SUCCESS
+ - [OK] setmBorderColor() SUCCESS
+ - [OK] reset() SUCCESS
+**************************
+[TestReversiPoint] End 32 / 32 SUCCESS
+
+[TestReversiPoint] Start
+**************************
+ - [OK] Class new SUCCESS
+ - [OK] getx() SUCCESS
+ - [OK] setx() SUCCESS
+ - [OK] gety() SUCCESS
+ - [OK] sety() SUCCESS
+**************************
+[TestReversiPoint] End 5 / 5 SUCCESS
+
+[TestReversiHistory] Start
+**************************
+ - [OK] Class new SUCCESS
+ - [OK] getPoint() SUCCESS
+ - [OK] setPoint() SUCCESS
+ - [OK] getColor() SUCCESS
+ - [OK] setColor() SUCCESS
+ - [OK] reset() SUCCESS
+**************************
+[TestReversiHistory] End 6 / 6 SUCCESS
+
+[TestReversiAnz] Start
+**************************
+ - [OK] Class new SUCCESS
+ - [OK] getMin() SUCCESS
+ - [OK] setMin() SUCCESS
+ - [OK] getMax() SUCCESS
+ - [OK] setMax() SUCCESS
+ - [OK] getAvg() SUCCESS
+ - [OK] setAvg() SUCCESS
+ - [OK] getPointCnt() SUCCESS
+ - [OK] setPointCnt() SUCCESS
+ - [OK] getEdgeCnt() SUCCESS
+ - [OK] setEdgeCnt() SUCCESS
+ - [OK] getEdgeSideOneCnt() SUCCESS
+ - [OK] setEdgeSideOneCnt() SUCCESS
+ - [OK] getEdgeSideTwoCntEdgeSideOneCnt() SUCCESS
+ - [OK] setEdgeSideTwoCntEdgeSideOneCnt() SUCCESS
+ - [OK] getEdgeSideThreeCnt() SUCCESS
+ - [OK] setEdgeSideThreeCnt() SUCCESS
+ - [OK] getEdgeSideOtherCnt() SUCCESS
+ - [OK] setEdgeSideOtherCnt() SUCCESS
+ - [OK] getOwnMin() SUCCESS
+ - [OK] setOwnMin() SUCCESS
+ - [OK] getOwnMax() SUCCESS
+ - [OK] setOwnMax() SUCCESS
+ - [OK] getOwnAvg() SUCCESS
+ - [OK] setOwnAvg() SUCCESS
+ - [OK] getOwnPointCnt() SUCCESS
+ - [OK] setOwnPointCnt() SUCCESS
+ - [OK] getOwnEdgeCnt() SUCCESS
+ - [OK] setOwnEdgeCnt() SUCCESS
+ - [OK] getOwnEdgeSideOneCnt() SUCCESS
+ - [OK] setOwnEdgeSideOneCnt() SUCCESS
+ - [OK] getOwnEdgeSideTwoCnt() SUCCESS
+ - [OK] setOwnEdgeSideTwoCnt() SUCCESS
+ - [OK] getOwnEdgeSideThreeCnt() SUCCESS
+ - [OK] setOwnEdgeSideThreeCnt() SUCCESS
+ - [OK] getOwnEdgeSideOtherCnt() SUCCESS
+ - [OK] setOwnEdgeSideOtherCnt() SUCCESS
+ - [OK] getBadPoint() SUCCESS
+ - [OK] setBadPoint() SUCCESS
+ - [OK] getGoodPoint() SUCCESS
+ - [OK] setGoodPoint() SUCCESS
+ - [OK] reset() SUCCESS
+**************************
+[TestReversiAnz] End 42 / 42 SUCCESS
+
+[TestReversi] Start
+**************************
+ - [OK] Class new SUCCESS
+ - [OK] getmMasuSts() SUCCESS
+ - [OK] setmMasuSts() SUCCESS
+ - [OK] getmMasuStsOld() SUCCESS
+ - [OK] setmMasuStsOld() SUCCESS
+ - [OK] getmMasuStsEnaB() SUCCESS
+ - [OK] setmMasuStsEnaB() SUCCESS
+ - [OK] getmMasuStsCntB() SUCCESS
+ - [OK] setmMasuStsCntB() SUCCESS
+ - [OK] getmMasuStsPassB() SUCCESS
+ - [OK] setmMasuStsPassB() SUCCESS
+ - [OK] getmMasuStsAnzB() SUCCESS
+ - [OK] setmMasuStsAnzB() SUCCESS
+ - [OK] getmMasuPointB() SUCCESS
+ - [OK] setmMasuPointB() SUCCESS
+ - [OK] getmMasuPointCntB() SUCCESS
+ - [OK] setmMasuPointCntB() SUCCESS
+ - [OK] getmMasuBetCntB() SUCCESS
+ - [OK] setmMasuBetCntB() SUCCESS
+ - [OK] getmMasuStsEnaW() SUCCESS
+ - [OK] setmMasuStsEnaW() SUCCESS
+ - [OK] getmMasuStsCntW() SUCCESS
+ - [OK] setmMasuStsCntW() SUCCESS
+ - [OK] getmMasuStsPassW() SUCCESS
+ - [OK] setmMasuStsPassW() SUCCESS
+ - [OK] getmMasuStsAnzW() SUCCESS
+ - [OK] setmMasuStsAnzW() SUCCESS
+ - [OK] getmMasuPointW() SUCCESS
+ - [OK] setmMasuPointW() SUCCESS
+ - [OK] getmMasuPointCntW() SUCCESS
+ - [OK] setmMasuPointCntW() SUCCESS
+ - [OK] getmMasuBetCntW() SUCCESS
+ - [OK] setmMasuBetCntW() SUCCESS
+ - [OK] getmMasuCnt() SUCCESS
+ - [OK] setmMasuCnt() SUCCESS
+ - [OK] getmMasuCntMax() SUCCESS
+ - [OK] setmMasuCntMax() SUCCESS
+ - [OK] getmMasuHistCur() SUCCESS
+ - [OK] setmMasuHistCur() SUCCESS
+ - [OK] getmMasuHist() SUCCESS
+ - [OK] setmMasuHist() SUCCESS
+ - [OK] reset() SUCCESS
+ - [OK] AnalysisReversi() SUCCESS
+ - [OK] getMasuSts() SUCCESS
+ - [OK] getMasuStsOld() SUCCESS
+ - [OK] getMasuStsEna() SUCCESS
+ - [OK] getMasuStsCnt() SUCCESS
+ - [OK] getColorEna() SUCCESS
+ - [OK] getGameEndSts() SUCCESS
+ - [OK] setMasuSts() SUCCESS
+ - [OK] setMasuStsForcibly() SUCCESS
+ - [OK] setMasuCnt() SUCCESS
+ - [OK] getPoint() SUCCESS
+ - [OK] getPointCnt() SUCCESS
+ - [OK] getBetCnt() SUCCESS
+ - [OK] getPassEna() SUCCESS
+ - [OK] getHistory() SUCCESS
+ - [OK] getHistoryCnt() SUCCESS
+ - [OK] getPointAnz() SUCCESS
+ - [OK] checkEdge() SUCCESS
+ - [OK] getEdgeSideZero() SUCCESS
+ - [OK] getEdgeSideOne() SUCCESS
+ - [OK] getEdgeSideTwo() SUCCESS
+ - [OK] getEdgeSideThree() SUCCESS
+**************************
+[TestReversi] End 64 / 64 SUCCESS
+
