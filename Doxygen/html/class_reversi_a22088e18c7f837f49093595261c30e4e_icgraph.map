@@ -1,0 +1,8 @@
+<map id="getMasuStsEna" name="getMasuStsEna">
+<area shape="rect" id="node2" href="$class_reversi.html#a471972ec549188f7eb701d57e14ae7a1" title="解析を行う(黒) " alt="" coords="310,107,457,133"/>
+<area shape="rect" id="node4" href="$class_reversi.html#a3c30afb2509b0782b1c22a8770c68c48" title="解析を行う(白) " alt="" coords="309,5,457,32"/>
+<area shape="rect" id="node5" href="$class_reversi.html#aead5ee041feb6ac2609266614ea06f78" title="指定色が現在置ける場所があるかチェック " alt="" coords="168,56,261,83"/>
+<area shape="rect" id="node7" href="$class_reversi.html#a26f3168c7d94e70d344841d65885a4ac" title="指定座標にコマを置く " alt="" coords="169,157,261,184"/>
+<area shape="rect" id="node3" href="$class_reversi.html#ae15e49622562732d31d44a75a14c3b45" title="解析を行う " alt="" coords="505,56,620,83"/>
+<area shape="rect" id="node6" href="$class_reversi.html#aab9985c789e464de6cf99d7d725cb5a3" title="ゲーム終了かチェック " alt="" coords="324,56,443,83"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="execMessage" name="execMessage">
+<area shape="rect" id="node2" href="$class_reversi_play.html#a52029e5f2e049767d1f67c3f5c18ce9f" title="マス描画更新 " alt="" coords="363,54,454,80"/>
+<area shape="rect" id="node3" href="$class_reversi_play.html#a8c229d4a0cfa72f4e9605042486d58f2" title="リバーシプレイ " alt="" coords="837,104,923,131"/>
+<area shape="rect" id="node4" href="$class_reversi_play.html#a6514ad9244af720ee1ec1777c11e80fb" title="リバーシプレイコンピューター " alt="" coords="525,155,633,182"/>
+<area shape="rect" id="node6" href="$class_reversi_play.html#a3ae28eb121caf59932218ea7d1fca81d" title="マス描画強制更新 " alt="" coords="156,358,292,384"/>
+<area shape="rect" id="node7" href="$class_reversi_play.html#a4a20559544fdf4dcb457e258dc976cf8" title="リセット処理 " alt="" coords="383,383,434,410"/>
+<area shape="rect" id="node8" href="$class_reversi_play.html#acbcd366da8242203ae52fb685fbc929e" title="ゲーム終了アニメーション " alt="" coords="340,256,477,283"/>
+<area shape="rect" id="node9" href="$class_reversi_play.html#af55fe6b6f2005c7da80c696ed692783d" title="リバーシプレイ終了 " alt="" coords="525,244,633,271"/>
+<area shape="rect" id="node10" href="$class_reversi_play.html#a829b61937e857a9f1b5b371be25dbabd" title="情報描画メッセージ送信 " alt="" coords="162,54,286,80"/>
+<area shape="rect" id="node11" href="$class_reversi_play.html#af27aaf13f15a080c006432338a06c481" title="描画メッセージ送信 " alt="" coords="172,155,276,182"/>
+<area shape="rect" id="node5" href="$class_reversi_play.html#a990fc6e45b7bdf2dab569f087f8b5a62" title="リバーシプレイサブ " alt="" coords="681,155,789,182"/>
+</map>

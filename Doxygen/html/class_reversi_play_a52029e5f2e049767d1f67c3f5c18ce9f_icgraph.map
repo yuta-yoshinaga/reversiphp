@@ -1,0 +1,5 @@
+<map id="drawUpdate" name="drawUpdate">
+<area shape="rect" id="node2" href="$class_reversi_play.html#a8c229d4a0cfa72f4e9605042486d58f2" title="リバーシプレイ " alt="" coords="456,5,541,32"/>
+<area shape="rect" id="node3" href="$class_reversi_play.html#a6514ad9244af720ee1ec1777c11e80fb" title="リバーシプレイコンピューター " alt="" coords="144,31,252,57"/>
+<area shape="rect" id="node4" href="$class_reversi_play.html#a990fc6e45b7bdf2dab569f087f8b5a62" title="リバーシプレイサブ " alt="" coords="300,31,408,57"/>
+</map>

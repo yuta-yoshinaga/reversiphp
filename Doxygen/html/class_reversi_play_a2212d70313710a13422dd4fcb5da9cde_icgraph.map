@@ -1,0 +1,6 @@
+<map id="ViewMsgDlgLocal" name="ViewMsgDlgLocal">
+<area shape="rect" id="node2" href="$class_reversi_play.html#a8c229d4a0cfa72f4e9605042486d58f2" title="リバーシプレイ " alt="" coords="497,50,583,77"/>
+<area shape="rect" id="node3" href="$class_reversi_play.html#af55fe6b6f2005c7da80c696ed692783d" title="リバーシプレイ終了 " alt="" coords="182,25,290,51"/>
+<area shape="rect" id="node5" href="$class_reversi_play.html#a67816fe65a87e35d8e8cc35d5d269bcb" title="リバーシプレイパス " alt="" coords="179,75,293,102"/>
+<area shape="rect" id="node4" href="$class_reversi_play.html#a990fc6e45b7bdf2dab569f087f8b5a62" title="リバーシプレイサブ " alt="" coords="341,75,449,102"/>
+</map>

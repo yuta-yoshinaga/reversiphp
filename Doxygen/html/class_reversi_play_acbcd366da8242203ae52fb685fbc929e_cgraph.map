@@ -1,0 +1,7 @@
+<map id="gameEndAnimExec" name="gameEndAnimExec">
+<area shape="rect" id="node2" href="$class_reversi_play.html#ae8beea2648c1c5cf722364e84a90edf9" title="メッセージ " alt="" coords="343,56,445,83"/>
+<area shape="rect" id="node6" href="$class_reversi_play.html#af27aaf13f15a080c006432338a06c481" title="描画メッセージ送信 " alt="" coords="191,81,295,108"/>
+<area shape="rect" id="node3" href="$class_reversi_play.html#af0649b9d4a899e0802c739928136de99" title="1マス描画 " alt="" coords="493,5,612,32"/>
+<area shape="rect" id="node4" href="$class_reversi_play.html#aa217a221907e90c97719f8332c60a6d6" title="現在の色メッセージ " alt="" coords="494,56,611,83"/>
+<area shape="rect" id="node5" href="$class_reversi_play.html#ae3da8fb1a3a365c6e5254e5cf6f1e7bc" title="現在のステータスメッセージ " alt="" coords="493,107,612,133"/>
+</map>

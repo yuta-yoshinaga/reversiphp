@@ -1,0 +1,9 @@
+<map id="reversiPlayEnd" name="reversiPlayEnd">
+<area shape="rect" id="node2" href="$class_reversi_play.html#acbcd366da8242203ae52fb685fbc929e" title="ゲーム終了アニメーション " alt="" coords="161,56,299,83"/>
+<area shape="rect" id="node3" href="$class_reversi_play.html#ae8beea2648c1c5cf722364e84a90edf9" title="メッセージ " alt="" coords="499,56,601,83"/>
+<area shape="rect" id="node8" href="$class_reversi_play.html#a2212d70313710a13422dd4fcb5da9cde" title="メッセージダイアログ " alt="" coords="167,157,293,184"/>
+<area shape="rect" id="node7" href="$class_reversi_play.html#af27aaf13f15a080c006432338a06c481" title="描画メッセージ送信 " alt="" coords="347,56,451,83"/>
+<area shape="rect" id="node4" href="$class_reversi_play.html#af0649b9d4a899e0802c739928136de99" title="1マス描画 " alt="" coords="649,5,768,32"/>
+<area shape="rect" id="node5" href="$class_reversi_play.html#aa217a221907e90c97719f8332c60a6d6" title="現在の色メッセージ " alt="" coords="650,56,767,83"/>
+<area shape="rect" id="node6" href="$class_reversi_play.html#ae3da8fb1a3a365c6e5254e5cf6f1e7bc" title="現在のステータスメッセージ " alt="" coords="649,107,768,133"/>
+</map>

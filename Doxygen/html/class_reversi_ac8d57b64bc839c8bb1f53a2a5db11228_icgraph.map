@@ -1,0 +1,18 @@
+<map id="checkPara" name="checkPara">
+<area shape="rect" id="node2" href="$class_reversi.html#a41cae82a798f2b3d0684bda44b837fcf" title="履歴取得 " alt="" coords="154,5,235,32"/>
+<area shape="rect" id="node3" href="$class_reversi.html#a1baed538e7a503cd51850d368b9e65f7" title="マスステータスを取得 " alt="" coords="149,56,241,83"/>
+<area shape="rect" id="node8" href="$class_reversi.html#a10bfc13effc2db9a681a2906792be453" title="指定座標の獲得コマ数取得 " alt="" coords="139,157,251,184"/>
+<area shape="rect" id="node9" href="$class_reversi.html#a22088e18c7f837f49093595261c30e4e" title="指定座標に指定色を置けるかチェック " alt="" coords="137,107,252,133"/>
+<area shape="rect" id="node13" href="$class_reversi.html#a1688a929d3917e19510f6501c42d6a2b" title="以前のマスステータスを取得 " alt="" coords="139,208,251,235"/>
+<area shape="rect" id="node14" href="$class_reversi.html#a123959981f8e1d48fc7b9d183a5c6d0a" title="パス判定 " alt="" coords="148,259,241,285"/>
+<area shape="rect" id="node15" href="$class_reversi.html#ad059cc09b0001edd980f43770380b863" title="ポイント座標取得 " alt="" coords="159,309,230,336"/>
+<area shape="rect" id="node16" href="$class_reversi.html#af1a30d438a7d17f31353b9d4bfe9cb65" title="ポイント座標解析取得 " alt="" coords="148,360,241,387"/>
+<area shape="rect" id="node17" href="$class_reversi.html#ab6853cc0f53e50a70d576f15296f0864" title="マスの数変更 " alt="" coords="149,411,241,437"/>
+<area shape="rect" id="node4" href="$class_reversi.html#acd2c64ea43cc26407ad64920a183446b" title="角の隣に置いても角を取られないマス検索 " alt="" coords="303,5,390,32"/>
+<area shape="rect" id="node5" href="$class_reversi.html#a471972ec549188f7eb701d57e14ae7a1" title="解析を行う(黒) " alt="" coords="442,107,589,133"/>
+<area shape="rect" id="node7" href="$class_reversi.html#a3c30afb2509b0782b1c22a8770c68c48" title="解析を行う(白) " alt="" coords="441,56,589,83"/>
+<area shape="rect" id="node6" href="$class_reversi.html#ae15e49622562732d31d44a75a14c3b45" title="解析を行う " alt="" coords="637,81,752,108"/>
+<area shape="rect" id="node10" href="$class_reversi.html#aead5ee041feb6ac2609266614ea06f78" title="指定色が現在置ける場所があるかチェック " alt="" coords="300,208,393,235"/>
+<area shape="rect" id="node12" href="$class_reversi.html#a26f3168c7d94e70d344841d65885a4ac" title="指定座標にコマを置く " alt="" coords="301,157,393,184"/>
+<area shape="rect" id="node11" href="$class_reversi.html#aab9985c789e464de6cf99d7d725cb5a3" title="ゲーム終了かチェック " alt="" coords="456,208,575,235"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="setMasuSts" name="setMasuSts">
+<area shape="rect" id="node2" href="$class_reversi.html#a22088e18c7f837f49093595261c30e4e" title="指定座標に指定色を置けるかチェック " alt="" coords="145,5,260,32"/>
+<area shape="rect" id="node4" href="$class_reversi.html#af29cd3f41dc1cffead056dbbed55ae7a" title="コマをひっくり返す " alt="" coords="157,56,248,83"/>
+<area shape="rect" id="node5" href="$class_reversi.html#a88869682786bb7c45c3488113deaa789" title="各コマの置ける場所等のステータス作成 " alt="" coords="149,107,256,133"/>
+<area shape="rect" id="node3" href="$class_reversi.html#ac8d57b64bc839c8bb1f53a2a5db11228" title="パラメーター範囲チェック " alt="" coords="308,5,392,32"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="AnalysisReversi" name="AnalysisReversi">
+<area shape="rect" id="node2" href="$class_reversi.html#a471972ec549188f7eb701d57e14ae7a1" title="解析を行う(黒) " alt="" coords="169,259,315,285"/>
+<area shape="rect" id="node4" href="$class_reversi.html#a88869682786bb7c45c3488113deaa789" title="各コマの置ける場所等のステータス作成 " alt="" coords="375,5,481,32"/>
+<area shape="rect" id="node15" href="$class_reversi.html#a3c30afb2509b0782b1c22a8770c68c48" title="解析を行う(白) " alt="" coords="168,208,316,235"/>
+<area shape="rect" id="node3" href="$class_reversi.html#af29cd3f41dc1cffead056dbbed55ae7a" title="コマをひっくり返す " alt="" coords="383,157,473,184"/>
+<area shape="rect" id="node5" href="$class_reversi.html#aead5ee041feb6ac2609266614ea06f78" title="指定色が現在置ける場所があるかチェック " alt="" coords="381,107,475,133"/>
+<area shape="rect" id="node6" href="$class_reversi.html#a22088e18c7f837f49093595261c30e4e" title="指定座標に指定色を置けるかチェック " alt="" coords="540,120,655,147"/>
+<area shape="rect" id="node8" href="$class_reversi.html#a76a7addedc2b0ba83c6b46ce0601076c" title="指定座標が角か取得 " alt="" coords="367,259,489,285"/>
+<area shape="rect" id="node9" href="$class_reversi.html#a98aff7f2db3a9feacbe98293c6b80eb4" title="指定座標が角の一つ手前か取得 " alt="" coords="368,309,488,336"/>
+<area shape="rect" id="node10" href="$class_reversi.html#acd2c64ea43cc26407ad64920a183446b" title="角の隣に置いても角を取られないマス検索 " alt="" coords="385,208,471,235"/>
+<area shape="rect" id="node12" href="$class_reversi.html#a968982683aa41f50c83789a9be05aaba" title="指定座標が角の二つ手前か取得 " alt="" coords="369,360,487,387"/>
+<area shape="rect" id="node13" href="$class_reversi.html#ab299d2488c8ab29f646e449d3204efbc" title="指定座標が角の三つ以上手前か取得 " alt="" coords="364,411,492,437"/>
+<area shape="rect" id="node14" href="$class_reversi.html#af538d04718f177f71461f582f3bd8eba" title="ポイント座標数取得 " alt="" coords="383,461,473,488"/>
+<area shape="rect" id="node7" href="$class_reversi.html#ac8d57b64bc839c8bb1f53a2a5db11228" title="パラメーター範囲チェック " alt="" coords="703,159,787,185"/>
+<area shape="rect" id="node11" href="$class_reversi.html#a1baed538e7a503cd51850d368b9e65f7" title="マスステータスを取得 " alt="" coords="551,196,643,223"/>
+</map>

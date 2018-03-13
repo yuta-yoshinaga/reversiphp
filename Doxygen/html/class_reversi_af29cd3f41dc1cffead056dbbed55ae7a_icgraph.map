@@ -1,0 +1,6 @@
+<map id="revMasuSts" name="revMasuSts">
+<area shape="rect" id="node2" href="$class_reversi.html#a471972ec549188f7eb701d57e14ae7a1" title="解析を行う(黒) " alt="" coords="145,5,291,32"/>
+<area shape="rect" id="node4" href="$class_reversi.html#a3c30afb2509b0782b1c22a8770c68c48" title="解析を行う(白) " alt="" coords="144,56,292,83"/>
+<area shape="rect" id="node5" href="$class_reversi.html#a26f3168c7d94e70d344841d65885a4ac" title="指定座標にコマを置く " alt="" coords="172,107,264,133"/>
+<area shape="rect" id="node3" href="$class_reversi.html#ae15e49622562732d31d44a75a14c3b45" title="解析を行う " alt="" coords="340,31,455,57"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="execMessage" name="execMessage">
+<area shape="rect" id="node2" href="$class_reversi_play.html#af0649b9d4a899e0802c739928136de99" title="1マス描画 " alt="" coords="156,5,275,32"/>
+<area shape="rect" id="node3" href="$class_reversi_play.html#aa217a221907e90c97719f8332c60a6d6" title="現在の色メッセージ " alt="" coords="157,56,274,83"/>
+<area shape="rect" id="node4" href="$class_reversi_play.html#ae3da8fb1a3a365c6e5254e5cf6f1e7bc" title="現在のステータスメッセージ " alt="" coords="156,107,275,133"/>
+</map>

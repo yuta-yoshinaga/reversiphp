@@ -1,0 +1,5 @@
+<map id="setMasuCnt" name="setMasuCnt">
+<area shape="rect" id="node2" href="$class_reversi.html#ac8d57b64bc839c8bb1f53a2a5db11228" title="パラメーター範囲チェック " alt="" coords="145,5,229,32"/>
+<area shape="rect" id="node3" href="$class_reversi.html#a4a20559544fdf4dcb457e258dc976cf8" title="リセット " alt="" coords="162,56,213,83"/>
+<area shape="rect" id="node4" href="$class_reversi.html#a88869682786bb7c45c3488113deaa789" title="各コマの置ける場所等のステータス作成 " alt="" coords="277,56,384,83"/>
+</map>

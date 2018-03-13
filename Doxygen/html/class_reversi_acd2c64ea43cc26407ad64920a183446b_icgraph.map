@@ -1,0 +1,5 @@
+<map id="checkEdge" name="checkEdge">
+<area shape="rect" id="node2" href="$class_reversi.html#a471972ec549188f7eb701d57e14ae7a1" title="解析を行う(黒) " alt="" coords="141,5,287,32"/>
+<area shape="rect" id="node4" href="$class_reversi.html#a3c30afb2509b0782b1c22a8770c68c48" title="解析を行う(白) " alt="" coords="140,56,288,83"/>
+<area shape="rect" id="node3" href="$class_reversi.html#ae15e49622562732d31d44a75a14c3b45" title="解析を行う " alt="" coords="336,31,451,57"/>
+</map>

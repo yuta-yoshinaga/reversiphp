@@ -1,0 +1,690 @@
+[TestReversiSetting] Start
+**************************
+ - [OK] Class new SUCCESS
+ - [OK] getmMode() SUCCESS
+ - [OK] setmMode() SUCCESS
+ - [OK] getmType() SUCCESS
+ - [OK] setmType() SUCCESS
+ - [OK] getmPlayer() SUCCESS
+ - [OK] setmPlayer() SUCCESS
+ - [OK] getmAssist() SUCCESS
+ - [OK] setmAssist() SUCCESS
+ - [OK] getmGameSpd() SUCCESS
+ - [OK] setmGameSpd() SUCCESS
+ - [OK] getmEndAnim() SUCCESS
+ - [OK] setmEndAnim() SUCCESS
+ - [OK] getmMasuCntMenu() SUCCESS
+ - [OK] setmMasuCntMenu() SUCCESS
+ - [OK] getmPlayCpuInterVal() SUCCESS
+ - [OK] setmPlayCpuInterVal() SUCCESS
+ - [OK] getmPlayDrawInterVal() SUCCESS
+ - [OK] setmPlayDrawInterVal() SUCCESS
+ - [OK] getmEndDrawInterVal() SUCCESS
+ - [OK] setmEndDrawInterVal() SUCCESS
+ - [OK] getmEndInterVal() SUCCESS
+ - [OK] setmEndInterVal() SUCCESS
+ - [OK] getmPlayerColor1() SUCCESS
+ - [OK] setmPlayerColor1() SUCCESS
+ - [OK] getmPlayerColor2() SUCCESS
+ - [OK] setmPlayerColor2() SUCCESS
+ - [OK] getmBackGroundColor() SUCCESS
+ - [OK] setmBackGroundColor() SUCCESS
+ - [OK] getmBorderColor() SUCCESS
+ - [OK] setmBorderColor() SUCCESS
+ - [OK] reset() SUCCESS
+**************************
+[TestReversiPoint] End 32 / 32 SUCCESS
+
+[TestReversiPoint] Start
+**************************
+ - [OK] Class new SUCCESS
+ - [OK] getx() SUCCESS
+ - [OK] setx() SUCCESS
+ - [OK] gety() SUCCESS
+ - [OK] sety() SUCCESS
+**************************
+[TestReversiPoint] End 5 / 5 SUCCESS
+
+[TestReversiHistory] Start
+**************************
+ - [OK] Class new SUCCESS
+ - [OK] getPoint() SUCCESS
+ - [OK] setPoint() SUCCESS
+ - [OK] getColor() SUCCESS
+ - [OK] setColor() SUCCESS
+ - [OK] reset() SUCCESS
+**************************
+[TestReversiHistory] End 6 / 6 SUCCESS
+
+[TestReversiAnz] Start
+**************************
+ - [OK] Class new SUCCESS
+ - [OK] getMin() SUCCESS
+ - [OK] setMin() SUCCESS
+ - [OK] getMax() SUCCESS
+ - [OK] setMax() SUCCESS
+ - [OK] getAvg() SUCCESS
+ - [OK] setAvg() SUCCESS
+ - [OK] getPointCnt() SUCCESS
+ - [OK] setPointCnt() SUCCESS
+ - [OK] getEdgeCnt() SUCCESS
+ - [OK] setEdgeCnt() SUCCESS
+ - [OK] getEdgeSideOneCnt() SUCCESS
+ - [OK] setEdgeSideOneCnt() SUCCESS
+ - [OK] getEdgeSideTwoCntEdgeSideOneCnt() SUCCESS
+ - [OK] setEdgeSideTwoCntEdgeSideOneCnt() SUCCESS
+ - [OK] getEdgeSideThreeCnt() SUCCESS
+ - [OK] setEdgeSideThreeCnt() SUCCESS
+ - [OK] getEdgeSideOtherCnt() SUCCESS
+ - [OK] setEdgeSideOtherCnt() SUCCESS
+ - [OK] getOwnMin() SUCCESS
+ - [OK] setOwnMin() SUCCESS
+ - [OK] getOwnMax() SUCCESS
+ - [OK] setOwnMax() SUCCESS
+ - [OK] getOwnAvg() SUCCESS
+ - [OK] setOwnAvg() SUCCESS
+ - [OK] getOwnPointCnt() SUCCESS
+ - [OK] setOwnPointCnt() SUCCESS
+ - [OK] getOwnEdgeCnt() SUCCESS
+ - [OK] setOwnEdgeCnt() SUCCESS
+ - [OK] getOwnEdgeSideOneCnt() SUCCESS
+ - [OK] setOwnEdgeSideOneCnt() SUCCESS
+ - [OK] getOwnEdgeSideTwoCnt() SUCCESS
+ - [OK] setOwnEdgeSideTwoCnt() SUCCESS
+ - [OK] getOwnEdgeSideThreeCnt() SUCCESS
+ - [OK] setOwnEdgeSideThreeCnt() SUCCESS
+ - [OK] getOwnEdgeSideOtherCnt() SUCCESS
+ - [OK] setOwnEdgeSideOtherCnt() SUCCESS
+ - [OK] getBadPoint() SUCCESS
+ - [OK] setBadPoint() SUCCESS
+ - [OK] getGoodPoint() SUCCESS
+ - [OK] setGoodPoint() SUCCESS
+ - [OK] reset() SUCCESS
+**************************
+[TestReversiAnz] End 42 / 42 SUCCESS
+
+[TestReversi] Start
+**************************
+ - [OK] Class new SUCCESS
+ - [OK] getmMasuSts() SUCCESS
+ - [OK] setmMasuSts() SUCCESS
+ - [OK] getmMasuStsOld() SUCCESS
+ - [OK] setmMasuStsOld() SUCCESS
+ - [OK] getmMasuStsEnaB() SUCCESS
+ - [OK] setmMasuStsEnaB() SUCCESS
+ - [OK] getmMasuStsCntB() SUCCESS
+ - [OK] setmMasuStsCntB() SUCCESS
+ - [OK] getmMasuStsPassB() SUCCESS
+ - [OK] setmMasuStsPassB() SUCCESS
+ - [OK] getmMasuStsAnzB() SUCCESS
+ - [OK] setmMasuStsAnzB() SUCCESS
+ - [OK] getmMasuPointB() SUCCESS
+ - [OK] setmMasuPointB() SUCCESS
+ - [OK] getmMasuPointCntB() SUCCESS
+ - [OK] setmMasuPointCntB() SUCCESS
+ - [OK] getmMasuBetCntB() SUCCESS
+ - [OK] setmMasuBetCntB() SUCCESS
+ - [OK] getmMasuStsEnaW() SUCCESS
+ - [OK] setmMasuStsEnaW() SUCCESS
+ - [OK] getmMasuStsCntW() SUCCESS
+ - [OK] setmMasuStsCntW() SUCCESS
+ - [OK] getmMasuStsPassW() SUCCESS
+ - [OK] setmMasuStsPassW() SUCCESS
+ - [OK] getmMasuStsAnzW() SUCCESS
+ - [OK] setmMasuStsAnzW() SUCCESS
+ - [OK] getmMasuPointW() SUCCESS
+ - [OK] setmMasuPointW() SUCCESS
+ - [OK] getmMasuPointCntW() SUCCESS
+ - [OK] setmMasuPointCntW() SUCCESS
+ - [OK] getmMasuBetCntW() SUCCESS
+ - [OK] setmMasuBetCntW() SUCCESS
+ - [OK] getmMasuCnt() SUCCESS
+ - [OK] setmMasuCnt() SUCCESS
+ - [OK] getmMasuCntMax() SUCCESS
+ - [OK] setmMasuCntMax() SUCCESS
+ - [OK] getmMasuHistCur() SUCCESS
+ - [OK] setmMasuHistCur() SUCCESS
+ - [OK] getmMasuHist() SUCCESS
+ - [OK] setmMasuHist() SUCCESS
+ - [OK] reset() SUCCESS
+ - [OK] AnalysisReversi() SUCCESS
+ - [OK] getMasuSts() SUCCESS
+ - [OK] getMasuStsOld() SUCCESS
+ - [OK] getMasuStsEna() SUCCESS
+ - [OK] getMasuStsCnt() SUCCESS
+ - [OK] getColorEna() SUCCESS
+ - [OK] getGameEndSts() SUCCESS
+ - [OK] setMasuSts() SUCCESS
+ - [OK] setMasuStsForcibly() SUCCESS
+ - [OK] setMasuCnt() SUCCESS
+ - [OK] getPoint() SUCCESS
+ - [OK] getPointCnt() SUCCESS
+ - [OK] getBetCnt() SUCCESS
+ - [OK] getPassEna() SUCCESS
+ - [OK] getHistory() SUCCESS
+ - [OK] getHistoryCnt() SUCCESS
+ - [OK] getPointAnz() SUCCESS
+ - [OK] checkEdge() SUCCESS
+ - [OK] getEdgeSideZero() SUCCESS
+ - [OK] getEdgeSideOne() SUCCESS
+ - [OK] getEdgeSideTwo() SUCCESS
+ - [OK] getEdgeSideThree() SUCCESS
+**************************
+[TestReversi] End 64 / 64 SUCCESS
+
+[TestReversiPlay] Start
+**************************
+ - [OK] Class new SUCCESS
+ - [OK] getmReversi() SUCCESS
+ - [OK] setmReversi() SUCCESS
+ - [OK] getmSetting() SUCCESS
+ - [OK] setmSetting() SUCCESS
+ - [OK] getmCurColor() SUCCESS
+ - [OK] setmCurColor() SUCCESS
+ - [OK] getmCpu() SUCCESS
+ - [OK] setmCpu() SUCCESS
+ - [OK] getmEdge() SUCCESS
+ - [OK] setmEdge() SUCCESS
+ - [OK] getmPassEnaB() SUCCESS
+ - [OK] setmPassEnaB() SUCCESS
+ - [OK] getmPassEnaW() SUCCESS
+ - [OK] setmPassEnaW() SUCCESS
+ - [OK] getmGameEndSts() SUCCESS
+ - [OK] setmGameEndSts() SUCCESS
+ - [OK] getmPlayLock() SUCCESS
+ - [OK] setmPlayLock() SUCCESS
+ - [OK] getViewMsgDlg() SUCCESS
+ - [OK] setViewMsgDlg() SUCCESS
+ - [OK] getDrawSingle() SUCCESS
+ - [OK] setDrawSingle() SUCCESS
+ - [OK] getCurColMsg() SUCCESS
+ - [OK] setCurColMsg() SUCCESS
+ - [OK] getCurStsMsg() SUCCESS
+ - [OK] setCurStsMsg() SUCCESS
+ViewMsgDlg : エラー そのマスには置けません。
+ - [OK] reversiPlay() SUCCESS
+CurColMsg : 
+CurStsMsg : 
+DrawSingle : 0 0 0 0 0
+DrawSingle : 0 1 0 0 0
+DrawSingle : 0 2 0 0 0
+DrawSingle : 0 3 0 0 0
+DrawSingle : 0 4 0 0 0
+DrawSingle : 0 5 0 0 0
+DrawSingle : 0 6 0 0 0
+DrawSingle : 0 7 0 0 0
+DrawSingle : 1 0 0 0 0
+DrawSingle : 1 1 0 0 0
+DrawSingle : 1 2 0 0 0
+DrawSingle : 1 3 0 0 0
+DrawSingle : 1 4 0 0 0
+DrawSingle : 1 5 0 0 0
+DrawSingle : 1 6 0 0 0
+DrawSingle : 1 7 0 0 0
+DrawSingle : 2 0 0 0 0
+DrawSingle : 2 1 0 0 0
+DrawSingle : 2 2 0 0 0
+DrawSingle : 2 3 0 0 0
+DrawSingle : 2 4 0 0 0
+DrawSingle : 2 5 0 0 0
+DrawSingle : 2 6 0 0 0
+DrawSingle : 2 7 0 0 0
+DrawSingle : 3 0 0 0 0
+DrawSingle : 3 1 0 0 0
+DrawSingle : 3 2 0 0 0
+DrawSingle : 3 3 0 0 0
+DrawSingle : 3 4 0 0 0
+DrawSingle : 3 5 0 0 0
+DrawSingle : 3 6 0 0 0
+DrawSingle : 3 7 0 0 0
+DrawSingle : 4 0 0 0 0
+DrawSingle : 4 1 0 0 0
+DrawSingle : 4 2 0 0 0
+DrawSingle : 4 3 0 0 0
+DrawSingle : 4 4 0 0 0
+DrawSingle : 4 5 0 0 0
+DrawSingle : 4 6 0 0 0
+DrawSingle : 4 7 0 0 0
+DrawSingle : 5 0 0 0 0
+DrawSingle : 5 1 0 0 0
+DrawSingle : 5 2 0 0 0
+DrawSingle : 5 3 0 0 0
+DrawSingle : 5 4 0 0 0
+DrawSingle : 5 5 0 0 0
+DrawSingle : 5 6 0 0 0
+DrawSingle : 5 7 0 0 0
+DrawSingle : 6 0 0 0 0
+DrawSingle : 6 1 0 0 0
+DrawSingle : 6 2 0 0 0
+DrawSingle : 6 3 0 0 0
+DrawSingle : 6 4 0 0 0
+DrawSingle : 6 5 0 0 0
+DrawSingle : 6 6 0 0 0
+DrawSingle : 6 7 0 0 0
+DrawSingle : 7 0 0 0 0
+DrawSingle : 7 1 0 0 0
+DrawSingle : 7 2 0 0 0
+DrawSingle : 7 3 0 0 0
+DrawSingle : 7 4 0 0 0
+DrawSingle : 7 5 0 0 0
+DrawSingle : 7 6 0 0 0
+DrawSingle : 7 7 0 0 0
+DrawSingle : 0 0 1 0 0
+DrawSingle : 7 7 2 0 0
+DrawSingle : 0 1 1 0 0
+DrawSingle : 7 6 2 0 0
+ViewMsgDlg : ゲーム終了 プレイヤー1 = 2 プレイヤー2 = 2引き分けです。
+CurColMsg : あなたはプレイヤー2です 
+CurStsMsg : プレイヤー1 = 2 プレイヤー2 = 2
+ - [OK] reversiPlayEnd() SUCCESS
+ViewMsgDlg :  CPUはパスです。
+ - [OK] reversiPlayPass() SUCCESS
+DrawSingle : 0 0 1 0 0
+DrawSingle : 0 1 1 0 0
+DrawSingle : 0 2 0 0 0
+DrawSingle : 0 3 0 0 0
+DrawSingle : 0 4 0 0 0
+DrawSingle : 0 5 0 0 0
+DrawSingle : 0 6 0 0 0
+DrawSingle : 0 7 0 0 0
+DrawSingle : 1 0 0 0 0
+DrawSingle : 1 1 0 0 0
+DrawSingle : 1 2 0 0 0
+DrawSingle : 1 3 0 0 0
+DrawSingle : 1 4 0 0 0
+DrawSingle : 1 5 0 0 0
+DrawSingle : 1 6 0 0 0
+DrawSingle : 1 7 0 0 0
+DrawSingle : 2 0 0 0 0
+DrawSingle : 2 1 0 0 0
+DrawSingle : 2 2 0 0 0
+DrawSingle : 2 3 0 0 0
+DrawSingle : 2 4 0 0 0
+DrawSingle : 2 5 0 0 0
+DrawSingle : 2 6 0 0 0
+DrawSingle : 2 7 0 0 0
+DrawSingle : 3 0 0 0 0
+DrawSingle : 3 1 0 0 0
+DrawSingle : 3 2 0 0 0
+DrawSingle : 3 3 0 0 0
+DrawSingle : 3 4 0 0 0
+DrawSingle : 3 5 0 0 0
+DrawSingle : 3 6 0 0 0
+DrawSingle : 3 7 0 0 0
+DrawSingle : 4 0 0 0 0
+DrawSingle : 4 1 0 0 0
+DrawSingle : 4 2 0 0 0
+DrawSingle : 4 3 0 0 0
+DrawSingle : 4 4 0 0 0
+DrawSingle : 4 5 0 0 0
+DrawSingle : 4 6 0 0 0
+DrawSingle : 4 7 0 0 0
+DrawSingle : 5 0 0 0 0
+DrawSingle : 5 1 0 0 0
+DrawSingle : 5 2 0 0 0
+DrawSingle : 5 3 0 0 0
+DrawSingle : 5 4 0 0 0
+DrawSingle : 5 5 0 0 0
+DrawSingle : 5 6 0 0 0
+DrawSingle : 5 7 0 0 0
+DrawSingle : 6 0 0 0 0
+DrawSingle : 6 1 0 0 0
+DrawSingle : 6 2 0 0 0
+DrawSingle : 6 3 0 0 0
+DrawSingle : 6 4 0 0 0
+DrawSingle : 6 5 0 0 0
+DrawSingle : 6 6 0 0 0
+DrawSingle : 6 7 0 0 0
+DrawSingle : 7 0 0 0 0
+DrawSingle : 7 1 0 0 0
+DrawSingle : 7 2 0 0 0
+DrawSingle : 7 3 0 0 0
+DrawSingle : 7 4 0 0 0
+DrawSingle : 7 5 0 0 0
+DrawSingle : 7 6 2 0 0
+DrawSingle : 7 7 2 0 0
+DrawSingle : 7 6 2 0 0
+CurColMsg : あなたはプレイヤー2です 
+CurStsMsg : プレイヤー1 = 2 プレイヤー2 = 2
+ - [OK] drawUpdate() SUCCESS
+DrawSingle : 0 0 1 0 0
+DrawSingle : 0 1 1 0 0
+DrawSingle : 0 2 0 0 0
+DrawSingle : 0 3 0 0 0
+DrawSingle : 0 4 0 0 0
+DrawSingle : 0 5 0 0 0
+DrawSingle : 0 6 0 0 0
+DrawSingle : 0 7 0 0 0
+DrawSingle : 1 0 0 0 0
+DrawSingle : 1 1 0 0 0
+DrawSingle : 1 2 0 0 0
+DrawSingle : 1 3 0 0 0
+DrawSingle : 1 4 0 0 0
+DrawSingle : 1 5 0 0 0
+DrawSingle : 1 6 0 0 0
+DrawSingle : 1 7 0 0 0
+DrawSingle : 2 0 0 0 0
+DrawSingle : 2 1 0 0 0
+DrawSingle : 2 2 0 0 0
+DrawSingle : 2 3 0 0 0
+DrawSingle : 2 4 0 0 0
+DrawSingle : 2 5 0 0 0
+DrawSingle : 2 6 0 0 0
+DrawSingle : 2 7 0 0 0
+DrawSingle : 3 0 0 0 0
+DrawSingle : 3 1 0 0 0
+DrawSingle : 3 2 0 0 0
+DrawSingle : 3 3 0 0 0
+DrawSingle : 3 4 0 0 0
+DrawSingle : 3 5 0 0 0
+DrawSingle : 3 6 0 0 0
+DrawSingle : 3 7 0 0 0
+DrawSingle : 4 0 0 0 0
+DrawSingle : 4 1 0 0 0
+DrawSingle : 4 2 0 0 0
+DrawSingle : 4 3 0 0 0
+DrawSingle : 4 4 0 0 0
+DrawSingle : 4 5 0 0 0
+DrawSingle : 4 6 0 0 0
+DrawSingle : 4 7 0 0 0
+DrawSingle : 5 0 0 0 0
+DrawSingle : 5 1 0 0 0
+DrawSingle : 5 2 0 0 0
+DrawSingle : 5 3 0 0 0
+DrawSingle : 5 4 0 0 0
+DrawSingle : 5 5 0 0 0
+DrawSingle : 5 6 0 0 0
+DrawSingle : 5 7 0 0 0
+DrawSingle : 6 0 0 0 0
+DrawSingle : 6 1 0 0 0
+DrawSingle : 6 2 0 0 0
+DrawSingle : 6 3 0 0 0
+DrawSingle : 6 4 0 0 0
+DrawSingle : 6 5 0 0 0
+DrawSingle : 6 6 0 0 0
+DrawSingle : 6 7 0 0 0
+DrawSingle : 7 0 0 0 0
+DrawSingle : 7 1 0 0 0
+DrawSingle : 7 2 0 0 0
+DrawSingle : 7 3 0 0 0
+DrawSingle : 7 4 0 0 0
+DrawSingle : 7 5 0 0 0
+DrawSingle : 7 6 2 0 0
+DrawSingle : 7 7 2 0 0
+DrawSingle : 0 0 1 0 0
+DrawSingle : 0 1 1 0 0
+DrawSingle : 0 2 0 0 0
+DrawSingle : 0 3 0 0 0
+DrawSingle : 0 4 0 0 0
+DrawSingle : 0 5 0 0 0
+DrawSingle : 0 6 0 0 0
+DrawSingle : 0 7 0 0 0
+DrawSingle : 1 0 0 0 0
+DrawSingle : 1 1 0 0 0
+DrawSingle : 1 2 0 0 0
+DrawSingle : 1 3 0 0 0
+DrawSingle : 1 4 0 0 0
+DrawSingle : 1 5 0 0 0
+DrawSingle : 1 6 0 0 0
+DrawSingle : 1 7 0 0 0
+DrawSingle : 2 0 0 0 0
+DrawSingle : 2 1 0 0 0
+DrawSingle : 2 2 0 0 0
+DrawSingle : 2 3 0 0 0
+DrawSingle : 2 4 0 0 0
+DrawSingle : 2 5 0 0 0
+DrawSingle : 2 6 0 0 0
+DrawSingle : 2 7 0 0 0
+DrawSingle : 3 0 0 0 0
+DrawSingle : 3 1 0 0 0
+DrawSingle : 3 2 0 0 0
+DrawSingle : 3 3 0 0 0
+DrawSingle : 3 4 0 0 0
+DrawSingle : 3 5 0 0 0
+DrawSingle : 3 6 0 0 0
+DrawSingle : 3 7 0 0 0
+DrawSingle : 4 0 0 0 0
+DrawSingle : 4 1 0 0 0
+DrawSingle : 4 2 0 0 0
+DrawSingle : 4 3 0 0 0
+DrawSingle : 4 4 0 0 0
+DrawSingle : 4 5 0 0 0
+DrawSingle : 4 6 0 0 0
+DrawSingle : 4 7 0 0 0
+DrawSingle : 5 0 0 0 0
+DrawSingle : 5 1 0 0 0
+DrawSingle : 5 2 0 0 0
+DrawSingle : 5 3 0 0 0
+DrawSingle : 5 4 0 0 0
+DrawSingle : 5 5 0 0 0
+DrawSingle : 5 6 0 0 0
+DrawSingle : 5 7 0 0 0
+DrawSingle : 6 0 0 0 0
+DrawSingle : 6 1 0 0 0
+DrawSingle : 6 2 0 0 0
+DrawSingle : 6 3 0 0 0
+DrawSingle : 6 4 0 0 0
+DrawSingle : 6 5 0 0 0
+DrawSingle : 6 6 0 0 0
+DrawSingle : 6 7 0 0 0
+DrawSingle : 7 0 0 0 0
+DrawSingle : 7 1 0 0 0
+DrawSingle : 7 2 0 0 0
+DrawSingle : 7 3 0 0 0
+DrawSingle : 7 4 0 0 0
+DrawSingle : 7 5 0 0 0
+DrawSingle : 7 6 2 0 0
+DrawSingle : 7 7 2 0 0
+CurColMsg : あなたはプレイヤー2です 
+CurStsMsg : プレイヤー1 = 2 プレイヤー2 = 2
+ - [OK] drawUpdateForcibly() SUCCESS
+DrawSingle : 0 0 0 0 0
+DrawSingle : 0 1 0 0 0
+DrawSingle : 0 2 0 0 0
+DrawSingle : 0 3 0 0 0
+DrawSingle : 0 4 0 0 0
+DrawSingle : 0 5 0 0 0
+DrawSingle : 0 6 0 0 0
+DrawSingle : 0 7 0 0 0
+DrawSingle : 1 0 0 0 0
+DrawSingle : 1 1 0 0 0
+DrawSingle : 1 2 0 0 0
+DrawSingle : 1 3 0 0 0
+DrawSingle : 1 4 0 0 0
+DrawSingle : 1 5 0 0 0
+DrawSingle : 1 6 0 0 0
+DrawSingle : 1 7 0 0 0
+DrawSingle : 2 0 0 0 0
+DrawSingle : 2 1 0 0 0
+DrawSingle : 2 2 0 0 0
+DrawSingle : 2 3 0 0 0
+DrawSingle : 2 4 0 2 1
+DrawSingle : 2 5 0 0 0
+DrawSingle : 2 6 0 0 0
+DrawSingle : 2 7 0 0 0
+DrawSingle : 3 0 0 0 0
+DrawSingle : 3 1 0 0 0
+DrawSingle : 3 2 0 0 0
+DrawSingle : 3 3 1 0 0
+DrawSingle : 3 4 2 0 0
+DrawSingle : 3 5 0 2 1
+DrawSingle : 3 6 0 0 0
+DrawSingle : 3 7 0 0 0
+DrawSingle : 4 0 0 0 0
+DrawSingle : 4 1 0 0 0
+DrawSingle : 4 2 0 2 1
+DrawSingle : 4 3 2 0 0
+DrawSingle : 4 4 1 0 0
+DrawSingle : 4 5 0 0 0
+DrawSingle : 4 6 0 0 0
+DrawSingle : 4 7 0 0 0
+DrawSingle : 5 0 0 0 0
+DrawSingle : 5 1 0 0 0
+DrawSingle : 5 2 0 0 0
+DrawSingle : 5 3 0 2 1
+DrawSingle : 5 4 0 0 0
+DrawSingle : 5 5 0 0 0
+DrawSingle : 5 6 0 0 0
+DrawSingle : 5 7 0 0 0
+DrawSingle : 6 0 0 0 0
+DrawSingle : 6 1 0 0 0
+DrawSingle : 6 2 0 0 0
+DrawSingle : 6 3 0 0 0
+DrawSingle : 6 4 0 0 0
+DrawSingle : 6 5 0 0 0
+DrawSingle : 6 6 0 0 0
+DrawSingle : 6 7 0 0 0
+DrawSingle : 7 0 0 0 0
+DrawSingle : 7 1 0 0 0
+DrawSingle : 7 2 0 0 0
+DrawSingle : 7 3 0 0 0
+DrawSingle : 7 4 0 0 0
+DrawSingle : 7 5 0 0 0
+DrawSingle : 7 6 0 0 0
+DrawSingle : 7 7 0 0 0
+DrawSingle : 0 0 0 0 0
+DrawSingle : 0 1 0 0 0
+DrawSingle : 0 2 0 0 0
+DrawSingle : 0 3 0 0 0
+DrawSingle : 0 4 0 0 0
+DrawSingle : 0 5 0 0 0
+DrawSingle : 0 6 0 0 0
+DrawSingle : 0 7 0 0 0
+DrawSingle : 1 0 0 0 0
+DrawSingle : 1 1 0 0 0
+DrawSingle : 1 2 0 0 0
+DrawSingle : 1 3 0 0 0
+DrawSingle : 1 4 0 0 0
+DrawSingle : 1 5 0 0 0
+DrawSingle : 1 6 0 0 0
+DrawSingle : 1 7 0 0 0
+DrawSingle : 2 0 0 0 0
+DrawSingle : 2 1 0 0 0
+DrawSingle : 2 2 0 0 0
+DrawSingle : 2 3 0 0 0
+DrawSingle : 2 4 0 2 1
+DrawSingle : 2 5 0 0 0
+DrawSingle : 2 6 0 0 0
+DrawSingle : 2 7 0 0 0
+DrawSingle : 3 0 0 0 0
+DrawSingle : 3 1 0 0 0
+DrawSingle : 3 2 0 0 0
+DrawSingle : 3 3 1 0 0
+DrawSingle : 3 4 2 0 0
+DrawSingle : 3 5 0 2 1
+DrawSingle : 3 6 0 0 0
+DrawSingle : 3 7 0 0 0
+DrawSingle : 4 0 0 0 0
+DrawSingle : 4 1 0 0 0
+DrawSingle : 4 2 0 2 1
+DrawSingle : 4 3 2 0 0
+DrawSingle : 4 4 1 0 0
+DrawSingle : 4 5 0 0 0
+DrawSingle : 4 6 0 0 0
+DrawSingle : 4 7 0 0 0
+DrawSingle : 5 0 0 0 0
+DrawSingle : 5 1 0 0 0
+DrawSingle : 5 2 0 0 0
+DrawSingle : 5 3 0 2 1
+DrawSingle : 5 4 0 0 0
+DrawSingle : 5 5 0 0 0
+DrawSingle : 5 6 0 0 0
+DrawSingle : 5 7 0 0 0
+DrawSingle : 6 0 0 0 0
+DrawSingle : 6 1 0 0 0
+DrawSingle : 6 2 0 0 0
+DrawSingle : 6 3 0 0 0
+DrawSingle : 6 4 0 0 0
+DrawSingle : 6 5 0 0 0
+DrawSingle : 6 6 0 0 0
+DrawSingle : 6 7 0 0 0
+DrawSingle : 7 0 0 0 0
+DrawSingle : 7 1 0 0 0
+DrawSingle : 7 2 0 0 0
+DrawSingle : 7 3 0 0 0
+DrawSingle : 7 4 0 0 0
+DrawSingle : 7 5 0 0 0
+DrawSingle : 7 6 0 0 0
+DrawSingle : 7 7 0 0 0
+CurColMsg : あなたはプレイヤー1です 
+CurStsMsg : プレイヤー1 = 2 プレイヤー2 = 2
+ - [OK] reset() SUCCESS
+CurColMsg : 
+CurStsMsg : 
+DrawSingle : 0 0 0 0 0
+DrawSingle : 0 1 0 0 0
+DrawSingle : 0 2 0 0 0
+DrawSingle : 0 3 0 0 0
+DrawSingle : 0 4 0 0 0
+DrawSingle : 0 5 0 0 0
+DrawSingle : 0 6 0 0 0
+DrawSingle : 0 7 0 0 0
+DrawSingle : 1 0 0 0 0
+DrawSingle : 1 1 0 0 0
+DrawSingle : 1 2 0 0 0
+DrawSingle : 1 3 0 0 0
+DrawSingle : 1 4 0 0 0
+DrawSingle : 1 5 0 0 0
+DrawSingle : 1 6 0 0 0
+DrawSingle : 1 7 0 0 0
+DrawSingle : 2 0 0 0 0
+DrawSingle : 2 1 0 0 0
+DrawSingle : 2 2 0 0 0
+DrawSingle : 2 3 0 0 0
+DrawSingle : 2 4 0 0 0
+DrawSingle : 2 5 0 0 0
+DrawSingle : 2 6 0 0 0
+DrawSingle : 2 7 0 0 0
+DrawSingle : 3 0 0 0 0
+DrawSingle : 3 1 0 0 0
+DrawSingle : 3 2 0 0 0
+DrawSingle : 3 3 0 0 0
+DrawSingle : 3 4 0 0 0
+DrawSingle : 3 5 0 0 0
+DrawSingle : 3 6 0 0 0
+DrawSingle : 3 7 0 0 0
+DrawSingle : 4 0 0 0 0
+DrawSingle : 4 1 0 0 0
+DrawSingle : 4 2 0 0 0
+DrawSingle : 4 3 0 0 0
+DrawSingle : 4 4 0 0 0
+DrawSingle : 4 5 0 0 0
+DrawSingle : 4 6 0 0 0
+DrawSingle : 4 7 0 0 0
+DrawSingle : 5 0 0 0 0
+DrawSingle : 5 1 0 0 0
+DrawSingle : 5 2 0 0 0
+DrawSingle : 5 3 0 0 0
+DrawSingle : 5 4 0 0 0
+DrawSingle : 5 5 0 0 0
+DrawSingle : 5 6 0 0 0
+DrawSingle : 5 7 0 0 0
+DrawSingle : 6 0 0 0 0
+DrawSingle : 6 1 0 0 0
+DrawSingle : 6 2 0 0 0
+DrawSingle : 6 3 0 0 0
+DrawSingle : 6 4 0 0 0
+DrawSingle : 6 5 0 0 0
+DrawSingle : 6 6 0 0 0
+DrawSingle : 6 7 0 0 0
+DrawSingle : 7 0 0 0 0
+DrawSingle : 7 1 0 0 0
+DrawSingle : 7 2 0 0 0
+DrawSingle : 7 3 0 0 0
+DrawSingle : 7 4 0 0 0
+DrawSingle : 7 5 0 0 0
+DrawSingle : 7 6 0 0 0
+DrawSingle : 7 7 0 0 0
+DrawSingle : 0 0 1 0 0
+DrawSingle : 7 7 2 0 0
+DrawSingle : 0 1 1 0 0
+DrawSingle : 7 6 2 0 0
+ - [OK] gameEndAnimExec() SUCCESS
+DrawSingle : 0 0 1 0 0
+ - [OK] sendDrawMsg() SUCCESS
+DrawSingle : 0 0 1 0 0
+ - [OK] sendDrawInfoMsg() SUCCESS
+**************************
+[TestReversiPlay] End 36 / 36 SUCCESS
+
+execute [Test.php] 2018/03/13 10:31:14 successed! 処理時間 : 1.5658209323883 sec

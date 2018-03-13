@@ -1,0 +1,6 @@
+<map id="getMasuSts" name="getMasuSts">
+<area shape="rect" id="node2" href="$class_reversi.html#acd2c64ea43cc26407ad64920a183446b" title="角の隣に置いても角を取られないマス検索 " alt="" coords="145,31,232,57"/>
+<area shape="rect" id="node3" href="$class_reversi.html#a471972ec549188f7eb701d57e14ae7a1" title="解析を行う(黒) " alt="" coords="281,5,427,32"/>
+<area shape="rect" id="node5" href="$class_reversi.html#a3c30afb2509b0782b1c22a8770c68c48" title="解析を行う(白) " alt="" coords="280,56,428,83"/>
+<area shape="rect" id="node4" href="$class_reversi.html#ae15e49622562732d31d44a75a14c3b45" title="解析を行う " alt="" coords="476,31,591,57"/>
+</map>

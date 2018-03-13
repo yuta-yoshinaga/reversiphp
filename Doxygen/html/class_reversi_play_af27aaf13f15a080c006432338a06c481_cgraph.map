@@ -1,0 +1,6 @@
+<map id="sendDrawMsg" name="sendDrawMsg">
+<area shape="rect" id="node2" href="$class_reversi_play.html#ae8beea2648c1c5cf722364e84a90edf9" title="メッセージ " alt="" coords="157,56,260,83"/>
+<area shape="rect" id="node3" href="$class_reversi_play.html#af0649b9d4a899e0802c739928136de99" title="1マス描画 " alt="" coords="308,5,427,32"/>
+<area shape="rect" id="node4" href="$class_reversi_play.html#aa217a221907e90c97719f8332c60a6d6" title="現在の色メッセージ " alt="" coords="309,56,426,83"/>
+<area shape="rect" id="node5" href="$class_reversi_play.html#ae3da8fb1a3a365c6e5254e5cf6f1e7bc" title="現在のステータスメッセージ " alt="" coords="308,107,427,133"/>
+</map>
