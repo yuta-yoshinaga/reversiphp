@@ -17,6 +17,7 @@
 ///
 ////////////////////////////////////////////////////////////////////////////////
 
+	require_once("../debuglib.php");
 	require_once("../Model/ReversiPlay.php");
 
 	// *** PHP 警告表示 OFF *** //
@@ -34,18 +35,51 @@
 		$_SESSION['ReversiPlay'] = $reversiPlay;
 	}else{
 		$reversiPlay = $_SESSION['ReversiPlay'];
+		if($reversiPlay == NULL){
+			$reversiPlay = new ReversiPlay();
+			$_SESSION['ReversiPlay'] = $reversiPlay;
+		}
 	}
+
+	$callbacks = array();
+	// *** コールバック登録 *** //
+	$callback1 = function($title , $msg){
+		global $callbacks;
+		$callbacks['funcs'][] = array("func" => "ViewMsgDlg","param1" => $title,"param2" => $msg);
+	};
+	$reversiPlay->getViewMsgDlg()->add($callback1);
+
+	$callback2 = function($y, $x, $sts, $bk, $text){
+		global $callbacks;
+		$callbacks['funcs'][] = array("func" => "DrawSingle","param1" => $y,"param2" => $x,"param3" => $sts,"param4" => $bk,"param5" => $text);
+	};
+	$reversiPlay->getDrawSingle()->add($callback2);
+
+	$callback3 = function($text){
+		global $callbacks;
+		$callbacks['funcs'][] = array("func" => "CurColMsg","param1" => $text);
+	};
+	$reversiPlay->getCurColMsg()->add($callback3);
+
+	$callback4 = function($text){
+		global $callbacks;
+		$callbacks['funcs'][] = array("func" => "CurStsMsg","param1" => $text);
+	};
+	$reversiPlay->getCurStsMsg()->add($callback4);
+
+	$_SESSION['ReversiPlay'] = $reversiPlay;
 
 	////////////////////////////////////////////////////////////////////////////////
 	// メソッドパラメータ取得と分岐
 	////////////////////////////////////////////////////////////////////////////////
+	$param_func = "";
 	if(isset($_POST["func"]))				$param_func = $_POST["func"];
 	else									return_error('parameter error!');
 
-	if($param_func == 'setSetting')			setSetting();
-	else if($param_func == 'reset')			reset();
-	else if($param_func == 'reversiPlay')	reversiPlay();
-	else									return_error('func 指定が不正です。');
+	if($param_func == 'setSetting')			setSetting($reversiPlay);
+	else if($param_func == 'reset')			reset2($reversiPlay);
+	else if($param_func == 'reversiPlay')	reversiPlay($reversiPlay);
+	else									return_error('func 指定が不正です。 '. $param_func);
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			JSON 形式出力関数
@@ -92,53 +126,59 @@
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			設定反映
-	///	@fn				setSetting()
+	///	@fn				setSetting($reversiPlay)
+	///	@param[in]		$reversiPlay
 	///	@return			実行結果json
 	///	@author			Yuta Yoshinaga
 	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	function setSetting()
+	function setSetting($reversiPlay)
 	{
 		// *** メソッド用パラメータ確認 *** //
-		if(isset($_POST["data"]))		$param_data = $_POST["data"];
-		else							return_json('パラメータが不正です。');
+		if(isset($_POST["para"]))	$param_data = $_POST["para"];
+		else						return_json('パラメータが不正です。');
 		$AjUtilObj = new CAjaxUtility();
-		$res = $AjUtilObj->setSetting(json_decode($param_data));
+		$AjUtilObj->setmreversiPlay($reversiPlay);
+		$res = $AjUtilObj->setSetting($param_data);
 		return_json($res);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			リセット
-	///	@fn				reset()
+	///	@fn				reset2($reversiPlay)
+	///	@param[in]		$reversiPlay
 	///	@return			実行結果json
 	///	@author			Yuta Yoshinaga
 	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	function reset()
+	function reset2($reversiPlay)
 	{
 		$AjUtilObj = new CAjaxUtility();
+		$AjUtilObj->setmreversiPlay($reversiPlay);
 		$res = $AjUtilObj->reset();
 		return_json($res);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			リバーシプレイ
-	///	@fn				reversiPlay()
+	///	@fn				reversiPlay($reversiPlay)
+	///	@param[in]		$reversiPlay
 	///	@return			実行結果json
 	///	@author			Yuta Yoshinaga
 	///	@date			2018.03.02
 	///
 	////////////////////////////////////////////////////////////////////////////////
-	function reversiPlay()
+	function reversiPlay($reversiPlay)
 	{
 		// *** メソッド用パラメータ確認 *** //
-		if(isset($_POST["y"]))			$param_y = $_POST["y"];
-		else							return_json('パラメータが不正です。');
-		if(isset($_POST["x"]))			$param_x = $_POST["x"];
-		else							return_json('パラメータが不正です。');
+		if(isset($_POST["y"]))	$param_y = $_POST["y"];
+		else					return_json('パラメータが不正です。');
+		if(isset($_POST["x"]))	$param_x = $_POST["x"];
+		else					return_json('パラメータが不正です。');
 		$AjUtilObj = new CAjaxUtility();
+		$AjUtilObj->setmreversiPlay($reversiPlay);
 		$res = $AjUtilObj->reversiPlay($param_y,$param_x);
 		return_json($res);
 	}
@@ -150,6 +190,15 @@
 	////////////////////////////////////////////////////////////////////////////////
 	class CAjaxUtility
 	{
+		private $_mreversiPlay;												//!< マスの状態
+		private $_mcallbacks;												//!< コールバック
+
+		public function getmreversiPlay(){return $this->_mreversiPlay; }
+		public function setmreversiPlay($_mreversiPlay){ $this->_mreversiPlay = $_mreversiPlay; }
+
+		public function getmcallbacks(){return $this->_mcallbacks; }
+		public function setmcallbacks($_mcallbacks){ $this->_mcallbacks = $_mcallbacks; }
+
 		////////////////////////////////////////////////////////////////////////////////
 		///	@brief			コンストラクタ
 		///	@fn				__construct()
@@ -191,6 +240,8 @@
 		////////////////////////////////////////////////////////////////////////////////
 		public function setSetting($data)
 		{
+			global $callbacks;
+
 			$settng = new ReversiSetting();
 			$settng->setmMode($data['mMode']);
 			$settng->setmType($data['mType']);
@@ -204,14 +255,20 @@
 			$settng->setmPlayDrawInterVal($data['mPlayDrawInterVal']);
 			$settng->setmEndDrawInterVal($data['mEndDrawInterVal']);
 			$settng->setmEndInterVal($data['mEndInterVal']);
+			$settng->setmTheme($data['mTheme']);
 			$settng->setmPlayerColor1($data['mPlayerColor1']);
 			$settng->setmPlayerColor2($data['mPlayerColor2']);
 			$settng->setmBackGroundColor($data['mBackGroundColor']);
 			$settng->setmBorderColor($data['mBorderColor']);
-			$reversiPlay->setmSetting($settng);
-			$reversiPlay->reset();
-			$_SESSION['ReversiPlay'] = $reversiPlay;
+
+			$callbacks = array();
+			$this->_mreversiPlay->setmSetting($settng);
+			$this->_mreversiPlay->reset();
+
+			$_SESSION['ReversiPlay'] = $this->_mreversiPlay;
 			$arr_result['auth'] = '[SUCCESS]';
+			$arr_result['callbacks'] = $callbacks;
+
 			return($arr_result);
 		}
 
@@ -225,9 +282,15 @@
 		////////////////////////////////////////////////////////////////////////////////
 		public function reset()
 		{
-			$reversiPlay->reset();
-			$_SESSION['ReversiPlay'] = $reversiPlay;
+			global $callbacks;
+
+			$callbacks = array();
+			$this->_mreversiPlay->reset();
+
+			$_SESSION['ReversiPlay'] = $this->_mreversiPlay;
 			$arr_result['auth'] = '[SUCCESS]';
+			$arr_result['callbacks'] = $callbacks;
+
 			return($arr_result);
 		}
 
@@ -243,9 +306,15 @@
 		////////////////////////////////////////////////////////////////////////////////
 		public function reversiPlay($y,$x)
 		{
-			$reversiPlay->reversiPlay($y,$x);
-			$_SESSION['ReversiPlay'] = $reversiPlay;
+			global $callbacks;
+
+			$callbacks = array();
+			$this->_mreversiPlay->reversiPlay($y,$x);
+
+			$_SESSION['ReversiPlay'] = $this->_mreversiPlay;
 			$arr_result['auth'] = '[SUCCESS]';
+			$arr_result['callbacks'] = $callbacks;
+
 			return($arr_result);
 		}
 	}

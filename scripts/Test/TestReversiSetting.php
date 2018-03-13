@@ -172,43 +172,52 @@ class TestReversiSetting
 			if($var == $testVar){								echo " - [OK] setmEndInterVal() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmEndInterVal() FAILUR ". $var. "\n";
 			// *** TEST CASE 24 *** //
+			$var = $testObj->getmTheme();$allCnt++;
+			if($var == "Darkly"){								echo " - [OK] getmTheme() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] getmTheme() FAILUR ". $var. "\n";
+			// *** TEST CASE 25 *** //
+			$testObj->setmTheme($testVarStr);$allCnt++;
+			$var = $testObj->getmTheme();
+			if($var == $testVarStr){							echo " - [OK] setmTheme() SUCCESS\n";$curCnt++;}
+			else												echo " - [Error] setmTheme() FAILUR ". $var. "\n";
+			// *** TEST CASE 26 *** //
 			$var = $testObj->getmPlayerColor1();$allCnt++;
 			if($var == "#FF0000"){								echo " - [OK] getmPlayerColor1() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmPlayerColor1() FAILUR ". $var. "\n";
-			// *** TEST CASE 25 *** //
+			// *** TEST CASE 27 *** //
 			$testObj->setmPlayerColor1($testVarStr);$allCnt++;
 			$var = $testObj->getmPlayerColor1();
 			if($var == $testVarStr){							echo " - [OK] setmPlayerColor1() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmPlayerColor1() FAILUR ". $var. "\n";
-			// *** TEST CASE 26 *** //
+			// *** TEST CASE 28 *** //
 			$var = $testObj->getmPlayerColor2();$allCnt++;
 			if($var == "#FFFFFF"){								echo " - [OK] getmPlayerColor2() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmPlayerColor2() FAILUR ". $var. "\n";
-			// *** TEST CASE 27 *** //
+			// *** TEST CASE 29 *** //
 			$testObj->setmPlayerColor2($testVarStr);$allCnt++;
 			$var = $testObj->getmPlayerColor2();
 			if($var == $testVarStr){							echo " - [OK] setmPlayerColor2() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmPlayerColor2() FAILUR ". $var. "\n";
-			// *** TEST CASE 28 *** //
+			// *** TEST CASE 30 *** //
 			$var = $testObj->getmBackGroundColor();$allCnt++;
 			if($var == "#FF00FF"){								echo " - [OK] getmBackGroundColor() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmBackGroundColor() FAILUR ". $var. "\n";
-			// *** TEST CASE 29 *** //
+			// *** TEST CASE 31 *** //
 			$testObj->setmBackGroundColor($testVarStr);$allCnt++;
 			$var = $testObj->getmBackGroundColor();
 			if($var == $testVarStr){							echo " - [OK] setmBackGroundColor() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmBackGroundColor() FAILUR ". $var. "\n";
-			// *** TEST CASE 30 *** //
+			// *** TEST CASE 32 *** //
 			$var = $testObj->getmBorderColor();$allCnt++;
 			if($var == "#FF0000"){								echo " - [OK] getmBorderColor() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] getmBorderColor() FAILUR ". $var. "\n";
-			// *** TEST CASE 31 *** //
+			// *** TEST CASE 33 *** //
 			$testObj->setmBorderColor($testVarStr);$allCnt++;
 			$var = $testObj->getmBorderColor();
 			if($var == $testVarStr){							echo " - [OK] setmBorderColor() SUCCESS\n";$curCnt++;}
 			else												echo " - [Error] setmBorderColor() FAILUR ". $var. "\n";
 			// *** Method TEST *** //
-			// *** TEST CASE 32 *** //
+			// *** TEST CASE 34 *** //
 			$testObj->reset();$allCnt++;
 			$execCnt = 0;
 			$cmpCnt = 0;
@@ -234,6 +243,8 @@ class TestReversiSetting
 			if($var == 100){									$cmpCnt++;}
 			$var = $testObj->getmEndInterVal();$execCnt++;
 			if($var == 500){									$cmpCnt++;}
+			$var = $testObj->getmTheme();$execCnt++;
+			if($var == "Darkly"){								$cmpCnt++;}
 			$var = $testObj->getmPlayerColor1();$execCnt++;
 			if($var == "#FF0000"){								$cmpCnt++;}
 			$var = $testObj->getmPlayerColor2();$execCnt++;

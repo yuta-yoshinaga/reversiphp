@@ -39,6 +39,7 @@ class ReversiSetting
 	private $_mPlayDrawInterVal;												//!< 描画のインターバル(msec)
 	private $_mEndDrawInterVal;													//!< 終了アニメーション描画のインターバル(msec)
 	private $_mEndInterVal;														//!< 終了アニメーションのインターバル(msec)
+	private $_mTheme;															//!< テーマ
 	private $_mPlayerColor1;													//!< プレイヤー1の色
 	private $_mPlayerColor2;													//!< プレイヤー2の色
 	private $_mBackGroundColor;													//!< 背景の色
@@ -81,6 +82,9 @@ class ReversiSetting
 
 	public function getmEndInterVal(){ return $this->_mEndInterVal; }
 	public function setmEndInterVal($_mEndInterVal){ $this->_mEndInterVal = $_mEndInterVal; }
+
+	public function getmTheme(){ return $this->_mTheme; }
+	public function setmTheme($_mTheme){ $this->_mTheme = $_mTheme; }
 
 	public function getmPlayerColor1(){ return $this->_mPlayerColor1; }
 	public function setmPlayerColor1($_mPlayerColor1){ $this->_mPlayerColor1 = $_mPlayerColor1; }
@@ -143,6 +147,7 @@ class ReversiSetting
 		$this->_mPlayDrawInterVal	= ReversiConst::$DEF_GAME_SPD_MID_VAL;		// 描画のインターバル(msec)
 		$this->_mEndDrawInterVal	= 100;										// 終了アニメーション描画のインターバル(msec)
 		$this->_mEndInterVal		= 500;										// 終了アニメーションのインターバル(msec)
+		$this->_mTheme				= "Darkly";									// テーマ
 		$this->_mPlayerColor1		= "#FF0000";								// プレイヤー1の色
 		$this->_mPlayerColor2		= "#FFFFFF";								// プレイヤー2の色
 		$this->_mBackGroundColor	= "#FF00FF";								// 背景の色
