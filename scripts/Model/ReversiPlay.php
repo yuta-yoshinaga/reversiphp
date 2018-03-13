@@ -141,7 +141,7 @@ class ReversiPlay
 
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			リバーシプレイ
-	///	@fn				void reversiPlay($y, $x)
+	///	@fn				reversiPlay($y, $x)
 	///	@param[in]		$y			$y座標
 	///	@param[in]		$x			$x座標
 	///	@return			ありません
