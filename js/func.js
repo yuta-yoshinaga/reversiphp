@@ -25,7 +25,11 @@ $(document).ready(function () {
 	        data:{
 	            func:"setSetting",
 	            para:reversiSetting,
-	        }
+	        },
+			beforeSend: function(xhr) {
+			    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+			},
+			xhrFields: {withCredentials: true},
 		}).done(function (response, textStatus, jqXHR) {
 		    // 成功時処理
 		    // レスポンスデータはパースされた上でresponseに渡される
@@ -46,7 +50,11 @@ $(document).ready(function () {
 		    type: 'POST',
 	        data:{
 	            func:"reset",
-	        }
+	        },
+			beforeSend: function(xhr) {
+			    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+			},
+			xhrFields: {withCredentials: true},
 		}).done(function (response, textStatus, jqXHR) {
 		    // 成功時処理
 		    // レスポンスデータはパースされた上でresponseに渡される
@@ -68,8 +76,12 @@ $(document).ready(function () {
 	        data:{
 	            func:"reversiPlay",
 	            y:y,
-	            y:x,
-	        }
+	            x:x,
+	        },
+			beforeSend: function(xhr) {
+			    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+			},
+			xhrFields: {withCredentials: true},
 		}).done(function (response, textStatus, jqXHR) {
 		    // 成功時処理
 		    // レスポンスデータはパースされた上でresponseに渡される
@@ -123,7 +135,7 @@ $(document).ready(function () {
     // *** マスを用意 *** //
     appInit();
     setSetting(reversiSetting);
-    reset();
+    //reset();
     // *** クリックイベント *** //
     $('.reversi_field').on('click', '.square-wrapper', function () {
         var curX = $(this).data('x');
@@ -323,7 +335,6 @@ function set_masu_size_squer() {
         $(this).css('height', masuSize + 'px');
     });
     $('.reversi_field .square-wrapper .content').each(function(){
-//        $(this).css('line-height', $(this).height() + 'px');
         $(this).css('line-height', (masuSize * 0.9) + 'px');
     });
 }
@@ -435,6 +446,7 @@ function drawSingle(y, x, sts, bk, text) {
     }
     tgtEle.css('background-color', bkCol);
     // *** テキストの状態変更 *** //
+    if(text == '0' || text == 0) text = "";
     tgtEle2.text(text);
 }
 

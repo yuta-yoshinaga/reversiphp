@@ -66,8 +66,8 @@ class ReversiAnz
 	public function getEdgeSideOneCnt(){ return $this->_edgeSideOneCnt; }
 	public function setEdgeSideOneCnt($_edgeSideOneCnt){ $this->_edgeSideOneCnt = $_edgeSideOneCnt; }
 
-	public function getEdgeSideTwoCntEdgeSideOneCnt(){ return $this->_edgeSideTwoCnt; }
-	public function setEdgeSideTwoCntEdgeSideOneCnt($_edgeSideTwoCnt){ $this->_edgeSideTwoCnt = $_edgeSideTwoCnt; }
+	public function getEdgeSideTwoCnt(){ return $this->_edgeSideTwoCnt; }
+	public function setEdgeSideTwoCnt($_edgeSideTwoCnt){ $this->_edgeSideTwoCnt = $_edgeSideTwoCnt; }
 
 	public function getEdgeSideThreeCnt(){ return $this->_edgeSideThreeCnt; }
 	public function setEdgeSideThreeCnt($_edgeSideThreeCnt){ $this->_edgeSideThreeCnt = $_edgeSideThreeCnt; }

@@ -140,6 +140,29 @@ class ReversiPlay
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
+	///	@brief			シリアライズ
+	///	@fn				__sleep()
+	///	@return			ありません
+	///	@author			Yuta Yoshinaga
+	///	@date			2018.03.02
+	///
+	////////////////////////////////////////////////////////////////////////////////
+	public function __sleep()
+	{
+		return array(
+			'_mReversi'
+			,'_mSetting'
+			,'_mCurColor'
+			,'_mCpu'
+			,'_mEdge'
+			,'_mPassEnaB'
+			,'_mPassEnaW'
+			,'_mGameEndSts'
+			,'_mPlayLock'
+		);
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			リバーシプレイ
 	///	@fn				reversiPlay($y, $x)
 	///	@param[in]		$y			$y座標
@@ -225,7 +248,7 @@ class ReversiPlay
 			if ($cpuEna == 1) {
 				$waitTime = $this->_mSetting->getmPlayCpuInterVal();
 			}
-			usleep($waitTime * 1000);
+//			usleep($waitTime * 1000);
 			$this->reversiPlaySub($cpuEna, $tmpCol);
 			$this->_mPlayLock = 0;
 		}else{
@@ -279,7 +302,7 @@ class ReversiPlay
 			$this->_mGameEndSts = 1;
 			$waitTime = $this->gameEndAnimExec();					// 終了アニメ実行
 			$this->_mPlayLock = 1;
-			usleep($waitTime * 1000);
+//			usleep($waitTime * 1000);
 			// *** ゲーム終了メッセージ *** //
 			$tmpMsg1 = "";
 			$tmpMsg2 = "";
@@ -617,7 +640,7 @@ class ReversiPlay
 		for ($i = 0; $i < $this->_mSetting->getmMasuCnt(); $i++) {
 			for ($j = 0; $j < $this->_mSetting->getmMasuCnt(); $j++) {
 				if($this->_mReversi->getMasuSts($i,$j) != $this->_mReversi->getMasuStsOld($i,$j)){
-					usleep($waitTime * 1000);
+//					usleep($waitTime * 1000);
 					$this->sendDrawMsg($i, $j);
 				}
 			}
@@ -725,7 +748,7 @@ class ReversiPlay
 			// *** メッセージ送信 *** //
 			$this->execMessage(ReversiConst::$LC_MSG_CUR_STS_ERASE, NULL);
 
-			usleep($this->_mSetting->getmEndInterVal() * 1000);
+//			usleep($this->_mSetting->getmEndInterVal() * 1000);
 			// *** マス消去 *** //
 			for ($i = 0; $i < $this->_mSetting->getmMasuCnt(); $i++) {
 				for ($j = 0; $j < $this->_mSetting->getmMasuCnt(); $j++) {
@@ -759,7 +782,7 @@ class ReversiPlay
 					if ($bEnd == 1 && $wEnd == 1) {
 						break;
 					}else{
-						usleep($this->_mSetting->getmEndDrawInterVal() * 1000);
+//						usleep($this->_mSetting->getmEndDrawInterVal() * 1000);
 					}
 				}
 			}

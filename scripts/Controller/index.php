@@ -28,7 +28,9 @@
 	mb_regex_encoding('UTF-8');
 
 	$reversiPlay = NULL;
-	if(!isset($_SESSION)) session_start();
+	if(!isset($_SESSION)){
+		session_start();
+	}
 	if(!isset($_SESSION['ReversiPlay'])){
 		// *** 初めてのアクセス *** //
 		$reversiPlay = new ReversiPlay();
@@ -47,25 +49,33 @@
 		global $callbacks;
 		$callbacks['funcs'][] = array("func" => "ViewMsgDlg","param1" => $title,"param2" => $msg);
 	};
-	$reversiPlay->getViewMsgDlg()->add($callback1);
+	$delegate1 = new Delegate();
+	$delegate1->add($callback1);
+	$reversiPlay->setViewMsgDlg($delegate1);
 
 	$callback2 = function($y, $x, $sts, $bk, $text){
 		global $callbacks;
 		$callbacks['funcs'][] = array("func" => "DrawSingle","param1" => $y,"param2" => $x,"param3" => $sts,"param4" => $bk,"param5" => $text);
 	};
-	$reversiPlay->getDrawSingle()->add($callback2);
+	$delegate2 = new Delegate();
+	$delegate2->add($callback2);
+	$reversiPlay->setDrawSingle($delegate2);
 
 	$callback3 = function($text){
 		global $callbacks;
 		$callbacks['funcs'][] = array("func" => "CurColMsg","param1" => $text);
 	};
-	$reversiPlay->getCurColMsg()->add($callback3);
+	$delegate3 = new Delegate();
+	$delegate3->add($callback3);
+	$reversiPlay->setCurColMsg($delegate3);
 
 	$callback4 = function($text){
 		global $callbacks;
 		$callbacks['funcs'][] = array("func" => "CurStsMsg","param1" => $text);
 	};
-	$reversiPlay->getCurStsMsg()->add($callback4);
+	$delegate4 = new Delegate();
+	$delegate4->add($callback4);
+	$reversiPlay->setCurStsMsg($delegate4);
 
 	$_SESSION['ReversiPlay'] = $reversiPlay;
 
@@ -94,9 +104,12 @@
 		if(isset($_POST["aj_debug"]))
 			print_a($result);
 		else{
+			header('Access-Control-Allow-Origin: null');
+			header('Access-Control-Allow-Credentials: true');
 			header('Content-Type: application/json');
 			echo json_encode($result);
 		}
+		session_write_close();
 		exit;
 	}
 

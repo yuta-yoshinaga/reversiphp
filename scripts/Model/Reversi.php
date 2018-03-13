@@ -713,7 +713,7 @@ class Reversi
 							$tmpBadPoint = 0;
 						} else if ($this->getEdgeSideTwo($i, $j) == 0) {						// 置く場所が角の二つ手前
 							$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getEdgeSideTwoCnt();
-							$this->_mMasuStsAnzB[$tmpY][$tmpX]->getEdgeSideTwoCnt($tmp++);
+							$this->_mMasuStsAnzB[$tmpY][$tmpX]->setEdgeSideTwoCnt($tmp++);
 							$tmpBadPoint = 1 * $this->_mMasuStsCntW[$i][$j];
 						} else if ($this->getEdgeSideThree($i, $j) == 0) {						// 置く場所が角の三つ手前
 							$tmp = $this->_mMasuStsAnzB[$tmpY][$tmpX]->getEdgeSideThreeCnt();

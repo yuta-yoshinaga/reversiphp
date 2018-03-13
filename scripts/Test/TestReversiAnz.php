@@ -127,14 +127,14 @@ class TestReversiAnz
 			if($var == $testVar){		echo " - [OK] setEdgeSideOneCnt() SUCCESS\n";$curCnt++;}
 			else						echo " - [Error] setEdgeSideOneCnt() FAILUR ". $var. "\n";
 			// *** TEST CASE 14 *** //
-			$var = $testObj->getEdgeSideTwoCntEdgeSideOneCnt();$allCnt++;
-			if($var == 0){				echo " - [OK] getEdgeSideTwoCntEdgeSideOneCnt() SUCCESS\n";$curCnt++;}
-			else						echo " - [Error] getEdgeSideTwoCntEdgeSideOneCnt() FAILUR ". $var. "\n";
+			$var = $testObj->getEdgeSideTwoCnt();$allCnt++;
+			if($var == 0){				echo " - [OK] getEdgeSideTwoCnt() SUCCESS\n";$curCnt++;}
+			else						echo " - [Error] getEdgeSideTwoCnt() FAILUR ". $var. "\n";
 			// *** TEST CASE 15 *** //
-			$testObj->setEdgeSideTwoCntEdgeSideOneCnt($testVar);$allCnt++;
-			$var = $testObj->getEdgeSideTwoCntEdgeSideOneCnt();
-			if($var == $testVar){		echo " - [OK] setEdgeSideTwoCntEdgeSideOneCnt() SUCCESS\n";$curCnt++;}
-			else						echo " - [Error] setEdgeSideTwoCntEdgeSideOneCnt() FAILUR ". $var. "\n";
+			$testObj->setEdgeSideTwoCnt($testVar);$allCnt++;
+			$var = $testObj->getEdgeSideTwoCnt();
+			if($var == $testVar){		echo " - [OK] setEdgeSideTwoCnt() SUCCESS\n";$curCnt++;}
+			else						echo " - [Error] setEdgeSideTwoCnt() FAILUR ". $var. "\n";
 			// *** TEST CASE 16 *** //
 			$var = $testObj->getEdgeSideThreeCnt();$allCnt++;
 			if($var == 0){				echo " - [OK] getEdgeSideThreeCnt() SUCCESS\n";$curCnt++;}
