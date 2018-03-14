@@ -26,8 +26,6 @@ require_once("../Model/ReversiPlay.php");
 ////////////////////////////////////////////////////////////////////////////////
 class TestReversiPlay
 {
-	private $callback1;
-
 	////////////////////////////////////////////////////////////////////////////////
 	///	@brief			コンストラクタ
 	///	@fn				__construct()
@@ -38,9 +36,6 @@ class TestReversiPlay
 	////////////////////////////////////////////////////////////////////////////////
 	public function __construct()
 	{
-		$callback1 = static function($title , $msg) {
-		    echo "ViewMsgDlg : ". $title. " ". $msg. "\n";
-		};
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -230,6 +225,9 @@ class TestReversiPlay
 
 			$callback4 = function($text){echo "CurStsMsg : ". $text. "\n";};
 			$testObj->getCurStsMsg()->add($callback4);
+
+			$callback5 = function($time){echo "Wait : ". $time. "\n";};
+			$testObj->getWait()->add($callback5);
 
 			// *** TEST CASE 28 *** //
 			$testObj->reversiPlay(0,0);$allCnt++;

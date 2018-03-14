@@ -77,6 +77,14 @@
 	$delegate4->add($callback4);
 	$reversiPlay->setCurStsMsg($delegate4);
 
+	$callback5 = function($time){
+		global $callbacks;
+		$callbacks['funcs'][] = array("func" => "Wait","param1" => $time);
+	};
+	$delegate5 = new Delegate();
+	$delegate5->add($callback5);
+	$reversiPlay->setWait($delegate5);
+
 	$_SESSION['ReversiPlay'] = $reversiPlay;
 
 	////////////////////////////////////////////////////////////////////////////////

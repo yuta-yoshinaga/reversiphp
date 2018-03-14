@@ -42,6 +42,7 @@ class ReversiPlay
 	private $_drawSingle;									//!< 描画コールバック
 	private $_curColMsg;									//!< 現在の色メッセージコールバック
 	private $_curStsMsg;									//!< 現在のステータスメッセージコールバック
+	private $_wait;											//!< ウェイトコールバック
 	// #endregion
 
 	// #region プロパティ
@@ -83,6 +84,9 @@ class ReversiPlay
 
 	public function getCurStsMsg(){ return $this->_curStsMsg; }
 	public function setCurStsMsg($_curStsMsg){ $this->_curStsMsg = $_curStsMsg; }
+
+	public function getWait(){ return $this->_wait; }
+	public function setWait($_wait){ $this->_wait = $_wait; }
 	// #endregion
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -116,6 +120,10 @@ class ReversiPlay
 		$this->_curStsMsg		= new Delegate();
 		$callback4				= function($text){};
 		$this->_curStsMsg->add($callback4);
+
+		$this->_wait			= new Delegate();
+		$callback5				= function($time){};
+		$this->_wait->add($callback5);
 
 		$this->_mReversi		= new Reversi(ReversiConst::$DEF_MASU_CNT_MAX_VAL, ReversiConst::$DEF_MASU_CNT_MAX_VAL);
 		$this->_mSetting		= new ReversiSetting();
@@ -248,7 +256,7 @@ class ReversiPlay
 			if ($cpuEna == 1) {
 				$waitTime = $this->_mSetting->getmPlayCpuInterVal();
 			}
-//			usleep($waitTime * 1000);
+			$this->WaitLocal($waitTime);
 			$this->reversiPlaySub($cpuEna, $tmpCol);
 			$this->_mPlayLock = 0;
 		}else{
@@ -302,7 +310,7 @@ class ReversiPlay
 			$this->_mGameEndSts = 1;
 			$waitTime = $this->gameEndAnimExec();					// 終了アニメ実行
 			$this->_mPlayLock = 1;
-//			usleep($waitTime * 1000);
+			$this->WaitLocal($waitTime);
 			// *** ゲーム終了メッセージ *** //
 			$tmpMsg1 = "";
 			$tmpMsg2 = "";
@@ -640,7 +648,7 @@ class ReversiPlay
 		for ($i = 0; $i < $this->_mSetting->getmMasuCnt(); $i++) {
 			for ($j = 0; $j < $this->_mSetting->getmMasuCnt(); $j++) {
 				if($this->_mReversi->getMasuSts($i,$j) != $this->_mReversi->getMasuStsOld($i,$j)){
-//					usleep($waitTime * 1000);
+					$this->WaitLocal($waitTime);
 					$this->sendDrawMsg($i, $j);
 				}
 			}
@@ -748,7 +756,7 @@ class ReversiPlay
 			// *** メッセージ送信 *** //
 			$this->execMessage(ReversiConst::$LC_MSG_CUR_STS_ERASE, NULL);
 
-//			usleep($this->_mSetting->getmEndInterVal() * 1000);
+			$this->WaitLocal($this->_mSetting->getmEndInterVal());
 			// *** マス消去 *** //
 			for ($i = 0; $i < $this->_mSetting->getmMasuCnt(); $i++) {
 				for ($j = 0; $j < $this->_mSetting->getmMasuCnt(); $j++) {
@@ -782,7 +790,7 @@ class ReversiPlay
 					if ($bEnd == 1 && $wEnd == 1) {
 						break;
 					}else{
-//						usleep($this->_mSetting->getmEndDrawInterVal() * 1000);
+						$this->WaitLocal($this->_mSetting->getmEndDrawInterVal());
 					}
 				}
 			}
@@ -992,6 +1000,23 @@ class ReversiPlay
 		if($this->_curStsMsg != NULL){
 			$callback = $this->_curStsMsg;
 			$callback($text);
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////////
+	///	@brief			ウェイト
+	///	@fn				WaitLocal($time)
+	///	@param[in]		$time	ウェイト時間(msec)
+	///	@return			ありません
+	///	@author			Yuta Yoshinaga
+	///	@date			2018.03.02
+	///
+	////////////////////////////////////////////////////////////////////////////////
+	private function WaitLocal($time)
+	{
+		if($this->_wait != NULL){
+			$callback = $this->_wait;
+			$callback($time);
 		}
 	}
 }

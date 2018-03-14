@@ -14,6 +14,8 @@ $(document).ready(function () {
 				curColMsg(obj[key].param1);
 			}else if(obj[key].func == "CurStsMsg"){
 				curStsMsg(obj[key].param1);
+			}else if(obj[key].func == "Wait"){
+				Wait(obj[key].param1);
 			}
 		});
 	}
@@ -456,4 +458,13 @@ function curColMsg(text) {
 
 function curStsMsg(text) {
     $('.cur_sts_msg').text(text);
+}
+
+function Wait(time) {
+    sleep(time);
+}
+
+function sleep(waitMsec) {
+    var startMsec = new Date();
+    while (new Date() - startMsec < waitMsec);
 }

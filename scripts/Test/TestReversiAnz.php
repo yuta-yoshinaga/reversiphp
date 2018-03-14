@@ -270,7 +270,7 @@ class TestReversiAnz
 			if($var == 0){		$cmpCnt++;}
 			$var = $testObj->getEdgeSideOneCnt();$execCnt++;
 			if($var == 0){		$cmpCnt++;}
-			$var = $testObj->getEdgeSideTwoCntEdgeSideOneCnt();$execCnt++;
+			$var = $testObj->getEdgeSideTwoCnt();$execCnt++;
 			if($var == 0){		$cmpCnt++;}
 			$var = $testObj->getEdgeSideThreeCnt();$execCnt++;
 			if($var == 0){		$cmpCnt++;}

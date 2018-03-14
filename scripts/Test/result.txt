@@ -23,6 +23,8 @@
  - [OK] setmEndDrawInterVal() SUCCESS
  - [OK] getmEndInterVal() SUCCESS
  - [OK] setmEndInterVal() SUCCESS
+ - [OK] getmTheme() SUCCESS
+ - [OK] setmTheme() SUCCESS
  - [OK] getmPlayerColor1() SUCCESS
  - [OK] setmPlayerColor1() SUCCESS
  - [OK] getmPlayerColor2() SUCCESS
@@ -33,7 +35,7 @@
  - [OK] setmBorderColor() SUCCESS
  - [OK] reset() SUCCESS
 **************************
-[TestReversiPoint] End 32 / 32 SUCCESS
+[TestReversiPoint] End 34 / 34 SUCCESS
 
 [TestReversiPoint] Start
 **************************
@@ -71,8 +73,8 @@
  - [OK] setEdgeCnt() SUCCESS
  - [OK] getEdgeSideOneCnt() SUCCESS
  - [OK] setEdgeSideOneCnt() SUCCESS
- - [OK] getEdgeSideTwoCntEdgeSideOneCnt() SUCCESS
- - [OK] setEdgeSideTwoCntEdgeSideOneCnt() SUCCESS
+ - [OK] getEdgeSideTwoCnt() SUCCESS
+ - [OK] setEdgeSideTwoCnt() SUCCESS
  - [OK] getEdgeSideThreeCnt() SUCCESS
  - [OK] setEdgeSideThreeCnt() SUCCESS
  - [OK] getEdgeSideOtherCnt() SUCCESS
@@ -205,6 +207,7 @@ ViewMsgDlg : エラー そのマスには置けません。
  - [OK] reversiPlay() SUCCESS
 CurColMsg : 
 CurStsMsg : 
+Wait : 500
 DrawSingle : 0 0 0 0 0
 DrawSingle : 0 1 0 0 0
 DrawSingle : 0 2 0 0 0
@@ -271,8 +274,11 @@ DrawSingle : 7 6 0 0 0
 DrawSingle : 7 7 0 0 0
 DrawSingle : 0 0 1 0 0
 DrawSingle : 7 7 2 0 0
+Wait : 100
 DrawSingle : 0 1 1 0 0
 DrawSingle : 7 6 2 0 0
+Wait : 100
+Wait : 0
 ViewMsgDlg : ゲーム終了 プレイヤー1 = 2 プレイヤー2 = 2引き分けです。
 CurColMsg : あなたはプレイヤー2です 
 CurStsMsg : プレイヤー1 = 2 プレイヤー2 = 2
@@ -343,6 +349,7 @@ DrawSingle : 7 4 0 0 0
 DrawSingle : 7 5 0 0 0
 DrawSingle : 7 6 2 0 0
 DrawSingle : 7 7 2 0 0
+Wait : 50
 DrawSingle : 7 6 2 0 0
 CurColMsg : あなたはプレイヤー2です 
 CurStsMsg : プレイヤー1 = 2 プレイヤー2 = 2
@@ -611,6 +618,7 @@ CurStsMsg : プレイヤー1 = 2 プレイヤー2 = 2
  - [OK] reset() SUCCESS
 CurColMsg : 
 CurStsMsg : 
+Wait : 500
 DrawSingle : 0 0 0 0 0
 DrawSingle : 0 1 0 0 0
 DrawSingle : 0 2 0 0 0
@@ -677,8 +685,10 @@ DrawSingle : 7 6 0 0 0
 DrawSingle : 7 7 0 0 0
 DrawSingle : 0 0 1 0 0
 DrawSingle : 7 7 2 0 0
+Wait : 100
 DrawSingle : 0 1 1 0 0
 DrawSingle : 7 6 2 0 0
+Wait : 100
  - [OK] gameEndAnimExec() SUCCESS
 DrawSingle : 0 0 1 0 0
  - [OK] sendDrawMsg() SUCCESS
@@ -687,4 +697,4 @@ DrawSingle : 0 0 1 0 0
 **************************
 [TestReversiPlay] End 36 / 36 SUCCESS
 
-execute [Test.php] 2018/03/13 10:31:14 successed! 処理時間 : 1.5658209323883 sec
+execute [Test.php] 2018/03/14 14:02:45 successed! 処理時間 : 0.19338297843933 sec
