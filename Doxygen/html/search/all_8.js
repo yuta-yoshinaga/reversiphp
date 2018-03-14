@@ -1,24 +1,4 @@
 var searchData=
 [
-  ['remove',['remove',['../class_delegate.html#aba650b6c889c96ddacd660d1e4e1a1d7',1,'Delegate']]],
-  ['reset',['reset',['../class_reversi.html#a4a20559544fdf4dcb457e258dc976cf8',1,'Reversi\reset()'],['../class_reversi_anz.html#a4a20559544fdf4dcb457e258dc976cf8',1,'ReversiAnz\reset()'],['../class_reversi_history.html#a4a20559544fdf4dcb457e258dc976cf8',1,'ReversiHistory\reset()'],['../class_reversi_play.html#a4a20559544fdf4dcb457e258dc976cf8',1,'ReversiPlay\reset()'],['../class_reversi_setting.html#a4a20559544fdf4dcb457e258dc976cf8',1,'ReversiSetting\reset()']]],
-  ['reversi',['Reversi',['../class_reversi.html',1,'']]],
-  ['reversi_2ephp',['Reversi.php',['../_reversi_8php.html',1,'']]],
-  ['reversianz',['ReversiAnz',['../class_reversi_anz.html',1,'']]],
-  ['reversianz_2ephp',['ReversiAnz.php',['../_reversi_anz_8php.html',1,'']]],
-  ['reversiconst',['ReversiConst',['../class_reversi_const.html',1,'']]],
-  ['reversiconst_2ephp',['ReversiConst.php',['../_reversi_const_8php.html',1,'']]],
-  ['reversihistory',['ReversiHistory',['../class_reversi_history.html',1,'']]],
-  ['reversihistory_2ephp',['ReversiHistory.php',['../_reversi_history_8php.html',1,'']]],
-  ['reversiplay',['ReversiPlay',['../class_reversi_play.html',1,'ReversiPlay'],['../class_reversi_play.html#a8c229d4a0cfa72f4e9605042486d58f2',1,'ReversiPlay\reversiPlay()']]],
-  ['reversiplay_2ephp',['ReversiPlay.php',['../_reversi_play_8php.html',1,'']]],
-  ['reversiplaycpu',['reversiPlayCpu',['../class_reversi_play.html#a6514ad9244af720ee1ec1777c11e80fb',1,'ReversiPlay']]],
-  ['reversiplayend',['reversiPlayEnd',['../class_reversi_play.html#af55fe6b6f2005c7da80c696ed692783d',1,'ReversiPlay']]],
-  ['reversiplaypass',['reversiPlayPass',['../class_reversi_play.html#a67816fe65a87e35d8e8cc35d5d269bcb',1,'ReversiPlay']]],
-  ['reversiplaysub',['reversiPlaySub',['../class_reversi_play.html#a990fc6e45b7bdf2dab569f087f8b5a62',1,'ReversiPlay']]],
-  ['reversipoint',['ReversiPoint',['../class_reversi_point.html',1,'']]],
-  ['reversipoint_2ephp',['ReversiPoint.php',['../_reversi_point_8php.html',1,'']]],
-  ['reversisetting',['ReversiSetting',['../class_reversi_setting.html',1,'']]],
-  ['reversisetting_2ephp',['ReversiSetting.php',['../_reversi_setting_8php.html',1,'']]],
-  ['revmasusts',['revMasuSts',['../class_reversi.html#af29cd3f41dc1cffead056dbbed55ae7a',1,'Reversi']]]
+  ['makemasusts',['makeMasuSts',['../class_reversi.html#a88869682786bb7c45c3488113deaa789',1,'Reversi']]]
 ];

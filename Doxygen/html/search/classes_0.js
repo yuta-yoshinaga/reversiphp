@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['delegate',['Delegate',['../class_delegate.html',1,'']]]
+  ['cajaxutility',['CAjaxUtility',['../class_c_ajax_utility.html',1,'']]]
 ];

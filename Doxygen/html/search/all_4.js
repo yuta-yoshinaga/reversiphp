@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['dbugl',['DbugL',['../class_dbug_l.html',1,'']]],
   ['delegate',['Delegate',['../class_delegate.html',1,'']]],
   ['delegate_2ephp',['Delegate.php',['../_delegate_8php.html',1,'']]],
   ['drawsinglelocal',['DrawSingleLocal',['../class_reversi_play.html#af0649b9d4a899e0802c739928136de99',1,'ReversiPlay']]],

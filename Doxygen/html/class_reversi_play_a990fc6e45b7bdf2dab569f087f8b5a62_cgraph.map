@@ -1,7 +1,7 @@
 <map id="reversiPlaySub" name="reversiPlaySub">
 <area shape="rect" id="node2" href="$class_reversi_play.html#a6514ad9244af720ee1ec1777c11e80fb" title="リバーシプレイコンピューター " alt="" coords="165,65,273,92"/>
-<area shape="rect" id="node10" href="$class_reversi_play.html#a67816fe65a87e35d8e8cc35d5d269bcb" title="リバーシプレイパス " alt="" coords="161,141,276,168"/>
-<area shape="rect" id="node12" href="$class_reversi_play.html#af55fe6b6f2005c7da80c696ed692783d" title="リバーシプレイ終了 " alt="" coords="165,192,273,218"/>
+<area shape="rect" id="node11" href="$class_reversi_play.html#a67816fe65a87e35d8e8cc35d5d269bcb" title="リバーシプレイパス " alt="" coords="161,141,276,168"/>
+<area shape="rect" id="node13" href="$class_reversi_play.html#af55fe6b6f2005c7da80c696ed692783d" title="リバーシプレイ終了 " alt="" coords="165,192,273,218"/>
 <area shape="rect" id="node3" href="$class_reversi_play.html#af27aaf13f15a080c006432338a06c481" title="描画メッセージ送信 " alt="" coords="519,141,623,168"/>
 <area shape="rect" id="node4" href="$class_reversi_play.html#ae8beea2648c1c5cf722364e84a90edf9" title="メッセージ " alt="" coords="681,116,784,142"/>
 <area shape="rect" id="node8" href="$class_reversi_play.html#a52029e5f2e049767d1f67c3f5c18ce9f" title="マス描画更新 " alt="" coords="347,40,438,66"/>
@@ -9,6 +9,7 @@
 <area shape="rect" id="node6" href="$class_reversi_play.html#aa217a221907e90c97719f8332c60a6d6" title="現在の色メッセージ " alt="" coords="833,116,950,142"/>
 <area shape="rect" id="node7" href="$class_reversi_play.html#ae3da8fb1a3a365c6e5254e5cf6f1e7bc" title="現在のステータスメッセージ " alt="" coords="832,166,951,193"/>
 <area shape="rect" id="node9" href="$class_reversi_play.html#a829b61937e857a9f1b5b371be25dbabd" title="情報描画メッセージ送信 " alt="" coords="509,90,633,117"/>
-<area shape="rect" id="node11" href="$class_reversi_play.html#a2212d70313710a13422dd4fcb5da9cde" title="メッセージダイアログ " alt="" coords="330,141,455,168"/>
-<area shape="rect" id="node13" href="$class_reversi_play.html#acbcd366da8242203ae52fb685fbc929e" title="ゲーム終了アニメーション " alt="" coords="324,192,461,218"/>
+<area shape="rect" id="node10" href="$class_reversi_play.html#a58884d8de55d9faeac653fcf6d4f48b3" title="ウェイト " alt="" coords="531,192,611,218"/>
+<area shape="rect" id="node12" href="$class_reversi_play.html#a2212d70313710a13422dd4fcb5da9cde" title="メッセージダイアログ " alt="" coords="330,141,455,168"/>
+<area shape="rect" id="node14" href="$class_reversi_play.html#acbcd366da8242203ae52fb685fbc929e" title="ゲーム終了アニメーション " alt="" coords="324,242,461,269"/>
 </map>

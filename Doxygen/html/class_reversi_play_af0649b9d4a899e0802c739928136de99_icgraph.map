@@ -1,6 +1,6 @@
 <map id="DrawSingleLocal" name="DrawSingleLocal">
 <area shape="rect" id="node2" href="$class_reversi_play.html#ae8beea2648c1c5cf722364e84a90edf9" title="メッセージ " alt="" coords="172,195,275,222"/>
-<area shape="rect" id="node3" href="$class_reversi_play.html#a8c229d4a0cfa72f4e9605042486d58f2" title="リバーシプレイ " alt="" coords="1004,167,1089,194"/>
+<area shape="rect" id="node3" href="$class_reversi_play.html#a017d2d85f7c5c6917f528f30452d72d0" title="リバーシプレイ " alt="" coords="1004,167,1089,194"/>
 <area shape="rect" id="node4" href="$class_reversi_play.html#af55fe6b6f2005c7da80c696ed692783d" title="リバーシプレイ終了 " alt="" coords="692,106,800,132"/>
 <area shape="rect" id="node6" href="$class_reversi_play.html#a6514ad9244af720ee1ec1777c11e80fb" title="リバーシプレイコンピューター " alt="" coords="692,170,800,196"/>
 <area shape="rect" id="node7" href="$class_reversi_play.html#a52029e5f2e049767d1f67c3f5c18ce9f" title="マス描画更新 " alt="" coords="530,296,621,323"/>
