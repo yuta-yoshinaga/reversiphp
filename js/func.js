@@ -12,7 +12,7 @@ $(document).ready(function() {
             }
             setTimeout(function (param) {
                 if (param.func == "ViewMsgDlg") {
-                    viewMsgDlg(obj[key].param1, obj[key].param2);
+                    viewMsgDlg(param.param1, param.param2);
                 } else if (param.func == "DrawSingle") {
                     drawSingle(param.param1, param.param2, param.param3, param.param4, param.param5);
                 } else if (param.func == "CurColMsg") {
@@ -462,13 +462,4 @@ function curColMsg(text) {
 
 function curStsMsg(text) {
     $('.cur_sts_msg').text(text);
-}
-
-function Wait(time) {
-    sleep(time);
-}
-
-function sleep(waitMsec) {
-    var startMsec = new Date();
-    while (new Date() - startMsec < waitMsec);
 }
