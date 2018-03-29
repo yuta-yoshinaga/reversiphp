@@ -21,7 +21,8 @@
 	require_once("../Model/ReversiPlay.php");
 
 	// *** PHP 警告表示 OFF *** //
-	ini_set( "display_errors", "Off");
+//	ini_set( "display_errors", "Off");
+        ini_set( "display_errors", "On");
 	// *** 内部文字エンコーディングを *** //
 	// *** UTF-8 で統一する *** //
 	mb_internal_encoding('UTF-8');
